@@ -44,7 +44,7 @@ public class DistancePuzzleControl {
         }
         
        double total = north + east + west + south;
-       return total;
+            return total;
 
 }
 }
