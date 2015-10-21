@@ -7,7 +7,7 @@ package byui.cit260.mysticwater.control;
 public class DistancePuzzleControl {
     
     public double calcDistancePuzzle(double north, double east, double west, double south) {
-        if (north < 0 || north >= 50 || Double.isNaN(north) || north % 10 != 0) {
+        if (north < 0 || north >= 50 || north % 10 != 0) {
             return 0;
         }
         
