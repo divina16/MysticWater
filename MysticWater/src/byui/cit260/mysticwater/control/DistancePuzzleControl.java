@@ -7,20 +7,25 @@ package byui.cit260.mysticwater.control;
 public class DistancePuzzleControl {
     
     public double calcDistancePuzzle(double north, double east, double west, double south) {
-        if (north < 0 || north >= 50 || north % 10 != 0) {
-            return 0;
+        
+        if (north == south && west == east) {
+           return (north - south) + (west - east);
+        }
+        if (north < 0 || north > 50 || north % 10 != 0) {
+            return -1;
         }
         
-        if (south < 0 || south >= 50 || south % 10 != 0) {
-            return 0;
+        if (south < 0 || south > 50 || south % 10 != 0) {
+            return -1;
+            
         }
         
-       if (east < 0 || east >= 50 || east % 10 != 0) {
-            return 0;
+       if (east < 0 || east > 50 || east % 10 != 0) {
+            return -1;
         }
         
-        if (west < 0 || west >= 50 || west % 10 != 0) {
-            return 0;
+        if (west < 0 || west > 50 || west % 10 != 0) {
+            return -1;
         }
         
         if (west >= east) {
@@ -39,7 +44,7 @@ public class DistancePuzzleControl {
         }
         
        double total = north + east + west + south;
-            return total;
+       return total;
 
 }
 }
