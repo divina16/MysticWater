@@ -43,8 +43,8 @@ public class DistancePuzzleControlTest {
         west = 30.0;
         south = 0.0;
         DistancePuzzleControl instance2 = new DistancePuzzleControl();
-        expResult = 0.0;
-        result = instance1.calcDistancePuzzle(north, east, west, south);
+        expResult = -1.0;
+        result = instance2.calcDistancePuzzle(north, east, west, south);
         assertEquals(expResult, result, 0.0001);
         
         //TEST CASE 3 Value is not a multiple of 10
@@ -53,9 +53,9 @@ public class DistancePuzzleControlTest {
         east = 10.0;
         west = 30.0;
         south = 0.0;
-        DistancePuzzleControl instance4 = new DistancePuzzleControl();
-        expResult = 0.0;
-        result = instance1.calcDistancePuzzle(north, east, west, south);
+        DistancePuzzleControl instance3 = new DistancePuzzleControl();
+        expResult = -1.0;
+        result = instance3.calcDistancePuzzle(north, east, west, south);
         assertEquals(expResult, result, 0.0001);
         
         //TEST CASE 4 Minimun Boundaries
@@ -64,9 +64,9 @@ public class DistancePuzzleControlTest {
         east = 0.0;
         west = 0.0;
         south = 0.0;
-        DistancePuzzleControl instance5 = new DistancePuzzleControl();
+        DistancePuzzleControl instance4 = new DistancePuzzleControl();
         expResult = 0.0;
-        result = instance1.calcDistancePuzzle(north, east, west, south);
+        result = instance4.calcDistancePuzzle(north, east, west, south);
         assertEquals(expResult, result, 0.0001);
         
         //TEST CASE 5 Maximum Boundaries
@@ -75,9 +75,9 @@ public class DistancePuzzleControlTest {
         east = 50.0;
         west = 50.0;
         south = 50.0;
-        DistancePuzzleControl instance6 = new DistancePuzzleControl();
+        DistancePuzzleControl instance5 = new DistancePuzzleControl();
         expResult = 0.0;
-        result = instance1.calcDistancePuzzle(north, east, west, south);
+        result = instance5.calcDistancePuzzle(north, east, west, south);
         assertEquals(expResult, result, 0.0001);
         
     }
