@@ -11,15 +11,15 @@ public class DistancePuzzleControl {
             return 0;
         }
         
-        if (south < 0 || south >= 50 || Double.isNaN(south) || south % 10 != 0) {
+        if (south < 0 || south >= 50 || south % 10 != 0) {
             return 0;
         }
         
-       if (east < 0 || east >= 50 || Double.isNaN(east) || east % 10 != 0) {
+       if (east < 0 || east >= 50 || east % 10 != 0) {
             return 0;
         }
         
-        if (west < 0 || west >= 50 || Double.isNaN(west) || west % 10 != 0) {
+        if (west < 0 || west >= 50 || west % 10 != 0) {
             return 0;
         }
         
