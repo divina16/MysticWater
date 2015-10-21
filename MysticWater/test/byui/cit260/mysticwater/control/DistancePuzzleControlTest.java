@@ -47,19 +47,8 @@ public class DistancePuzzleControlTest {
         result = instance1.calcDistancePuzzle(north, east, west, south);
         assertEquals(expResult, result, 0.0001);
         
-        //TEST CASE 3 Value is not a number
+        //TEST CASE 3 Value is not a multiple of 10
         System.out.println("/tTest Case #3");
-        north = Double.NaN;
-        east = Double.NaN;
-        west = 30.0;
-        south = 0.0;
-        DistancePuzzleControl instance3 = new DistancePuzzleControl();
-        expResult = 0.0;
-        result = instance1.calcDistancePuzzle(north, east, west, south);
-        assertEquals(expResult, result, 0.0001);
-        
-        //TEST CASE 4 Value is not a multiple of 10
-        System.out.println("/tTest Case #4");
         north = 15.0;
         east = 10.0;
         west = 30.0;
@@ -69,8 +58,8 @@ public class DistancePuzzleControlTest {
         result = instance1.calcDistancePuzzle(north, east, west, south);
         assertEquals(expResult, result, 0.0001);
         
-        //TEST CASE 5 Minimun Boundaries
-        System.out.println("/tTest Case #5");
+        //TEST CASE 4 Minimun Boundaries
+        System.out.println("/tTest Case #4");
         north = 0.0;
         east = 0.0;
         west = 0.0;
@@ -80,8 +69,8 @@ public class DistancePuzzleControlTest {
         result = instance1.calcDistancePuzzle(north, east, west, south);
         assertEquals(expResult, result, 0.0001);
         
-        //TEST CASE 6 Maximum Boundaries
-        System.out.println("/tTest Case #6");
+        //TEST CASE 5 Maximum Boundaries
+        System.out.println("/tTest Case #5");
         north = 50.0;
         east = 50.0;
         west = 50.0;
