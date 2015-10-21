@@ -8,7 +8,7 @@ public class DistancePuzzleControl {
     
     public double calcDistancePuzzle(double north, double east, double west, double south) {
         if (north < 0 || north >= 50 || Double.isNaN(north) || north % 10 != 0) {
-        return 0;
+            return 0;
         }
         
         if (south < 0 || south >= 50 || Double.isNaN(south) || south % 10 != 0) {
@@ -39,7 +39,7 @@ public class DistancePuzzleControl {
         }
         
        double total = north + east + west + south;
-       return total;
+            return total;
 
 }
 }
