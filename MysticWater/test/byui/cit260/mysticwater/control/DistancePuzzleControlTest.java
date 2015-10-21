@@ -34,7 +34,7 @@ public class DistancePuzzleControlTest {
         DistancePuzzleControl instance1 = new DistancePuzzleControl();
         double expResult = 40.0;
         double result = instance1.calcDistancePuzzle(north, east, west, south);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.0001);
         
         //TEST CASE 2 Value is negative
         System.out.println("/tTest Case #2");
@@ -45,7 +45,7 @@ public class DistancePuzzleControlTest {
         DistancePuzzleControl instance2 = new DistancePuzzleControl();
         expResult = 0.0;
         result = instance1.calcDistancePuzzle(north, east, west, south);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.0001);
         
         //TEST CASE 3 Value is not a number
         System.out.println("/tTest Case #3");
@@ -56,7 +56,7 @@ public class DistancePuzzleControlTest {
         DistancePuzzleControl instance3 = new DistancePuzzleControl();
         expResult = 0.0;
         result = instance1.calcDistancePuzzle(north, east, west, south);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.0001);
         
         //TEST CASE 4 Value is not a multiple of 10
         System.out.println("/tTest Case #4");
@@ -67,7 +67,7 @@ public class DistancePuzzleControlTest {
         DistancePuzzleControl instance4 = new DistancePuzzleControl();
         expResult = 0.0;
         result = instance1.calcDistancePuzzle(north, east, west, south);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.0001);
         
         //TEST CASE 5 Minimun Boundaries
         System.out.println("/tTest Case #5");
@@ -78,7 +78,7 @@ public class DistancePuzzleControlTest {
         DistancePuzzleControl instance5 = new DistancePuzzleControl();
         expResult = 0.0;
         result = instance1.calcDistancePuzzle(north, east, west, south);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.0001);
         
         //TEST CASE 6 Maximum Boundaries
         System.out.println("/tTest Case #6");
@@ -89,7 +89,7 @@ public class DistancePuzzleControlTest {
         DistancePuzzleControl instance6 = new DistancePuzzleControl();
         expResult = 0.0;
         result = instance1.calcDistancePuzzle(north, east, west, south);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.0001);
         
     }
     
