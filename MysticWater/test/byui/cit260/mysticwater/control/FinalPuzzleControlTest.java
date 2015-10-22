@@ -75,7 +75,7 @@ public class FinalPuzzleControlTest {
             result = control.calcFinalPuzzle(answerRiddle);
             counter ++;
             
-            if (counter > 10000000) {
+            if (counter > 100000000) {
                 return false;
             }
         }
@@ -88,7 +88,7 @@ public class FinalPuzzleControlTest {
             result = control.calcFinalPuzzle(answerRiddle);
             counter ++;
             
-            if (counter > 10000000) {
+            if (counter > 100000000) {
                 return false;
             }
         }
