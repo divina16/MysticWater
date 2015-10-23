@@ -73,7 +73,7 @@ public class PuzzleControlTest {
         while(result != 1){
             result = control.calcPuzzle(answerRiddle);
             counter ++;
-            if (counter >10000){
+            if (counter >1000000){
                 return false;
             }
         }
@@ -85,7 +85,7 @@ public class PuzzleControlTest {
         while(result != 0){
             result = control.calcPuzzle(answerRiddle);
             counter ++;
-            if (counter >10000){
+            if (counter >1000000){
                 return false;
             }
         }
