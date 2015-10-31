@@ -29,6 +29,18 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
-        System.out.println("createNewGame function was called");
+        System.out.println("createNewGame function in GameControl class was called");
+    }
+
+    public static void loadGame(Player player) {
+        System.out.println("loadGame function in GameControl class was called");
+    }
+
+    public static void helpMenu(Player player) {
+        System.out.println("helpMenu function in GameControl class was called");
+    }
+
+    public static void quitGame(Player player) {
+        System.out.println("quitGame function in GameControl class was called");
     }
 }
