@@ -94,17 +94,18 @@ public class MainMenuView {
     }
 
     private void loadGame() {
-        System.out.println("loadGame function was called");
+        GameControl.loadGame(MysticWater.getPlayer());
     }
 
     private void helpMenu() {
+        GameControl.helpMenu(MysticWater.getPlayer());
         //display help menu
         HelpMenuView.helpMenu = new HelpMenuView();
         helpMenu.displayHelpMenu();
     }
 
     private void quitGame() {
-        System.out.println("quitGame function was called");
+        GameControl.quitGame(MysticWater.getPlayer());
     }
     
 }
