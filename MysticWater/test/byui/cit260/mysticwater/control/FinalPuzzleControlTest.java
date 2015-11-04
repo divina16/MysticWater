@@ -5,6 +5,7 @@
  */
 package byui.cit260.mysticwater.control;
 
+import byui.cit260.mysticwater.view.FinalPuzzleView;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -43,14 +44,14 @@ public class FinalPuzzleControlTest {
         System.out.println("/tTest Case #2");
         answerRiddle = -1;
         int expResult = -1;
-        int result = instance0.calcFinalPuzzle(answerRiddle);
+        int result = instance0.calcFinalPuzzle(answerRiddle, FinalPuzzleControl.getRandomValues());
         assertEquals(expResult, result);
         
         //TEST CASE 3 Value exceeds maximum
         System.out.println("/tTest Case #3");
         answerRiddle = 15;
         expResult = -1;
-        result = instance0.calcFinalPuzzle(answerRiddle);
+        result = instance0.calcFinalPuzzle(answerRiddle, FinalPuzzleControl.getRandomValues());
         assertEquals(expResult, result);
         
         //TEST CASE 4 Maximum Boundary
@@ -72,7 +73,7 @@ public class FinalPuzzleControlTest {
         int result = 0;
         int counter = 0;
         while (result != 1) {
-            result = control.calcFinalPuzzle(answerRiddle);
+            result = control.calcFinalPuzzle(answerRiddle, FinalPuzzleControl.getRandomValues());
             counter ++;
             
             if (counter > 100000000) {
@@ -82,10 +83,10 @@ public class FinalPuzzleControlTest {
         return true;
     }
     private boolean testInvalid (int answerRiddle, FinalPuzzleControl control) {
-        int result = 0;
+        int result = -1;
         int counter = 0;
         while (result != 0) {
-            result = control.calcFinalPuzzle(answerRiddle);
+            result = control.calcFinalPuzzle(answerRiddle, FinalPuzzleControl.getRandomValues());
             counter ++;
             
             if (counter > 100000000) {
