@@ -5,8 +5,7 @@
  */
 package byui.cit260.mysticwater.view;
 
-import byui.cit260.mysticwater.control.FinalPuzzleView;
-import static byui.cit260.mysticwater.control.FinalPuzzleView.finalPuzzle;
+import static byui.cit260.mysticwater.view.FinalPuzzleView.finalPuzzle;
 import byui.cit260.mysticwater.control.InventoryControl;
 import static byui.cit260.mysticwater.view.InventoryView.inventory;
 import java.util.Scanner;
@@ -28,7 +27,7 @@ public class GameMenuView {
             + "\nC - Move Character"
             + "\nG - Go to Shop"
             + "\nS - Save Game"
-            //+ "\nF - Skip to Final Puzzle (temporary)"
+            + "\nF - Skip to Final Puzzle (temporary)"
             + "\nE - Exit Game"
             + "\n-----------------------------------";
 
@@ -84,9 +83,9 @@ public class GameMenuView {
             case 'S':
                 this.saveGame();
                 break;
-//            case 'F':
-//                this.finalPuzzle();
-//                break;
+            case 'F':
+                this.finalPuzzle();
+                break;
             case 'E':
                 this.exitGame();
                 break;
@@ -121,11 +120,11 @@ public class GameMenuView {
         System.out.println("saveGame function was called.");
     }
 
-//    private void finalPuzzle() {
-//        
-//        FinalPuzzleView.finalPuzzle = new FinalPuzzleView();
-//        finalPuzzle.displayFinalPuzzle();
-//    }
+    private void finalPuzzle() {
+        
+        FinalPuzzleView.finalPuzzle = new FinalPuzzleView();
+        finalPuzzle.displayFinalPuzzle();
+    }
 
     private void exitGame() {
         System.out.println("exitGame function was called.");
