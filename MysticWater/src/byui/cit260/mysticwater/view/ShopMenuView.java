@@ -90,8 +90,7 @@ public class ShopMenuView {
         }
     }
 
-    private void buyRope() {
-        ShopControl.createShop(MysticWater.getPlayer());    
+    private void buyRope() {    
                 System.out.println("Rope was purchased.");
 
     }
