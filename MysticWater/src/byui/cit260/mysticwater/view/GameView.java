@@ -13,35 +13,13 @@ import java.util.Scanner;
  *
  * @author Nina Sanchez and Trent Buckner
  */
-public class GameView {
+public class GameView extends View {
+    
+    private String playersName;
 
     public GameView() {
-    }
-    
-    public void game() {
-       
-        //Display the banner screen
-        this.displayBanner();
-        
-        //prompt the player to enter their name
-        String playersName = this.getName();
-        
-        //Create and save the player object
-        Player playerOne = GameControl.createNewPlayer(playersName);
-        
-        //Display a personalized welcome message
-        this.displayWelcomeMessage(playerOne);
-        
-        //Display the Main Menu
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayMainMenu();
-        
-    }
-
-    private void displayBanner() {
-        System.out.println("\n\n***************************************************************************");
-        
-        System.out.println("*                              MYSTIC WATER                               *"
+        super ("\n\n***************************************************************************"
+ +  "\n*                              MYSTIC WATER                               *"
                         + "\n*  Once upon a time there was an old man whose wife was deathly ill.      *"
                         + "\n*  The doctors could not figure out what was wrong or how to cure         *"
                         + "\n*  her. An old witch told him the legend of the mystic water. This water  *"
@@ -54,8 +32,26 @@ public class GameView {
                         + "\n*  to the creepy mountain.                                                *"
                         + "\n\n***************************************************************************");
     }
+    
+    public void game() {
+       
+        //Display the banner screen
+        this.displayView();
+        
+        //Create and save the player object
+        Player playerOne = GameControl.createNewPlayer(playersName);
+        
+        //Display a personalized welcome message
+        this.displayWelcomeMessage(playerOne);
+        
+        //Display the Main Menu
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayView();
+        
+    }
 
-    private String getName() {
+    @Override
+    public String getInput() {
        boolean valid = false;
        String name = null;
        Scanner keyboard = new Scanner(System.in);
@@ -81,5 +77,11 @@ public class GameView {
         System.out.println("\tWelcome to the game " + playerOne.getName());
         System.out.println("\tEnjoy the game and don't die!");
         System.out.println("\n\n===============================================");
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        playersName = (String) obj;
+        return true;
     }
 }

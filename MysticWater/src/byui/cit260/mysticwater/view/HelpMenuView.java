@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 package byui.cit260.mysticwater.view;
-import java.util.Scanner;
 /**
  *
  * @author Trent Buckner and Nina Sanchez
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
     static HelpMenuView helpMenu;
     
-    private final String HELP = "\n"
+    public HelpMenuView() {
+    
+        super("\n"
             + "\n============================================"
             + "\n               Help Menu Options            "
             + "\n============================================"
@@ -21,69 +22,41 @@ public class HelpMenuView {
             + "\nP - Purchasing an Item."
             + "\nI - Interacting with Characters."
             + "\nG - Goal of the Game."
-            + "\nB - Back to Start Menu"
-            + "\n============================================";
-    
-    public void displayHelpMenu() {
-        char selection = ' ';
-        do {
-            System.out.println(HELP);
-            
-            String input = this.helpRequest();
-            selection = input.charAt(0);
-            
-            this.doHelpSelection(selection);
-            
-        } while (selection != 'B');
-    }
-    
-    private String helpRequest() {
-       boolean valid = false;
-       String helpRequest = null;
-       Scanner keyboard = new Scanner(System.in);
-       
-       while (!valid) {
-          
-           System.out.println("Select an option by entering the corresponding letter:");
-           
-           helpRequest = keyboard.nextLine();
-           helpRequest = helpRequest.trim();
-           
-           if (helpRequest.length() == 0) {
-               System.out.println("Invalid input - the value must not be blank");
-               continue;
-           }
-           break;
-       }
-       return helpRequest;
-    }
+            + "\nE - Exit"
+            + "\n============================================");
+}
 
-    private void doHelpSelection(char selection) {
+    @Override
+    public boolean doAction(Object obj) {
+        
+        String selection = (String) obj;
+        selection = selection.toUpperCase();
         
         switch (selection) {
-            case 'M':
+            case "M":
                 this.moveHelp();
                 break;
-            case 'U':
+            case "U":
                 this.useItemHelp();
                 break;
-            case 'P':
+            case "P":
                 this.purchaseItemHelp();
                 break;
-            case 'I':
+            case "I":
                 this.interactHelp();
                 break;
-            case 'G':
+            case "G":
                 this.goalHelp();
                 break;
-            case 'B':
-                this.backToStart();
-                break;
+            case "E":
+                this.exit();
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
                        
         }
+        return false;
     }
     
     private void moveHelp() {
@@ -130,7 +103,7 @@ public class HelpMenuView {
                 + "\nstores rather than answering riddles.");
     }
     
-    private void backToStart() {
+    private void exit() {
         System.out.println("backToStart function was called");
     }
     

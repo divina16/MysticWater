@@ -8,80 +8,52 @@ package byui.cit260.mysticwater.view;
 import byui.cit260.mysticwater.control.GameControl;
 import static byui.cit260.mysticwater.view.GameMenuView.gameMenu;
 import static byui.cit260.mysticwater.view.HelpMenuView.helpMenu;
-import java.util.Scanner;
 import mysticwater.MysticWater;
 
 /**
  *
  * @author Trent Buckner
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private final String MENU = "\n"
+    public MainMenuView() {
+    
+        super("\n"
             + "\n-----------------------------------"
             + "\n|Main Menu                        |"
             + "\n-----------------------------------"
             + "\nS - Start Game"
             + "\nL - Load Game"
             + "\nH - Help Menu"
-            + "\nQ - Quit"
-            + "\n-----------------------------------";
-
-    public void displayMainMenu() {
-        char selection = ' ';
-        do {
-            System.out.println(MENU);
-            
-            String input = this.mainMenuRequest();
-            selection = input.charAt(0);
-            
-            this.doMenuSelection(selection);
-            
-        } while (selection != 'Q');
+            + "\nE - Exit"
+            + "\n-----------------------------------");
     }
-
-    private String mainMenuRequest() {
-       boolean valid = false;
-       String menuRequest = null;
-       Scanner keyboard = new Scanner(System.in);
-       
-       while (!valid) {
-          
-           System.out.println("Select an option by entering the corresponding letter:");
-           
-           menuRequest = keyboard.nextLine();
-           menuRequest = menuRequest.trim();
-           
-           if (menuRequest.length() == 0) {
-               System.out.println("Invalid input - the value must not be blank");
-               continue;
-           }
-           break;
-       }
-       return menuRequest;
-    }
-
-    private void doMenuSelection(char selection) {
+    
+    @Override
+    public boolean doAction(Object obj) {
+        
+        String selection = (String) obj;
+        selection = selection.toUpperCase();
         
         switch (selection) {
-            case 'S':
+            case "S":
                 this.startNewGame();
                 break;
-            case 'L':
+            case "L":
                 this.loadGame();
                 break;
-            case 'H':
+            case "H":
                 this.helpMenu();
                 break;
-            case 'Q':
-                this.quitGame();
+            case "E":
+                this.exit();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
-                break;
+                return false;
                        
         }
-
+        return true;
     }
 
     private void startNewGame() {
@@ -90,21 +62,24 @@ public class MainMenuView {
         
         //display game menu
         GameMenuView.gameMenu = new GameMenuView();
-        gameMenu.displayGameMenu();
+        gameMenu.displayView();
+        displayView();
     }
 
     private void loadGame() {
         GameControl.loadGame(MysticWater.getPlayer());
+        displayView();
     }
 
     private void helpMenu() {
         GameControl.helpMenu(MysticWater.getPlayer());
         //display help menu
         HelpMenuView.helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.displayView();
+        displayView();
     }
 
-    private void quitGame() {
+    private void exit() {
         GameControl.quitGame(MysticWater.getPlayer());
     }
     

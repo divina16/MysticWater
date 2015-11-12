@@ -12,17 +12,17 @@ import byui.cit260.mysticwater.control.ShopControl;
 import static byui.cit260.mysticwater.view.InventoryView.inventory;
 import static byui.cit260.mysticwater.view.MapView.map;
 import static byui.cit260.mysticwater.view.ShopMenuView.shop;
-import java.util.Scanner;
 import mysticwater.MysticWater;
 
 /**
  *
  * @author Trent Buckner
  */
-public class GameMenuView {
+public class GameMenuView extends View {
     static GameMenuView gameMenu;
     
-    private final String GAME = "\n"
+    public GameMenuView() {
+    super("\n"
             + "\n-----------------------------------"
             + "\n|Game Menu                        |"
             + "\n-----------------------------------"
@@ -33,86 +33,60 @@ public class GameMenuView {
             + "\nS - Save Game"
             + "\nF - Skip to Final Puzzle (temporary)"
             + "\nE - Exit Game"
-            + "\n-----------------------------------";
-
-    public void displayGameMenu() {
-        char selection = ' ';
-        do {
-            System.out.println(GAME);
-            
-            String input = this.gameMenuRequest();
-            selection = input.charAt(0);
-            
-            this.doGameSelection(selection);
-            
-        } while (selection != 'E');
-    }
+            + "\n-----------------------------------");
+}
     
-    private String gameMenuRequest() {
-       boolean valid = false;
-       String gameRequest = null;
-       Scanner keyboard = new Scanner(System.in);
-       
-       while (!valid) {
-          
-           System.out.println("Select an option by entering the corresponding letter:");
-           
-           gameRequest = keyboard.nextLine();
-           gameRequest = gameRequest.trim();
-           
-           if (gameRequest.length() == 0) {
-               System.out.println("Invalid input - the value must not be blank");
-               continue;
-           }
-           break;
-       }
-       return gameRequest;
-    }
-    
-    private void doGameSelection(char selection) {
+    @Override
+    public boolean doAction(Object obj) {
+        
+        String selection = (String) obj;
+        selection = selection.toUpperCase();
+        
+        boolean done = false;
         
         switch (selection) {
-            case 'I':
+            case "I":
                 this.viewInventory();
                 break;
-            case 'M':
+            case "M":
                 this.viewMap();
                 break;
-            case 'C':
+            case "C":
                 this.moveCharacter();
                 break;
-            case 'G':
+            case "G":
                 this.viewShop();
                 break;
-            case 'S':
+            case "S":
                 this.saveGame();
                 break;
-            case 'F':
+            case "F":
                 this.finalPuzzle();
                 break;
-            case 'E':
-                this.exitGame();
+            case "E":
+                this.exit();
+                done = true;
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
-                break;
+                return false;
                        
         }
-
+        return done;
     }
     
     private void viewInventory() {
         InventoryControl.createInventory(MysticWater.getPlayer());
         
         InventoryView.inventory = new InventoryView();
-        inventory.displayInventory();
+        inventory.displayView();
     }
 
     private void viewMap() {
         MapControl.createMap(MysticWater.getPlayer());
         
         MapView.map = new MapView();
-        map.displayMap();
+        map.displayView();
     }
 
     private void moveCharacter() {
@@ -123,7 +97,7 @@ public class GameMenuView {
         ShopControl.createShop(MysticWater.getPlayer());
         
         ShopMenuView.shop = new ShopMenuView();
-        shop.displayShop();
+        shop.displayView();
     }
 
     private void saveGame() {
@@ -133,11 +107,10 @@ public class GameMenuView {
     private void finalPuzzle() {
         
         FinalPuzzleView.finalPuzzle = new FinalPuzzleView();
-        finalPuzzle.displayFinalPuzzle();
+        finalPuzzle.displayView();
     }
 
-    private void exitGame() {
+    private void exit() {
         System.out.println("exitGame function was called.");
-    }
-        
+    }     
 }

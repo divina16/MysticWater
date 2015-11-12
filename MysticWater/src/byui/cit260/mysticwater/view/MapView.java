@@ -6,18 +6,19 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.MapControl;
-import java.util.Scanner;
 import mysticwater.MysticWater;
 
 /**
  *
  * @author Nina Sanchez
  */
-public class MapView {
+public class MapView extends View {
 
     static MapView map;
     
-    private final String MAP = "\n"
+    public MapView() {
+    
+        super("\n"
             + "\n-----------------------------------"
             + "\n|Map Menu                         |"
             + "\n-----------------------------------"
@@ -27,66 +28,39 @@ public class MapView {
             + "\nC - Caves"
             + "\nB - Beach"
             + "\nE - Exit Map"
-            + "\n-----------------------------------";
-
-    void displayMap() {
-        char selection = ' ';
-        do {
-            System.out.println(MAP);
-            
-            String input = this.mapViewRequest();
-            selection = input.charAt(0);
-            
-            this.doMapSelection(selection);
-            
-        } while (selection != 'E');
-    }
-    private String mapViewRequest() {
-    boolean valid = false;
-       String mapViewRequest = null;
-       Scanner keyboard = new Scanner(System.in);
-       
-       while (!valid) {
-          
-           System.out.println("Select an option by entering the corresponding letter:");
-           
-           mapViewRequest = keyboard.nextLine();
-           mapViewRequest = mapViewRequest.trim();
-           
-           if (mapViewRequest.length() == 0) {
-               System.out.println("Invalid input - the value must not be blank");
-               continue;
-           }
-           break;
-       }
-       return mapViewRequest;
+            + "\n-----------------------------------");
     }
     
-    private void doMapSelection(char selection) {
+    @Override
+    public boolean doAction(Object obj) {
+        
+        String selection = (String) obj;
+        selection = selection.toUpperCase();
         
         switch (selection) {
-            case 'M':
+            case "M":
                 this.mountains();
                 break;
-            case 'F':
+            case "F":
                 this.forest();
                 break;
-            case 'D':
+            case "D":
                 this.desert();
                 break;
-            case 'C':
+            case "C":
                 this.cave();
                 break;
-            case 'B':
+            case "B":
                 this.beach();
                 break;
-            case 'E':
-                this.exitMap();
-                break;
+            case "E":
+                this.exit();
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;       
         }
+        return false;
 }
 
     private void forest() {
@@ -175,7 +149,7 @@ public class MapView {
 
     }
 
-    private void exitMap() {
+    private void exit() {
         System.out.println("exitMap was called.");
     }
 }

@@ -5,19 +5,19 @@
  */
 package byui.cit260.mysticwater.view;
 
-import byui.cit260.mysticwater.control.ShopControl;
-import java.util.Scanner;
+import byui.cit260.mysticwater.control.InventoryControl;
 import mysticwater.MysticWater;
 
 /**
  *
  * @author Braden
  */
-public class ShopMenuView {
+public class ShopMenuView extends View {
     static ShopMenuView shopMenu;
     static ShopMenuView shop;
-    
-    private final String SHOP = "\n"
+
+    public ShopMenuView() {
+        super("\n"
             + "\n============================================"
             + "\n                 Shop Menu                  "
             + "\n============================================"
@@ -25,93 +25,68 @@ public class ShopMenuView {
             + "\n2 - 50 coins - Umbrella"
             + "\n3 - 500 coins - Pixie Dust"
             + "\n4 - 250 coins - Axe"
-            + "\n5 - 120 coins - wrench"
-            + "\nB - Back to Game Menu"
-            + "\n============================================";
-
-    void displayShop() {
-        char selection = ' ';
-        do {
-            System.out.println(SHOP);
-            
-            String input = this.shopMenuViewRequest();
-            selection = input.charAt(0);
-            
-            this.doShopSelection(selection);
-            
-        } while (selection != 'B');
-    }
-    private String shopMenuViewRequest() {
-    boolean valid = false;
-       String shopMenuViewRequest = null;
-       Scanner keyboard = new Scanner(System.in);
-       
-       while (!valid) {
-          
-           System.out.println("Select an option by entering the corresponding letter:");
-           
-           shopMenuViewRequest = keyboard.nextLine();
-           shopMenuViewRequest = shopMenuViewRequest.trim();
-           
-           if (shopMenuViewRequest.length() == 0) {
-               System.out.println("Invalid input - the value must not be blank");
-               continue;
-           }
-           break;
-       }
-       return shopMenuViewRequest;
+            + "\n5 - 120 coins - Wrench"
+            + "\nE - Exit Shop"
+            + "\n============================================");
     }
 
-    private void doShopSelection(char selection) {
+    public boolean doAction(Object obj) {
+        
+        String selection = (String) obj;
+        selection = selection.toUpperCase();
         
         switch (selection) {
-            case '1':
+            case "1":
                 this.buyRope();
                 break;
-            case '2':
+            case "2":
                 this.buyUmbrella();
                 break;
-            case '3':
+            case "3":
                 this.buyPixieDust();
                 break;
-            case '4':
+            case "4":
                 this.buyAxe();
                 break;
-            case '5':
+            case "5":
                 this.buyWrench();
                 break;
-            case 'B':
-                this.backToGame();
-                break;
+            case "E":
+                this.exit();
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
-                break;
-                       
+                break;            
         }
+        return false;
     }
 
     private void buyRope() {    
                 System.out.println("Rope was purchased.");
-
+                InventoryControl.addItem(MysticWater.getPlayer());
     }
 
     private void buyUmbrella() {
                 System.out.println("Umbrella was purchased.");
+                InventoryControl.addItem(MysticWater.getPlayer());
     }
 
     private void buyPixieDust() {
                 System.out.println("Pixie Dust was purchased.");
+                InventoryControl.addItem(MysticWater.getPlayer());
     }
 
     private void buyAxe() {
                 System.out.println("Axe was purchased.");
+                InventoryControl.addItem(MysticWater.getPlayer());
     }
 
     private void buyWrench() {
                 System.out.println("Wrench was purchased.");
+                InventoryControl.addItem(MysticWater.getPlayer());
     }
 
-    private void backToGame() {
+    private void exit() {
                 System.out.println("backToGame was called");
 
     }

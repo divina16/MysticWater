@@ -12,51 +12,60 @@ import java.util.Scanner;
  *
  * @author Trent Buckner
  */
-public class FinalPuzzleView {
+public class FinalPuzzleView extends View {
     public static FinalPuzzleView finalPuzzle;
+    
+    private int[] randomValues;
 
-    public void displayFinalPuzzle() {
+    public FinalPuzzleView() {
+        super("Solve the equation. Round your answer down to the nearest integer. Please input your answer:");
+    }
+
+    @Override
+    public void displayView() {
         int answer = 0;
         
-        int[] randomValues = FinalPuzzleControl.getRandomValues();
+        randomValues = FinalPuzzleControl.getRandomValues();
         do {
-            System.out.println("Solve the equation. Round your answer down to the nearest integer. Please input your answer:");
             System.out.println(randomValues[0] + " + " + randomValues[1] + " + " + randomValues[2] + " + " + randomValues[3] + " + " + randomValues[4] + " + "
              + randomValues[5] + " + "  + randomValues[6] + " / 7 = ? ");
             
-            String input = this.finalPuzzleRequest();
+            String input = this.getInput();
             answer = Integer.parseInt(input);
             
-            this.doFinalPuzzle(answer, randomValues);
+            this.doAction(answer);
             
         } while (answer != ' ');
     }
     
-    private String finalPuzzleRequest() {
+    @Override
+    public String getInput() {
        boolean valid = false;
-       String finalRequest = null;
+       String menuRequest = null;
        Scanner keyboard = new Scanner(System.in);
        
        while (!valid) {
            
-           finalRequest = keyboard.nextLine();
-           finalRequest = finalRequest.trim();
+           menuRequest = keyboard.nextLine();
+           menuRequest = menuRequest.trim();
            
-           if (finalRequest.length() == 0) {
+           if (menuRequest.length() == 0) {
                System.out.println("Invalid input - the value must not be blank");
                continue;
            }
            break;
        }
-       return finalRequest;
+       return menuRequest;
     }
     
-    public void doFinalPuzzle(int answer, int[] randomValues) {
+    @Override
+    public boolean doAction(Object answer) {
    
-        int result = FinalPuzzleControl.calcFinalPuzzle(answer, randomValues);
+        int result = FinalPuzzleControl.calcFinalPuzzle((Integer) answer, randomValues);
         
         if (result == 1){
             System.out.println("Correct!");
+            return true;
         }
         else{
             System.out.println("Incorrect. Please try again.");
@@ -64,6 +73,6 @@ public class FinalPuzzleView {
         if (result == -1) {
             System.out.println("Input is invalid.");
         }
+        return false;
     }
-    
 }
