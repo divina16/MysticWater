@@ -5,6 +5,7 @@
  */
 package byui.cit260.mysticwater.control;
 import byui.cit260.mysticwater.model.Player;
+import byui.cit260.mysticwater.model.Scene;
 import mysticwater.MysticWater;
 
 /**
@@ -37,10 +38,13 @@ public class GameControl {
     }
 
     public static void helpMenu(Player player) {
+        
+        Scene help = new Scene();
+        
         System.out.println("helpMenu function in GameControl class was called");
     }
 
     public static void quitGame(Player player) {
-        System.out.println("quitGame function in GameControl class was called");
+        System.exit(0);
     }
 }

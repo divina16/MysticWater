@@ -16,5 +16,17 @@ public class InventoryControl {
     public static void createInventory(Player player) {
         System.out.println("createInventory function in InventoryControl class was called");
     }
+
+    public static void exit(Player player) {
+        System.out.println("exit function in InventoryControl class was called");
+    }
+
+    public static void useItem(Player player) {
+        System.out.println("\nuseItem function in InventoryContol class was called");
+    }
+
+    public static void addItem(Player player) {
+        System.out.println("\naddItem function in InventoryContol class was called");
+    }
     
 }
