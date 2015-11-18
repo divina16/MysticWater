@@ -12,24 +12,25 @@ import mysticwater.MysticWater;
  *
  * @author Nina Sanchez
  */
-public class MoveCharacterView {
+public class MoveCharacterView extends View {
     
     static MoveCharacterView move;
     
      public MoveCharacterView() {
-         System.out.println("\n"
-            + "\n-----------------------------------"
-            + "\n|Map Menu                         |"
-            + "\n-----------------------------------"
+         super("\n"
+            + "\n------------------------------------"
+            + "\n|Where would you like to travel to?|"
+            + "\n------------------------------------"
             + "\nM - Mountains"
             + "\nF - Forest"
             + "\nD - Desert"
             + "\nC - Caves"
             + "\nB - Beach"
             + "\nE - Exit Map"
-            + "\n-----------------------------------");
+            + "\n------------------------------------");
     }
      
+    @Override
     public boolean doAction(Object obj) {
         
         String selection = (String) obj;
