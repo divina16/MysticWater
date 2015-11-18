@@ -10,7 +10,7 @@ import mysticwater.MysticWater;
 
 /**
  *
- * @author Trent Buckner
+ * @author Braden
  */
 public class MoveCharacterView extends View {
     
