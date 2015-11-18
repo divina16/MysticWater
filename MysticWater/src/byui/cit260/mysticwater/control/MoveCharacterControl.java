@@ -14,7 +14,7 @@ import byui.cit260.mysticwater.model.Player;
 public class MoveCharacterControl {
 
     public static void createMoveCharacter(Player player) {
-        System.out.println("createMoveCharacter function in InventoryControl class was called");
+        System.out.println("createMoveCharacter function in MoveCharacterControl class was called");
     }
     
 }
