@@ -13,7 +13,7 @@ import byui.cit260.mysticwater.control.MoveCharacterControl;
 import static byui.cit260.mysticwater.view.InventoryView.inventory;
 import static byui.cit260.mysticwater.view.MapView.map;
 import static byui.cit260.mysticwater.view.ShopMenuView.shop;
-import static byui.cit260.mysticwater.view.MoveCharacterView.moveCharacter;
+import static byui.cit260.mysticwater.view.MoveCharacterView.move;
 import mysticwater.MysticWater;
 
 /**
