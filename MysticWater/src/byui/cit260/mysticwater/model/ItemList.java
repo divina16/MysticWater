@@ -6,6 +6,7 @@
 package byui.cit260.mysticwater.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -14,10 +15,17 @@ import java.util.Objects;
  */
 public class ItemList implements Serializable {
     
+    public ArrayList<InventoryItem> inventory() {
+
+        ArrayList<InventoryItem> inventory = new ArrayList<>();
+    
+    return inventory;
+}
+    
     private String itemName;
     private String successRate;
     
-    public ItemList() {  
+    public ItemList() {
     }
     
     public String getitemName() {

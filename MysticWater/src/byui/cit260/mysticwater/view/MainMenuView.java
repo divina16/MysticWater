@@ -67,12 +67,12 @@ public class MainMenuView extends View {
     }
 
     private void loadGame() {
-        GameControl.loadGame(MysticWater.getPlayer());
+        GameControl.loadGame();
         displayView();
     }
 
     private void helpMenu() {
-        GameControl.helpMenu(MysticWater.getPlayer());
+        GameControl.helpMenu();
         //display help menu
         HelpMenuView.helpMenu = new HelpMenuView();
         helpMenu.displayView();
@@ -80,7 +80,7 @@ public class MainMenuView extends View {
     }
 
     private void exit() {
-        GameControl.quitGame(MysticWater.getPlayer());
+        GameControl.quitGame();
     }
     
 }

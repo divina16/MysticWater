@@ -6,6 +6,8 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.InventoryControl;
+import byui.cit260.mysticwater.model.InventoryItem;
+import byui.cit260.mysticwater.model.InventoryItem.Item;
 import mysticwater.MysticWater;
 
 /**
@@ -30,6 +32,7 @@ public class ShopMenuView extends View {
             + "\n============================================");
     }
 
+    @Override
     public boolean doAction(Object obj) {
         
         String selection = (String) obj;
@@ -63,27 +66,27 @@ public class ShopMenuView extends View {
 
     private void buyRope() {    
                 System.out.println("Rope was purchased.");
-                InventoryControl.addItem(MysticWater.getPlayer());
+                InventoryControl.addItem(Item.rope.ordinal());
     }
 
     private void buyUmbrella() {
                 System.out.println("Umbrella was purchased.");
-                InventoryControl.addItem(MysticWater.getPlayer());
+                InventoryControl.addItem(Item.umbrella.ordinal());
     }
 
     private void buyPixieDust() {
                 System.out.println("Pixie Dust was purchased.");
-                InventoryControl.addItem(MysticWater.getPlayer());
+                InventoryControl.addItem(Item.pixieDust.ordinal());
     }
 
     private void buyAxe() {
                 System.out.println("Axe was purchased.");
-                InventoryControl.addItem(MysticWater.getPlayer());
+                InventoryControl.addItem(Item.axe.ordinal());
     }
 
     private void buyWrench() {
                 System.out.println("Wrench was purchased.");
-                InventoryControl.addItem(MysticWater.getPlayer());
+                InventoryControl.addItem(Item.wrench.ordinal());
     }
 
     private void exit() {

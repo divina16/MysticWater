@@ -6,7 +6,6 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.MapControl;
-import mysticwater.MysticWater;
 
 /**
  *
@@ -64,7 +63,7 @@ public class MapView extends View {
 }
 
     private void forest() {
-        MapControl.createMap(MysticWater.getPlayer());    
+        MapControl.createMap();    
         System.out.println("\n                                \\   \\                                 "
                 + "\n    /|\\                          \\   \\                          "
                 + "\n   //|\\\\                /|\\       \\   \\                           "
@@ -81,7 +80,7 @@ public class MapView extends View {
     }
 
     private void mountains() {
-        MapControl.createMap(MysticWater.getPlayer());    
+        MapControl.createMap();    
         System.out.println("   /\\     /\\       /\\ "
                 + "\n  /  \\   /  \\/\\   /  \\"
                 + "\n /    \\ /       \\/    \\ "
@@ -98,7 +97,7 @@ public class MapView extends View {
     }
 
     private void beach() {
-        MapControl.createMap(MysticWater.getPlayer());
+        MapControl.createMap();
                 System.out.println("                \\   \\              / \\  |  / \\          "
                         + "\n                 \\   \\            /   \\ | /   \\        "
                         + "\n                  \\   \\                | |              "
@@ -115,7 +114,7 @@ public class MapView extends View {
     }
 
     private void desert() {
-        MapControl.createMap(MysticWater.getPlayer());    
+        MapControl.createMap();    
                     System.out.println("           \\   \\                           /\\ /  \\                       "
                             + "\n            \\   \\                         / | |  |     "
                             + "\n             \\   \\                       |  |_|  | /\\"
@@ -133,7 +132,7 @@ public class MapView extends View {
     }
 
     private void cave() {
-        MapControl.createMap(MysticWater.getPlayer());    
+        MapControl.createMap();    
                 System.out.println("                              \\   \\                          "
                         + "\n         _______________       \\   \\                           "
                         + "\n        /    ________    \\      \\   \\"

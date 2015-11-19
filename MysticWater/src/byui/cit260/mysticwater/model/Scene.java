@@ -5,25 +5,48 @@
  */
 package byui.cit260.mysticwater.model;
 import java.io.Serializable;
-import java.util.Objects;
+
 /**
  *
  * @author Nina Sanchez
  */
-public class Scene implements Serializable{
+public class Scene implements Serializable {
+
+public enum SceneType {
     
-    private String title;
+    start,
+    forestB,
+    forestC,
+    forestD,
+    forestE,
+    caveA,
+    caveB,
+    caveC,
+    caveD,
+    caveE,
+    beachA,
+    beachB,
+    beachC,
+    beachD,
+    beachE,
+    desertA,
+    desertB,
+    desertC,
+    desertD,
+    desertE,
+    mountainsA,
+    mountainsB,
+    mountainsC,
+    mountainsD,
+    finish;
+}
+    
     private String description;
+    private String mapSymbol;
 
-    public Scene() {
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public Scene(String description, String mapSymbol) {
+        this.description = description;
+        this.mapSymbol = mapSymbol;
     }
 
     public String getDescription() {
@@ -36,34 +59,9 @@ public class Scene implements Serializable{
 
     @Override
     public String toString() {
-        return "Scene{" + "title=" + title + ", description=" + description + '}';
+        return "Scene{" + "description=" + description + '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.title);
-        hash = 37 * hash + Objects.hashCode(this.description);
-        return hash;
+    public void setMapSymbol(String a) {
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Scene other = (Scene) obj;
-        if (!Objects.equals(this.title, other.title)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
 }

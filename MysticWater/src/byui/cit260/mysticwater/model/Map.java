@@ -13,8 +13,34 @@ import java.io.Serializable;
 public class Map implements Serializable{
     private float noRows;
     private float noColumns;
+    private Location[][] locations;
 
     public Map() {
+    }
+    
+    public Map(int noRows, int noColumns) {
+        
+        if (noRows < 1 || noColumns < 1){
+            System.out.println("The number of rows and columns must be > zero");
+            return;
+        }
+        
+        this.noRows = noRows;
+        this.noColumns = noColumns;
+        
+        //create 2-D array for Location objects
+        this.locations = new Location[noRows][noColumns];
+        
+        for (int row = 0; row < noRows; row++) {
+            for (int column = 0; column < noColumns; column++) {
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                locations[row][column] = location;
+            }
+        }
     }
 
     public float getNoRows() {
@@ -38,31 +64,7 @@ public class Map implements Serializable{
         return "Map{" + "noRows=" + noRows + ", noColumns=" + noColumns + '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Float.floatToIntBits(this.noRows);
-        hash = 29 * hash + Float.floatToIntBits(this.noColumns);
-        return hash;
+    public Location[][] getLocations() {
+        return null;  
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (Float.floatToIntBits(this.noRows) != Float.floatToIntBits(other.noRows)) {
-            return false;
-        }
-        if (Float.floatToIntBits(this.noColumns) != Float.floatToIntBits(other.noColumns)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
 }

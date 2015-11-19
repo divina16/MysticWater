@@ -5,7 +5,6 @@
  */
 package byui.cit260.mysticwater.model;
 import java.io.Serializable;
-import java.util.Objects;
 /**
  *
  * @author Nina Sanchez
@@ -13,6 +12,42 @@ import java.util.Objects;
 public class Game implements Serializable{
     private String name;
     private long startTime;
+    private InventoryItem[] inventory;
+    private Actors[] actors;
+    private Map map;
+    private Player player;
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public Actors[] getActors() {
+        return actors;
+    }
+
+    public void setActors(Actors[] actors) {
+        this.actors = actors;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
     
 
     public Game() {
@@ -37,32 +72,6 @@ public class Game implements Serializable{
     @Override
     public String toString() {
         return "Game{" + "name=" + name + ", startTime=" + startTime + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + (int) (this.startTime ^ (this.startTime >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (this.startTime != other.startTime) {
-            return false;
-        }
-        return true;
     }
 
 }

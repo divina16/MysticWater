@@ -5,7 +5,9 @@
  */
 package byui.cit260.mysticwater.view;
 
+import byui.cit260.mysticwater.control.GameControl;
 import byui.cit260.mysticwater.control.InventoryControl;
+import byui.cit260.mysticwater.model.InventoryItem;
 import mysticwater.MysticWater;
 
 /**
@@ -16,16 +18,26 @@ public class InventoryView extends View {
     static InventoryView inventory;
     
     public InventoryView() {
-        super("\n"
+        super("");
+        
+        String menu;
+        menu = "\n"
             + "\n============================================"
             + "\n                 Inventory                  "
-            + "\n============================================"
-            + "\n1. Rope - 1/5"
-            + "\n2. Umbrella - 1/4"
-            + "\n3. Jetpack - 5/20"
-            + "\n4. Axe - 2/5"
-            + "\nE - Exit Inventory"
-            + "\n============================================");
+            + "\n============================================";
+        
+        //Get inventory list in game
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        //for every item in the inventory list
+        int counter = 1;
+        for (InventoryItem nextInventoryItem : inventory) {
+            menu += "\n" + counter++ + " " + nextInventoryItem.getDescription() + " | " + "Success Rate - " + nextInventoryItem.getSuccessRate() + " | Quanity " + nextInventoryItem.getQuantity();
+            
+        }
+            //print menu item
+        menu += "\nE - Exit Inventory"
+            + "\n============================================";
+        this.setPromptMessage(menu);
     }
 
     @Override
