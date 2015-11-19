@@ -6,9 +6,15 @@
 package byui.cit260.mysticwater.view;
 
 import static byui.cit260.mysticwater.view.FinalPuzzleView.finalPuzzle;
+import byui.cit260.mysticwater.control.InventoryControl;
+import byui.cit260.mysticwater.control.MapControl;
+import byui.cit260.mysticwater.control.ShopControl;
+import byui.cit260.mysticwater.control.MoveCharacterControl;
 import static byui.cit260.mysticwater.view.InventoryView.inventory;
 import static byui.cit260.mysticwater.view.MapView.map;
 import static byui.cit260.mysticwater.view.ShopMenuView.shop;
+import static byui.cit260.mysticwater.view.MoveCharacterView.move;
+import mysticwater.MysticWater;
 
 /**
  *
@@ -82,10 +88,10 @@ public class GameMenuView extends View {
     }
 
     private void moveCharacter() {
-        System.out.println("moveCharacter function was called.");
+        MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer()); 
         
-//        MoveCharacterView.move = new MoveCharacterView();
-//        move.displayView();
+        MoveCharacterView.move = new MoveCharacterView();
+        move.displayView();
     }
 
     private void viewShop() {
