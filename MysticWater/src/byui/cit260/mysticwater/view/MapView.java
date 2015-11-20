@@ -6,6 +6,8 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.MapControl;
+import byui.cit260.mysticwater.model.Map;
+import mysticwater.MysticWater;
 
 /**
  *
@@ -16,18 +18,34 @@ public class MapView extends View {
     static MapView map;
     
     public MapView() {
-    
-        super("\n"
+        super("");
+        
+        String menu;
+        menu = "\n"
             + "\n-----------------------------------"
-            + "\n|Map Menu                         |"
+            + "\n|             Map Menu            |"
             + "\n-----------------------------------"
             + "\nM - Mountains"
             + "\nF - Forest"
             + "\nD - Desert"
             + "\nC - Caves"
-            + "\nB - Beach"
-            + "\nE - Exit Map"
-            + "\n-----------------------------------");
+            + "\nB - Beach";
+             
+            Map map = MysticWater.getCurrentGame().getMap();
+            
+            menu += "\n\n-----------Map Grid---------------"
+                    + "\n\n";
+            for (int rows = 0; rows < map.getNoRows(); rows++) {
+                for (int columns = 0; columns < map.getNoColumns(); columns++){
+                    menu += " | " + map.getLocations()[rows][columns].getScene().getMapSymbol();
+                }
+                menu += " |\n ---------------------\n";
+            }
+                
+            menu += "\n-----------------------------------"
+                    + "\nE - Exit Map"
+            + "\n-----------------------------------";
+            this.setPromptMessage(menu);
     }
     
     @Override

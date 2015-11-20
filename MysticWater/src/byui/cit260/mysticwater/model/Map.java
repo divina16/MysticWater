@@ -43,6 +43,10 @@ public class Map implements Serializable{
         }
     }
 
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
     public float getNoRows() {
         return noRows;
     }
@@ -65,6 +69,6 @@ public class Map implements Serializable{
     }
 
     public Location[][] getLocations() {
-        return null;  
+        return locations;  
     }
 }

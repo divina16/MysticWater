@@ -62,6 +62,11 @@ public enum SceneType {
         return "Scene{" + "description=" + description + '}';
     }
 
-    public void setMapSymbol(String a) {
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+
+    public String getMapSymbol() {
+        return mapSymbol;
     }
 }
