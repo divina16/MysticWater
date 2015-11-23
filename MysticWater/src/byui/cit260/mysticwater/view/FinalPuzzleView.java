@@ -6,6 +6,7 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.FinalPuzzleControl;
+import byui.cit260.mysticwater.exceptions.FinalPuzzleException;
 import java.util.Scanner;
 
 /**
@@ -31,11 +32,15 @@ public class FinalPuzzleView extends View {
              + randomValues[5] + " + "  + randomValues[6] + " / 7 = ? ");
             
             String input = this.getInput();
+        try {
             answer = Integer.parseInt(input);
-            
+        }
+        catch (NumberFormatException nf) {
+            System.out.println("\nYou must enter a valid number or you die.");
+        }
             this.doAction(answer);
-            
-        } while (answer != ' ');
+        } 
+        while (answer != ' ');
     }
     
     @Override
@@ -61,7 +66,12 @@ public class FinalPuzzleView extends View {
     @Override
     public boolean doAction(Object answer) {
    
-        int result = FinalPuzzleControl.calcFinalPuzzle((Integer) answer, randomValues);
+        int result = 0;
+        try {
+            result = FinalPuzzleControl.calcFinalPuzzle((Integer) answer, randomValues);
+        } catch (FinalPuzzleException ex) {
+            System.out.println(ex.getMessage());
+        }
         
         if (result == 1){
             System.out.println("Correct!");
@@ -69,9 +79,6 @@ public class FinalPuzzleView extends View {
         }
         else{
             System.out.println("Incorrect. Please try again.");
-        }
-        if (result == -1) {
-            System.out.println("Input is invalid.");
         }
         return false;
     }

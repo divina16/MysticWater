@@ -21,11 +21,16 @@ public class MysticWater implements Serializable {
     private static Player player = null;
 
     public static void main(String[] args) {
-        
-        //start game view
         GameView gameView = new GameView();
+       try {
+        //start game view
         gameView.game();
-        
+        } 
+       catch(Throwable te) {
+           System.out.println(te.getMessage());
+           te.printStackTrace();
+           gameView.game();
+       }
     }
 
     public static Game getCurrentGame() {

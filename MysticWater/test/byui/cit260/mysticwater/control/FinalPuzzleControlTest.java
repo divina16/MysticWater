@@ -5,7 +5,7 @@
  */
 package byui.cit260.mysticwater.control;
 
-import byui.cit260.mysticwater.view.FinalPuzzleView;
+import byui.cit260.mysticwater.exceptions.FinalPuzzleException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,7 +22,7 @@ public class FinalPuzzleControlTest {
      * Test of calcFinalPuzzle method, of class FinalPuzzleControl.
      */
     @Test
-    public void testCalcFinalPuzzle() {
+    public void testCalcFinalPuzzle() throws FinalPuzzleException {
         System.out.println("calcFinalPuzzle");
         
         //TEST CASE 0 Value is correct
@@ -69,7 +69,7 @@ public class FinalPuzzleControlTest {
         assertTrue(success);
 
     }
-    private boolean testValid (int answerRiddle, FinalPuzzleControl control) {
+    private boolean testValid (int answerRiddle, FinalPuzzleControl control) throws FinalPuzzleException {
         int result = 0;
         int counter = 0;
         while (result != 1) {
@@ -82,7 +82,7 @@ public class FinalPuzzleControlTest {
         }
         return true;
     }
-    private boolean testInvalid (int answerRiddle, FinalPuzzleControl control) {
+    private boolean testInvalid (int answerRiddle, FinalPuzzleControl control) throws FinalPuzzleException {
         int result = -1;
         int counter = 0;
         while (result != 0) {

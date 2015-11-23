@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.mysticwater.control;
+import byui.cit260.mysticwater.exceptions.FinalPuzzleException;
 import java.util.Random;
 
 /**
@@ -14,14 +15,13 @@ public class FinalPuzzleControl {
     
     static int correct;
     
-    public static int calcFinalPuzzle(int answerRiddle, int[] randomValues) {
+    public static int calcFinalPuzzle(int answerRiddle, int[] randomValues) throws FinalPuzzleException {
        
        if (answerRiddle < 0 || answerRiddle > 10) {
-       return -1;
+            throw new FinalPuzzleException("Answer is invalid. Cannot be less than 0 or greater than 10.");
     } 
   
        correct = (randomValues[0] + randomValues[1] + randomValues[2] + randomValues[3] + randomValues[4] + randomValues[5] + randomValues[6]) / 7;
-       
        
        if (answerRiddle == correct){
            return 1;

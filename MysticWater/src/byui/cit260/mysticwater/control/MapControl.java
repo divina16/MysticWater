@@ -178,6 +178,6 @@ public class MapControl {
                 + "\nDragon", "E");
         scene[SceneType.finish.ordinal()] = finish;
         
-        return scene;  
+        return scene; 
     } 
 }
