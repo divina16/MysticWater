@@ -72,7 +72,6 @@ public class MainMenuView extends View {
     }
 
     private void helpMenu() {
-        GameControl.helpMenu();
         //display help menu
         HelpMenuView.helpMenu = new HelpMenuView();
         helpMenu.displayView();

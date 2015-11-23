@@ -454,10 +454,6 @@ public class GameControl {
         System.out.println("loadGame function in GameControl class was called");
     }
 
-    public static void helpMenu() {
-        System.out.println("helpMenu function in GameControl class was called");
-    }
-
     public static void quitGame() {
         System.exit(0);
     }
