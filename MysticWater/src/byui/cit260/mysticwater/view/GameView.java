@@ -6,6 +6,7 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
+import byui.cit260.mysticwater.exceptions.GameControlException;
 import byui.cit260.mysticwater.model.Player;
 import java.util.Scanner;
 
@@ -39,7 +40,9 @@ public class GameView extends View {
         this.displayView();
         
         //Create and save the player object
-        Player playerOne = GameControl.createNewPlayer(playersName);
+        Player playerOne = null;
+
+        playerOne = GameControl.createNewPlayer(playersName);
         
         //Display a personalized welcome message
         this.displayWelcomeMessage(playerOne);
@@ -51,24 +54,23 @@ public class GameView extends View {
     }
 
     @Override
-    public String getInput() {
-       boolean valid = false;
+    public String getInput() throws GameControlException{
        String name = null;
        Scanner keyboard = new Scanner(System.in);
-       
-       while (!valid) {
           
            System.out.println("Enter the player's name below:");
            
            name = keyboard.nextLine();
            name = name.trim();
            
-           if (name.length() < 2) {
-               System.out.println("Invalid name - the name must not be blank");
-               continue;
+           if (name == null) {
+               throw new GameControlException("Name can't be null");
            }
-           break;
-       }
+           
+           if (name.length() < 2) {
+               throw new GameControlException("Name must be longer than 2 characters");
+           }
+       
        return name;
     }
 

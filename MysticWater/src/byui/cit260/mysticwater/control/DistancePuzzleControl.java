@@ -17,7 +17,6 @@ public class DistancePuzzleControl {
         
         if (south < 0 || south > 50 || south % 10 != 0) {
             return -1;
-            
         }
         
        if (east < 0 || east > 50 || east % 10 != 0) {
@@ -45,6 +44,5 @@ public class DistancePuzzleControl {
         
        double total = north + east + west + south;
             return total;
-
 }
 }

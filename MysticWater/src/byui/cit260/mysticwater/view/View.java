@@ -5,6 +5,7 @@
  */
 package byui.cit260.mysticwater.view;
 
+import byui.cit260.mysticwater.exceptions.GameControlException;
 import java.util.Scanner;
 
 /**
@@ -34,7 +35,13 @@ public abstract class View implements ViewInterface {
         
         do {
             System.out.println(this.promptMessage);
-            selection = this.getInput();
+            try {
+                selection = this.getInput();
+            }
+            catch (GameControlException error){
+                System.out.println(error.getMessage());
+                continue;
+            }
             
             done = this.doAction(selection);
             
@@ -42,7 +49,7 @@ public abstract class View implements ViewInterface {
     }
     
     @Override
-    public String getInput() {
+    public String getInput() throws GameControlException{
        boolean valid = false;
        String menuRequest = null;
        Scanner keyboard = new Scanner(System.in);

@@ -5,32 +5,32 @@
  */
 package byui.cit260.mysticwater.view;
 
-import byui.cit260.mysticwater.control.FinalPuzzleControl;
-import byui.cit260.mysticwater.exceptions.FinalPuzzleException;
+import byui.cit260.mysticwater.control.PuzzleControl;
+import byui.cit260.mysticwater.exceptions.PuzzleException;
 import java.util.Scanner;
 
 /**
  *
  * @author Trent Buckner
  */
-public class FinalPuzzleView extends View {
-    public static FinalPuzzleView finalPuzzle;
+public class PuzzleView extends View{
+    public static PuzzleView nPuzzle;
     
     private int[] randomValues;
 
-    public FinalPuzzleView() {
+    public PuzzleView() {
         super("");
     }
 
-    @Override
+@Override
     public void displayView() {
         int answer = 0;
         
-        randomValues = FinalPuzzleControl.getRandomValues();
+        randomValues = PuzzleControl.getRandomValues();
         do {
             System.out.println("Solve the equation. Round your answer down to the nearest integer. Please input your answer:"
                     + "\n\n" + randomValues[0] + " + " + randomValues[1] + " + " + randomValues[2] + " + " + randomValues[3] + " + " + randomValues[4] + " + "
-             + randomValues[5] + " + "  + randomValues[6] + " / 7 = ? ");
+              + "/ 7 = ? ");
             
             String input = this.getInput();
         try {
@@ -69,8 +69,8 @@ public class FinalPuzzleView extends View {
    
         int result = 0;
         try {
-            result = FinalPuzzleControl.calcFinalPuzzle((Integer) answer, randomValues);
-        } catch (FinalPuzzleException ex) {
+            result = PuzzleControl.calcPuzzle((Integer) answer, randomValues);
+        } catch (PuzzleException ex) {
             System.out.println(ex.getMessage());
         }
         

@@ -22,10 +22,6 @@ public class GameControl {
 
     public static Player createNewPlayer(String playersName) {
         
-        if (playersName == null) {
-            return null;
-        }
-        
         Player playerOne = new Player();
         playerOne.setName(playersName);
         

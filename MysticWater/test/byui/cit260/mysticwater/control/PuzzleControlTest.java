@@ -5,7 +5,7 @@
  */
 package byui.cit260.mysticwater.control;
 
-import org.junit.AfterClass;
+import byui.cit260.mysticwater.exceptions.PuzzleException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,7 +22,7 @@ public class PuzzleControlTest {
      * Test of calcPuzzle method, of class PuzzleControl.
      */
     @Test
-    public void testCalcPuzzle() {
+    public void testCalcPuzzle() throws PuzzleException{
         System.out.println("calcPuzzle");
         
         System.out.println("/t Test Case 1");
@@ -54,7 +54,7 @@ public class PuzzleControlTest {
         answerRiddle = 11;
         //max
         int expResult = -1;
-        int result = instance1.calcPuzzle(answerRiddle);
+        int result = instance1.calcPuzzle(answerRiddle, PuzzleControl.getRandomValues());
         assertEquals(expResult, result);
         
         //test exceeds min for input
@@ -62,16 +62,16 @@ public class PuzzleControlTest {
         answerRiddle = -1;
         //min
         expResult = -1;
-        result = instance1.calcPuzzle(answerRiddle);
+        result = instance1.calcPuzzle(answerRiddle, PuzzleControl.getRandomValues());
         assertEquals(expResult, result);
         
         
     } 
-    private boolean validTest(int answerRiddle, PuzzleControl control){
+    private boolean validTest(int answerRiddle, PuzzleControl control) throws PuzzleException{
         int result = 0;
         int counter = 0;
         while(result != 1){
-            result = control.calcPuzzle(answerRiddle);
+            result = control.calcPuzzle(answerRiddle, PuzzleControl.getRandomValues());
             counter ++;
             if (counter >1000000){
                 return false;
@@ -79,11 +79,11 @@ public class PuzzleControlTest {
         }
         return true;
     }
-    private boolean invalidTest(int answerRiddle, PuzzleControl control){
+    private boolean invalidTest(int answerRiddle, PuzzleControl control) throws PuzzleException{
         int result = 0;
         int counter = 0;
         while(result != 0){
-            result = control.calcPuzzle(answerRiddle);
+            result = control.calcPuzzle(answerRiddle, PuzzleControl.getRandomValues());
             counter ++;
             if (counter >1000000){
                 return false;

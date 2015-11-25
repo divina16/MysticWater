@@ -5,12 +5,14 @@
  */
 package byui.cit260.mysticwater.view;
 
+import byui.cit260.mysticwater.exceptions.GameControlException;
+
 /**
  *
  * @author Trent Buckner
  */
 public interface ViewInterface {
     public void displayView();
-    public String getInput();
+    public String getInput() throws GameControlException;
     public boolean doAction(Object obj);
 }
