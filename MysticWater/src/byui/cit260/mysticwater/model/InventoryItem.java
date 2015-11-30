@@ -5,12 +5,14 @@
  */
 package byui.cit260.mysticwater.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Trent Buckner
  */
 
-public class InventoryItem {
+public class InventoryItem implements Serializable{
 
 public enum Item {
     

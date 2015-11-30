@@ -6,12 +6,13 @@
 package byui.cit260.mysticwater.model;
 
 import java.awt.Point;
+import java.io.Serializable;
 
 /**
  *
  * @author Trent Buckner & Nina Sanchez
  */
-public class Actors {
+public class Actors implements Serializable{
 
 public enum Actor {
     
