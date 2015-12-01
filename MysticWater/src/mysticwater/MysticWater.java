@@ -8,6 +8,10 @@ package mysticwater;
 import byui.cit260.mysticwater.model.Game;
 import byui.cit260.mysticwater.model.Player;
 import byui.cit260.mysticwater.view.GameView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 import java.io.Serializable;
 
@@ -19,6 +23,35 @@ public class MysticWater implements Serializable {
     
     private static Game currentGame = null;
     private static Player player = null;
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        MysticWater.logFile = logFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        MysticWater.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        MysticWater.inFile = inFile;
+    }
 
     public static void main(String[] args) {
         GameView gameView = new GameView();
@@ -31,6 +64,47 @@ public class MysticWater implements Serializable {
            te.printStackTrace();
            gameView.game();
        }
+       
+    try {
+       MysticWater.inFile = new BufferedReader(new InputStreamReader(System.in));
+       
+       MysticWater.outFile = new PrintWriter(System.out, true);
+       
+    try {
+       //open log file
+       String filePath = "log.txt";
+       MysticWater.logFile = new PrintWriter(filePath);
+    } catch (Exception e) {
+        System.out.println("Exception: " + e.toString() +
+                           "\nCause: " + e.getCause() +
+                           "\nMessage: " + e.getMessage());
+    }
+       
+       GameView startProgramView = new GameView();
+       return;
+       
+    } catch (Throwable e) {
+        System.out.println("Exception: " + e.toString() +
+                           "\nCause: " + e.getCause() +
+                           "\nMessage: " + e.getMessage());
+        
+        e.printStackTrace();
+    }
+    finally {
+            try {
+                if (MysticWater.inFile != null)
+                    MysticWater.inFile.close();
+                
+                if (MysticWater.outFile != null)
+                    MysticWater.outFile.close();
+                
+                if (MysticWater.logFile != null)
+                    MysticWater.logFile.close();
+            } catch (IOException ex) {
+                System.out.println("Error closing files");
+                return;
+            }
+    }
     }
 
     public static Game getCurrentGame() {
