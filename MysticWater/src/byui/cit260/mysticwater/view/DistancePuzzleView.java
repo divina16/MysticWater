@@ -18,7 +18,6 @@ public class DistancePuzzleView extends View {
 
     @Override
     public boolean doAction(Object obj) {
-        System.out.println("");
         return false;
     }
 

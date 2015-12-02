@@ -6,6 +6,7 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
+import byui.cit260.mysticwater.exceptions.MapControlException;
 import static byui.cit260.mysticwater.view.GameMenuView.gameMenu;
 import static byui.cit260.mysticwater.view.HelpMenuView.helpMenu;
 import mysticwater.MysticWater;
@@ -49,7 +50,7 @@ public class MainMenuView extends View {
                 this.exit();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 return false;
                        
         }
@@ -57,8 +58,12 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        //create a new game
-        GameControl.createNewGame(MysticWater.getPlayer());
+        try {
+            //create a new game
+            GameControl.createNewGame(MysticWater.getPlayer());
+        } catch (MapControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
         
         //display game menu
         GameMenuView.gameMenu = new GameMenuView();
@@ -67,7 +72,20 @@ public class MainMenuView extends View {
     }
 
     private void loadGame() {
-        GameControl.loadGame();
+        
+        this.console.println("\n\nEnter the file path for file where the game"
+                + "is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.getSavedGame(filePath);   
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayView();
         displayView();
     }
 

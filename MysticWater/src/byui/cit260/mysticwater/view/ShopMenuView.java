@@ -125,132 +125,130 @@ public class ShopMenuView extends View {
                 this.exit();
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;            
         }
         return false;
     }
 
     private void buyRope() {    
-                System.out.println("Rope was purchased.");
+                this.console.println("Rope was purchased.");
                 InventoryControl.addItem(Item.rope.ordinal());
     }
 
     private void buyUmbrella() {
-                System.out.println("Umbrella was purchased.");
+                this.console.println("Umbrella was purchased.");
                 InventoryControl.addItem(Item.umbrella.ordinal());
     }
 
     private void buyPixieDust() {
-                System.out.println("Pixie Dust was purchased.");
+                this.console.println("Pixie Dust was purchased.");
                 InventoryControl.addItem(Item.pixieDust.ordinal());
     }
 
     private void buyAxe() {
-                System.out.println("Axe was purchased.");
+                this.console.println("Axe was purchased.");
                 InventoryControl.addItem(Item.axe.ordinal());
     }
 
     private void buyWrench() {
-                System.out.println("Wrench was purchased.");
+                this.console.println("Wrench was purchased.");
                 InventoryControl.addItem(Item.wrench.ordinal());
     }
 
     private void buyFlyingShoes() {
-                System.out.println("FlyngShoes were purchased.");
+                this.console.println("FlyngShoes were purchased.");
                 InventoryControl.addItem(Item.flyingShoes.ordinal());    }
 
     private void buyLadder() {
-                System.out.println("Ladder was purchased.");
+                this.console.println("Ladder was purchased.");
                 InventoryControl.addItem(Item.ladder.ordinal());
     }
 
     private void buyPole() {
-                System.out.println("Pole was purchased.");
+                this.console.println("Pole was purchased.");
                 InventoryControl.addItem(Item.pole.ordinal());
     }
 
     private void buySword() {
-                System.out.println("Sword was purchased.");
+                this.console.println("Sword was purchased.");
                 InventoryControl.addItem(Item.sword.ordinal());
     }
 
     private void buyCandy() {
-                System.out.println("Candy was purchased.");
+                this.console.println("Candy was purchased.");
                 InventoryControl.addItem(Item.candy.ordinal());
     }
 
     private void buySpork() {
-                System.out.println("Spork was purchased.");
+                this.console.println("Spork was purchased.");
                 InventoryControl.addItem(Item.spork.ordinal());
     }
 
     private void buyShovel() {
-                System.out.println("Shovel was purchased.");
+                this.console.println("Shovel was purchased.");
                 InventoryControl.addItem(Item.shovel.ordinal());    }
 
     private void buyRubberChicken() {
-                System.out.println("Rubber Chicken was purchased.");
+                this.console.println("Rubber Chicken was purchased.");
                 InventoryControl.addItem(Item.rubberChicken.ordinal());
     }
 
     private void buyPulley() {
-                System.out.println("Pulley was purchased.");
+                this.console.println("Pulley was purchased.");
                 InventoryControl.addItem(Item.pulley.ordinal());
     }
 
     private void buySkateboard() {
-                System.out.println("Skateboard was purchased.");
+                this.console.println("Skateboard was purchased.");
                 InventoryControl.addItem(Item.skateboard.ordinal());
     }
 
     private void buySurfboard() {
-                System.out.println("Surfboard was purchased.");
+                this.console.println("Surfboard was purchased.");
                 InventoryControl.addItem(Item.surfboard.ordinal());
     }
 
     private void buyWaffles() {
-                System.out.println("Waffles was purchased.");
+                this.console.println("Waffles was purchased.");
                 InventoryControl.addItem(Item.waffles.ordinal());
     }
 
     private void buyCalculator() {
-                System.out.println("Calculator was purchased.");
+                this.console.println("Calculator was purchased.");
                 InventoryControl.addItem(Item.calculator.ordinal());
     }
 
     private void buyHolyGrail() {
-                System.out.println("Holy Grail was purchased.");
+                this.console.println("Holy Grail was purchased.");
                 InventoryControl.addItem(Item.holyGrail.ordinal());
     }
 
     private void buyJackHammer() {
-                System.out.println("Jack Hammer was purchased.");
+                this.console.println("Jack Hammer was purchased.");
                 InventoryControl.addItem(Item.jackHammer.ordinal());
     }
 
     private void buyCompass() {
-                System.out.println("Compass was purchased.");
+                this.console.println("Compass was purchased.");
                 InventoryControl.addItem(Item.compass.ordinal());
     }
 
     private void buyPot() {
-                System.out.println("Pot was purchased.");
+                this.console.println("Pot was purchased.");
                 InventoryControl.addItem(Item.pot.ordinal());
     }
 
     private void buyHunkOfMeat() {
-                System.out.println("Hunk of Meat was purchased.");
+                this.console.println("Hunk of Meat was purchased.");
                 InventoryControl.addItem(Item.hunkOfMeat.ordinal());
     }
   
     private void buyJetpack() {
-                System.out.println("Jetpack was purchased.");
+                this.console.println("Jetpack was purchased.");
                 InventoryControl.addItem(Item.jetpack.ordinal());    }
     
     private void exit() {
-                System.out.println("backToGame was called");
-
     }
 
 }

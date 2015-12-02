@@ -56,7 +56,7 @@ public class MoveCharacterView extends View {
                 this.exit();
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;       
         }
         return false;
@@ -64,7 +64,7 @@ public class MoveCharacterView extends View {
 
     private void mountains() {
         MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());  
-        System.out.println("   /\\     /\\       /\\ "
+        this.console.println("   /\\     /\\       /\\ "
                 + "\n  /  \\   /  \\/\\   /  \\"
                 + "\n /    \\ /       \\/    \\ "
                 + "\n/______________________\\  "
@@ -83,7 +83,7 @@ public class MoveCharacterView extends View {
 
     private void forest() {
         MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());   
-        System.out.println("\n                                \\   \\                                 "
+        this.console.println("\n                                \\   \\                                 "
                 + "\n    /|\\                          \\   \\                          "
                 + "\n   //|\\\\                /|\\       \\   \\                           "
                 + "\n  ///|\\\\\\              //|\\\\       \\   \\"
@@ -102,7 +102,7 @@ public class MoveCharacterView extends View {
 
     private void desert() {
         MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());    
-        System.out.println("           \\   \\                           /\\ /  \\                       "
+        this.console.println("           \\   \\                           /\\ /  \\                       "
                             + "\n            \\   \\                         / | |  |     "
                             + "\n             \\   \\                       |  |_|  | /\\"
                             + "\n              \\ E \\                      \\___    |/ |                          "
@@ -120,7 +120,7 @@ public class MoveCharacterView extends View {
 
     private void cave() {
         MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());  
-        System.out.println("                              \\   \\                          "
+        this.console.println("                              \\   \\                          "
                         + "\n         _______________       \\   \\                           "
                         + "\n        /    ________    \\      \\   \\"
                         + "\n       /    /||||||||\\    \\      \\   \\"
@@ -137,7 +137,7 @@ public class MoveCharacterView extends View {
 
     private void beach() {
         MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());
-        System.out.println("                \\   \\              / \\  |  / \\          "
+        this.console.println("                \\   \\              / \\  |  / \\          "
                         + "\n                 \\   \\            /   \\ | /   \\        "
                         + "\n                  \\   \\                | |              "
                         + "\n                   ) E )              /  /"
@@ -154,7 +154,6 @@ public class MoveCharacterView extends View {
 
     private void exit() {
         MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());   
-        System.out.println("exitMap was called.");
     }
     
 }

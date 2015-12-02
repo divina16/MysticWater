@@ -6,9 +6,7 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
-import byui.cit260.mysticwater.exceptions.GameControlException;
 import byui.cit260.mysticwater.model.Player;
-import java.util.Scanner;
 
 /**
  *
@@ -54,36 +52,45 @@ public class GameView extends View {
     }
 
     @Override
-    public String getInput() throws GameControlException{
-       String name = null;
-       Scanner keyboard = new Scanner(System.in);
+    public String getInput() {
+        boolean valid = false;
+        String name = null;
           
-           System.out.println("Enter the player's name below:");
+           this.console.println("Enter the player's name below:");
            
-           name = keyboard.nextLine();
+        try {
+            
+           while (!valid) {
+           
+           name = keyboard.readLine();
            name = name.trim();
            
-           if (name == null) {
-               throw new GameControlException("Name can't be null");
-           }
-           
            if (name.length() < 2) {
-               throw new GameControlException("Name must be longer than 2 characters");
+               ErrorView.display(this.getClass().getName(), "You must enter a valid name.");
+               continue;
            }
-       
+           break;
+        }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
+        }
        return name;
     }
 
     private void displayWelcomeMessage(Player playerOne) {
-        System.out.println("\n\n===============================================");
-        System.out.println("\tWelcome to the game " + playerOne.getName());
-        System.out.println("\tEnjoy the game and don't die!");
-        System.out.println("\n\n===============================================");
+        this.console.println("\n\n===============================================");
+        this.console.println("\tWelcome to the game " + playerOne.getName());
+        this.console.println("\tEnjoy the game and don't die!");
+        this.console.println("\n\n===============================================");
     }
 
     @Override
     public boolean doAction(Object obj) {
         playersName = (String) obj;
+        Player player = GameControl.createNewPlayer(playersName);
+        this.displayWelcomeMessage(player);
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayView();
         return true;
     }
 }

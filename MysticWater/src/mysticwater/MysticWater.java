@@ -29,48 +29,14 @@ public class MysticWater implements Serializable {
     
     private static PrintWriter logFile = null;
 
-    public static PrintWriter getLogFile() {
-        return logFile;
-    }
-
-    public static void setLogFile(PrintWriter logFile) {
-        MysticWater.logFile = logFile;
-    }
-
-    public static PrintWriter getOutFile() {
-        return outFile;
-    }
-
-    public static void setOutFile(PrintWriter outFile) {
-        MysticWater.outFile = outFile;
-    }
-
-    public static BufferedReader getInFile() {
-        return inFile;
-    }
-
-    public static void setInFile(BufferedReader inFile) {
-        MysticWater.inFile = inFile;
-    }
-
     public static void main(String[] args) {
-        GameView gameView = new GameView();
-       try {
-        //start game view
-        gameView.game();
-        } 
-       catch(Throwable te) {
-           System.out.println(te.getMessage());
-           te.printStackTrace();
-           gameView.game();
-       }
-       
+        
     try {
+        
        MysticWater.inFile = new BufferedReader(new InputStreamReader(System.in));
-       
        MysticWater.outFile = new PrintWriter(System.out, true);
        
-    try {
+    try{
        //open log file
        String filePath = "log.txt";
        MysticWater.logFile = new PrintWriter(filePath);
@@ -80,17 +46,19 @@ public class MysticWater implements Serializable {
                            "\nMessage: " + e.getMessage());
     }
        
-       GameView startProgramView = new GameView();
-       return;
-       
+        //start game view
+        GameView gameView = new GameView();
+        gameView.displayView();
+        return;
+
     } catch (Throwable e) {
         System.out.println("Exception: " + e.toString() +
                            "\nCause: " + e.getCause() +
                            "\nMessage: " + e.getMessage());
         
         e.printStackTrace();
-    }
-    finally {
+        
+    } finally {
             try {
                 if (MysticWater.inFile != null)
                     MysticWater.inFile.close();
@@ -98,8 +66,11 @@ public class MysticWater implements Serializable {
                 if (MysticWater.outFile != null)
                     MysticWater.outFile.close();
                 
-                if (MysticWater.logFile != null)
-                    MysticWater.logFile.close();
+                if (MysticWater.logFile != null) {
+                    MysticWater.logFile.flush();
+                    MysticWater.logFile.close(); 
+                }
+                    
             } catch (IOException ex) {
                 System.out.println("Error closing files");
                 return;
@@ -121,6 +92,30 @@ public class MysticWater implements Serializable {
 
     public static void setPlayer(Player player) {
         MysticWater.player = player;
+    }
+    
+        public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        MysticWater.logFile = logFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        MysticWater.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        MysticWater.inFile = inFile;
     }
     
 }

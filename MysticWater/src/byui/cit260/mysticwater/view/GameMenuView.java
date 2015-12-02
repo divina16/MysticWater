@@ -5,6 +5,7 @@
  */
 package byui.cit260.mysticwater.view;
 
+import byui.cit260.mysticwater.control.GameControl;
 import static byui.cit260.mysticwater.view.FinalPuzzleView.finalPuzzle;
 import byui.cit260.mysticwater.control.MoveCharacterControl;
 import static byui.cit260.mysticwater.view.DistancePuzzleView.distancePuzzle;
@@ -77,7 +78,7 @@ public class GameMenuView extends View {
                 done = true;
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 return false;
                        
         }
@@ -107,7 +108,15 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("saveGame function was called.");
+        this.console.println("\n\nEnter the file path for file where game"
+                + "is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.saveGame(MysticWater.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void finalPuzzle() {
@@ -126,6 +135,5 @@ public class GameMenuView extends View {
     }
 
     private void exit() {
-        System.out.println("exitGame function was called.");
     }     
 }

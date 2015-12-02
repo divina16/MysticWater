@@ -19,6 +19,9 @@ public class FinalPuzzleControl {
        
        if (answerRiddle < 0 || answerRiddle > 10) {
             throw new FinalPuzzleException("Answer is invalid. Cannot be less than 0 or greater than 10.");
+    }
+       if (randomValues == null || randomValues == null) {
+            throw new FinalPuzzleException("Error generating random number.");
     } 
   
        correct = (randomValues[0] + randomValues[1] + randomValues[2] + randomValues[3] + randomValues[4] + randomValues[5] + randomValues[6]) / 7;

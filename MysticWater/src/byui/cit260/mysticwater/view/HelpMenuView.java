@@ -52,7 +52,7 @@ public class HelpMenuView extends View {
                 this.exit();
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
                        
         }
@@ -60,33 +60,33 @@ public class HelpMenuView extends View {
     }
     
     private void moveHelp() {
-        System.out.println("You must open the Game Menu. "
+        this.console.println("You must open the Game Menu. "
                 + "\nInput the corresponding letter for Move Location. "
                 + "\nThen looking at the map, input the corresponding number "
                 + "\nfor the location you would like to move.");
     }
 
     private void useItemHelp() {
-        System.out.println("You must open the Game Menu. "
+        this.console.println("You must open the Game Menu. "
                 + "\nInput the corresponding letter for Inventory. "
                 + "\nThen looking at your inventory, input the corresponding "
                 + "\nletter for the item you would like to use. Then select Use Item. ");
     }
 
     private void purchaseItemHelp() {
-      System.out.println("While in the Shop Menu, input the corresponding letter "
+      this.console.println("While in the Shop Menu, input the corresponding letter "
                 + "\nfor the item you would like to purchase and select Purchase Item.");  
     }
 
     private void interactHelp() {
-        System.out.println("After moving to a location, the scene description "
+        this.console.println("After moving to a location, the scene description "
                 + "\nis displayed along with options to speak to the "
                 + "\ncharacters in the area. Select the corresponding "
                 + "\nletter for the character you would like to speak to.");
     }
     
     private void goalHelp() {
-        System.out.println("You, the old man, must travel up the mountain "
+        this.console.println("You, the old man, must travel up the mountain "
                 + "\nand overcome each obstacle by obtaining special "
                 + "\nitems. Each item can only be obtained by solving "
                 + "\npuzzles and answering riddles given by the characters "
@@ -104,7 +104,6 @@ public class HelpMenuView extends View {
     }
     
     private void exit() {
-        System.out.println("backToStart function was called");
     }
     
 }

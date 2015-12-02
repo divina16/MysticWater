@@ -7,7 +7,6 @@ package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.PuzzleControl;
 import byui.cit260.mysticwater.exceptions.PuzzleException;
-import java.util.Scanner;
 
 /**
  *
@@ -28,7 +27,7 @@ public class PuzzleView extends View{
         
         randomValues = PuzzleControl.getRandomValues();
         do {
-            System.out.println("Solve the equation. Round your answer down to the nearest integer. Please input your answer:"
+            this.console.println("Solve the equation. Round your answer down to the nearest integer. Please input your answer:"
                     + "\n\n" + randomValues[0] + " + " + randomValues[1] + " + " + randomValues[2] + " + " + randomValues[3] + " + " + randomValues[4] + " + "
               + "/ 7 = ? ");
             
@@ -37,7 +36,7 @@ public class PuzzleView extends View{
             answer = Integer.parseInt(input);
         }
         catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number or you die.");
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number or you die.");
         }
             this.doAction(answer);
         } 
@@ -48,19 +47,22 @@ public class PuzzleView extends View{
     public String getInput() {
        boolean valid = false;
        String menuRequest = null;
-       Scanner keyboard = new Scanner(System.in);
        
+    try {
        while (!valid) {
            
-           menuRequest = keyboard.nextLine();
+           menuRequest = keyboard.readLine();
            menuRequest = menuRequest.trim();
            
            if (menuRequest.length() == 0) {
-               System.out.println("Invalid input - the value must not be blank");
+               ErrorView.display(this.getClass().getName(), "Invalid input - the value must not be blank");
                continue;
            }
            break;
        }
+    } catch (Exception e) {
+        ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
+    }
        return menuRequest;
     }
     
@@ -71,15 +73,15 @@ public class PuzzleView extends View{
         try {
             result = PuzzleControl.calcPuzzle((Integer) answer, randomValues);
         } catch (PuzzleException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
         
         if (result == 1){
-            System.out.println("Correct!");
+            this.console.println("Correct!");
             return true;
         }
         else{
-            System.out.println("Incorrect. Please try again.");
+            this.console.println("Incorrect. Please try again.");
         }
         return false;
     }

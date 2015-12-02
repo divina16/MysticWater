@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.mysticwater.model;
+import byui.cit260.mysticwater.view.ErrorView;
 import java.io.Serializable;
 
 /**
@@ -21,7 +22,7 @@ public class Map implements Serializable{
     public Map(int noRows, int noColumns) {
         
         if (noRows < 1 || noColumns < 1){
-            System.out.println("The number of rows and columns must be > zero");
+            ErrorView.display(this.getClass().getName(), "The number of rows and columns must be > zero");
             return;
         }
         

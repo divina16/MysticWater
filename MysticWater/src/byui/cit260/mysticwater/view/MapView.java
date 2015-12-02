@@ -6,6 +6,7 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.MapControl;
+import byui.cit260.mysticwater.exceptions.MapControlException;
 import byui.cit260.mysticwater.model.Map;
 import mysticwater.MysticWater;
 
@@ -74,15 +75,19 @@ public class MapView extends View {
                 this.exit();
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;       
         }
         return false;
 }
 
     private void forest() {
-        MapControl.createMap();    
-        System.out.println("\n                                \\   \\                                 "
+        try {    
+            MapControl.createMap();
+        } catch (MapControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        this.console.println("\n                                \\   \\                                 "
                 + "\n    /|\\                          \\   \\                          "
                 + "\n   //|\\\\                /|\\       \\   \\                           "
                 + "\n  ///|\\\\\\              //|\\\\       \\   \\"
@@ -98,8 +103,12 @@ public class MapView extends View {
     }
 
     private void mountains() {
-        MapControl.createMap();    
-        System.out.println("   /\\     /\\       /\\ "
+        try {    
+            MapControl.createMap();
+        } catch (MapControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+        this.console.println("   /\\     /\\       /\\ "
                 + "\n  /  \\   /  \\/\\   /  \\"
                 + "\n /    \\ /       \\/    \\ "
                 + "\n/______________________\\  "
@@ -115,8 +124,12 @@ public class MapView extends View {
     }
 
     private void beach() {
-        MapControl.createMap();
-                System.out.println("                \\   \\              / \\  |  / \\          "
+        try {
+            MapControl.createMap();
+        } catch (MapControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+                this.console.println("                \\   \\              / \\  |  / \\          "
                         + "\n                 \\   \\            /   \\ | /   \\        "
                         + "\n                  \\   \\                | |              "
                         + "\n                   ) E )              /  /"
@@ -132,8 +145,12 @@ public class MapView extends View {
     }
 
     private void desert() {
-        MapControl.createMap();    
-                    System.out.println("           \\   \\                           /\\ /  \\                       "
+        try {    
+            MapControl.createMap();
+        } catch (MapControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+                    this.console.println("           \\   \\                           /\\ /  \\                       "
                             + "\n            \\   \\                         / | |  |     "
                             + "\n             \\   \\                       |  |_|  | /\\"
                             + "\n              \\ E \\                      \\___    |/ |                          "
@@ -150,8 +167,12 @@ public class MapView extends View {
     }
 
     private void cave() {
-        MapControl.createMap();    
-                System.out.println("                              \\   \\                          "
+        try {    
+            MapControl.createMap();
+        } catch (MapControlException ex) {
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
+        }
+                this.console.println("                              \\   \\                          "
                         + "\n         _______________       \\   \\                           "
                         + "\n        /    ________    \\      \\   \\"
                         + "\n       /    /||||||||\\    \\      \\   \\"
@@ -167,6 +188,6 @@ public class MapView extends View {
     }
 
     private void exit() {
-        System.out.println("exitMap was called.");
+        this.console.println("exitMap was called.");
     }
 }

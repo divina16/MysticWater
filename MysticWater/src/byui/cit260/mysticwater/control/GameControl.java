@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package byui.cit260.mysticwater.control;
+import byui.cit260.mysticwater.exceptions.GameControlException;
+import byui.cit260.mysticwater.exceptions.MapControlException;
 import byui.cit260.mysticwater.model.Actors;
 import byui.cit260.mysticwater.model.Actors.Actor;
 import byui.cit260.mysticwater.model.Game;
@@ -12,6 +14,9 @@ import byui.cit260.mysticwater.model.InventoryItem.Item;
 import byui.cit260.mysticwater.model.Map;
 import byui.cit260.mysticwater.model.Player;
 import java.awt.Point;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import mysticwater.MysticWater;
 
 /**
@@ -27,12 +32,10 @@ public class GameControl {
         
         MysticWater.setPlayer(playerOne);
         
-        System.out.println("\n**** createNewPlayer function was called ****");
         return playerOne;
     }
 
-    public static void createNewGame(Player player) {
-        System.out.println("createNewGame function in GameControl class was called");
+    public static void createNewGame(Player player) throws MapControlException {
         
         Game game = new Game();//create new game
         MysticWater.setCurrentGame(game);//save in MysticWater
@@ -48,7 +51,6 @@ public class GameControl {
     }
     
     public static InventoryItem[] createInventory() {
-        System.out.println("createInventory() in GameControl was called");
         
         InventoryItem[] inventory = new InventoryItem[Constants.NUMBER_OF_INVENTORY_ITEMS];
         
@@ -224,9 +226,7 @@ public class GameControl {
     }
     
     public static InventoryItem[] getSortedInventoryList() {
-        
-        System.out.println("getSortedInventoryList function was called");
-        
+                
         //selection sort
         InventoryItem[] originalInventory = 
                 MysticWater.getCurrentGame().getInventory();
@@ -254,7 +254,6 @@ public class GameControl {
     }
     
     public static Actors[] createActorList() {
-        System.out.println("createActorList() in GameControl was called");
         
         Actors[] actorList = new Actors[Constants.NUMBER_OF_ACTORS];
         
@@ -418,9 +417,7 @@ public class GameControl {
     }
     
     public static Actors[] getSortedActorList() {
-        
-        System.out.println("getSortedActorList function was called");
-        
+                
         //selection sort
         Actors[] originalActorList = 
                 MysticWater.getCurrentGame().getActors();
@@ -447,11 +444,25 @@ public class GameControl {
     }
     
     public static void loadGame() {
-        System.out.println("loadGame function in GameControl class was called");
     }
 
     public static void quitGame() {
         System.exit(0);
+    }
+
+    public static void saveGame(Game game, String filePath) throws GameControlException, IOException{
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game);
+        } catch(IOException e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

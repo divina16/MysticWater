@@ -5,6 +5,7 @@
  */
 package byui.cit260.mysticwater.control;
 
+import byui.cit260.mysticwater.exceptions.MapControlException;
 import byui.cit260.mysticwater.model.Game;
 import byui.cit260.mysticwater.model.Location;
 import byui.cit260.mysticwater.model.Map;
@@ -18,20 +19,22 @@ import mysticwater.MysticWater;
  */
 public class MapControl {
 
-    public static Map createMap() {
-            System.out.println("createMap() function inside MapControl was called.");
+    public static Map createMap() throws MapControlException {
             
             Map map = new Map(5, 5);
-            
             Scene[] scene = createScenes();
-            
             assignScenesToLocations(map, scene);
-            
             return map;
     }
 
-    private static void assignScenesToLocations(Map map, Scene[] scene) {
-        System.out.println("assignScenesToLocations() in MapControl was called");
+    private static void assignScenesToLocations(Map map, Scene[] scene) throws MapControlException {
+        
+        if (map == null || map == null) {
+            throw new MapControlException("Error. No map was passed.");
+    }
+        if (scene == null || scene == null) {
+            throw new MapControlException("Error. no scene was passed.");
+    }
         
         Location[][] locations = map.getLocations();
         
@@ -68,10 +71,14 @@ public class MapControl {
         map.setLocations(locations);
     }
     
-    private static Scene[] createScenes() {
+    private static Scene[] createScenes() throws MapControlException {
         Game game = MysticWater.getCurrentGame();
         
         Scene[] scene = new Scene[Constants.NUMBER_OF_SCENES];
+        
+        if (scene == null || scene == null) {
+            throw new MapControlException("Error. no scene was passed.");
+    }
         
         //forest (1-5)
         Scene start = new Scene("Start\nCharacters in this location:"
