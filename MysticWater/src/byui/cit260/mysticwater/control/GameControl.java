@@ -14,8 +14,11 @@ import byui.cit260.mysticwater.model.InventoryItem.Item;
 import byui.cit260.mysticwater.model.Map;
 import byui.cit260.mysticwater.model.Player;
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import mysticwater.MysticWater;
 
@@ -48,6 +51,8 @@ public class GameControl {
         Map map = MapControl.createMap();
         game.setMap(map);
         
+        Actors[] actors = GameControl.createActorList();
+        game.setActors(actors);
     }
     
     public static InventoryItem[] createInventory() {
@@ -461,8 +466,19 @@ public class GameControl {
         }
     }
 
-    public static void getSavedGame(String filePath) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void getSavedGame(String filePath) throws GameControlException, IOException, ClassNotFoundException {
+        Game game = null;
+        try(FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject();
+        } catch(FileNotFoundException fnfe) {
+            throw new GameControlException(fnfe.getMessage());
+        } catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+        MysticWater.setCurrentGame(game);
     }
 
 }
