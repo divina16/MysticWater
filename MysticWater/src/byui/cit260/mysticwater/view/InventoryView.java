@@ -60,7 +60,6 @@ public class InventoryView extends View {
                 this.itemFour();
                 break;
             case "E":
-                this.exit();
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
@@ -68,10 +67,6 @@ public class InventoryView extends View {
                        
         }
         return false;
-    }
-
-    private void exit() {
-        InventoryControl.exit(MysticWater.getPlayer());
     }
 
     private void itemOne() {

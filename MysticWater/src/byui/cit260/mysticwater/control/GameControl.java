@@ -187,7 +187,7 @@ public class GameControl {
         
         //19
         InventoryItem calculator = new InventoryItem(0.45);
-        calculator.setDescription("Surfboard");
+        calculator.setDescription("Calculator");
         calculator.setQuantity(0);
         calculator.setPrice(100);
         inventory[Item.calculator.ordinal()] = calculator;

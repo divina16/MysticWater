@@ -72,7 +72,6 @@ public class MapView extends View {
                 this.beach();
                 break;
             case "E":
-                this.exit();
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
@@ -185,9 +184,5 @@ public class MapView extends View {
                         + "\n     ( A (    "
                         + "\n      \\   \\");
 
-    }
-
-    private void exit() {
-        this.console.println("exitMap was called.");
     }
 }

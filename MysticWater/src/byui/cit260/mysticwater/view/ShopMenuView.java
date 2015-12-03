@@ -49,80 +49,79 @@ public class ShopMenuView extends View {
         selection = selection.toUpperCase();
         
         switch (selection) {
-            case "1":
+            case "15":
                 this.buyRope();
                 break;
-            case "2":
+            case "9":
                 this.buyJetpack();
                 break;
-            case "3":
+            case "1":
                 this.buyAxe();
                 break;
-            case "4":
+            case "22":
                 this.buyUmbrella();
                 break;
-            case "5":
+            case "11":
                 this.buyPixieDust();
                 break;
-            case "6":
+            case "24":
                 this.buyWrench();
                 break;
-            case "7":
+            case "5":
                 this.buyFlyingShoes();
                 break;
-            case "8":
+            case "10":
                 this.buyLadder();
                 break;
-            case "9":
+            case "12":
                 this.buyPole();
                 break;
-            case "10":
+            case "21":
                 this.buySword();
                 break;
-            case "11":
+            case "3":
                 this.buyCandy();
                 break;
-            case "12":
+            case "19":
                 this.buySpork();
                 break;
-            case "13":
+            case "17":
                 this.buyShovel();
                 break;
-            case "14":
+            case "16":
                 this.buyRubberChicken();
                 break;
-            case "15":
+            case "14":
                 this.buyPulley();
                 break;
-            case "16":
+            case "18":
                 this.buySkateboard();
                 break;
-            case "17":
+            case "20":
                 this.buySurfboard();
                 break;
-            case "18":
+            case "23":
                 this.buyWaffles();
                 break;
-            case "19":
+            case "2":
                 this.buyCalculator();
                 break;
-            case "20":
+            case "6":
                 this.buyHolyGrail();
                 break;
-            case "21":
+            case "8":
                 this.buyJackHammer();
                 break;
-            case "22":
+            case "4":
                 this.buyCompass();
                 break;
-            case "23":
+            case "13":
                 this.buyPot();
                 break;
-            case "24":
+            case "7":
                 this.buyHunkOfMeat();
                 break;
             case "E":
-                this.exit();
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
@@ -247,8 +246,5 @@ public class ShopMenuView extends View {
     private void buyJetpack() {
                 this.console.println("Jetpack was purchased.");
                 InventoryControl.addItem(Item.jetpack.ordinal());    }
-    
-    private void exit() {
-    }
 
 }

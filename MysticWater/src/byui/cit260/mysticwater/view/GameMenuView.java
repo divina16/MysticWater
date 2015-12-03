@@ -74,9 +74,8 @@ public class GameMenuView extends View {
                 this.distancePuzzle();
                 break;
             case "E":
-                this.exit();
                 done = true;
-                break;
+                return true;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 return false;
@@ -109,7 +108,7 @@ public class GameMenuView extends View {
 
     private void saveGame() {
         this.console.println("\n\nEnter the file path for file where game"
-                + "is to be saved.");
+                + " is to be saved.");
         String filePath = this.getInput();
         
         try {
@@ -132,8 +131,5 @@ public class GameMenuView extends View {
     private void distancePuzzle() {
         DistancePuzzleView.distancePuzzle = new DistancePuzzleView();
         distancePuzzle.displayView();
-    }
-
-    private void exit() {
-    }     
+    }    
 }
