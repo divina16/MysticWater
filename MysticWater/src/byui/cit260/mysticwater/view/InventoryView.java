@@ -8,7 +8,6 @@ package byui.cit260.mysticwater.view;
 import byui.cit260.mysticwater.control.GameControl;
 import byui.cit260.mysticwater.control.InventoryControl;
 import byui.cit260.mysticwater.model.InventoryItem;
-import mysticwater.MysticWater;
 
 /**
  *
