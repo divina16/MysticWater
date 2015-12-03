@@ -17,7 +17,7 @@ public class InventoryControl {
     public static void exit(Player player) {
     }
 
-    public static void useItem(Player player) {
+    public static void useItem(int itemToUse) {
         
         InventoryControl.removeItem();
     }
