@@ -53,7 +53,6 @@ public class MoveCharacterView extends View {
                 this.beach();
                 break;
             case "E":
-                this.exit();
                 return true;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
@@ -150,10 +149,6 @@ public class MoveCharacterView extends View {
                         + "\n                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ ) A )"
                         + "\n                                            /   /                       "
                         + "\nYou are now in Location A in Mermaid Beach.");
-    }
-
-    private void exit() {
-        MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());   
     }
     
 }
