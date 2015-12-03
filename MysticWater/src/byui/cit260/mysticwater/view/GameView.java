@@ -31,25 +31,6 @@ public class GameView extends View {
                         + "\n*  to the creepy mountain.                                                *"
                         + "\n\n***************************************************************************");
     }
-    
-    public void game() {
-       
-        //Display the banner screen
-        this.displayView();
-        
-        //Create and save the player object
-        Player playerOne = null;
-
-        playerOne = GameControl.createNewPlayer(playersName);
-        
-        //Display a personalized welcome message
-        this.displayWelcomeMessage(playerOne);
-        
-        //Display the Main Menu
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayView();
-        
-    }
 
     @Override
     public String getInput() {

@@ -49,7 +49,6 @@ public class HelpMenuView extends View {
                 this.goalHelp();
                 break;
             case "E":
-                this.exit();
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
@@ -101,9 +100,6 @@ public class HelpMenuView extends View {
                 + "\nreceives a small amount of money for each challenge "
                 + "\nthat is completed which can be used to buy items at "
                 + "\nstores rather than answering riddles.");
-    }
-    
-    private void exit() {
     }
     
 }

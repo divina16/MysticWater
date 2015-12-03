@@ -47,8 +47,7 @@ public class MainMenuView extends View {
                 this.helpMenu();
                 break;
             case "E":
-                this.exit();
-                break;
+                return true;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 return false;
@@ -73,8 +72,7 @@ public class MainMenuView extends View {
 
     private void loadGame() {
         
-        this.console.println("\n\nEnter the file path for file where the game"
-                + "is to be saved.");
+        this.console.println("\n\nEnter the file path where the saved game is located.");
         
         String filePath = this.getInput();
         
@@ -86,7 +84,6 @@ public class MainMenuView extends View {
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayView();
-        displayView();
     }
 
     private void helpMenu() {
@@ -94,10 +91,6 @@ public class MainMenuView extends View {
         HelpMenuView.helpMenu = new HelpMenuView();
         helpMenu.displayView();
         displayView();
-    }
-
-    private void exit() {
-        GameControl.quitGame();
     }
     
 }

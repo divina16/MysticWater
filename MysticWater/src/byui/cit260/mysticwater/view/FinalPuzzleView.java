@@ -77,7 +77,7 @@ public class FinalPuzzleView extends View {
         }
         
         if (result == 1){
-            ErrorView.display(this.getClass().getName(), "Correct!");
+            this.console.println("Correct!");
             return true;
         }
         else{
