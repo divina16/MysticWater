@@ -36,6 +36,7 @@ public class GameMenuView extends View {
             + "\nF - Skip to Final Puzzle (temporary)"
             + "\nP - Skip to Puzzle (temporary)"
             + "\nD - Skip to Distance Puzzle (temporary)"
+            + "\nL - List of Actors"
             + "\nE - Exit Game"
             + "\n-----------------------------------");
 }
@@ -72,6 +73,9 @@ public class GameMenuView extends View {
                 break;
             case "D":
                 this.distancePuzzle();
+                break;
+            case "L":
+                this.actorReport();
                 break;
             case "E":
                 done = true;
@@ -132,4 +136,10 @@ public class GameMenuView extends View {
         DistancePuzzleView.distancePuzzle = new DistancePuzzleView();
         distancePuzzle.displayView();
     }    
+
+
+    private void actorReport() {
+        ActorReportView actorReport = new ActorReportView("");
+        actorReport.displayView();
+    }
 }
