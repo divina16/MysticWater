@@ -35,11 +35,11 @@ public class ActorReportView extends View{
     try (PrintWriter out = new PrintWriter(filePath)){
         
         out.printf("\n\n            List of Actors");
-        out.printf("%n%-20s%10s", "Description", "Coordinates");
-        out.printf("%n%-20s%10s", "-----------", "-----------");
+        out.printf("%n%-20s%13s", "Description", "Coordinates");
+        out.printf("%n%-20s%13s", "-----------", "-----------");
         
         for (Actors nextActor : actor){
-             out.printf("%n%-20s%10s", nextActor.getDescription(), nextActor.getCoordinates());
+             out.printf("%n%-20s%d%d", nextActor.getDescription(), nextActor.getCoordinates().getX(), nextActor.getCoordinates().getY());
         }
     }   catch (IOException ex) {
             ErrorView.display(this.getClass().getName(), "I/O Error: " + ex.getMessage());
