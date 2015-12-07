@@ -39,7 +39,7 @@ public class ActorReportView extends View{
         out.printf("%n%-20s%10s", "-----------", "-----------");
         
         for (Actors nextActor : actor){
-            String location = nextActor.getCoordinates().getX() + ", " + nextActor.getCoordinates().getY();
+            String location = nextActor.getCoordinates().x + ", " + nextActor.getCoordinates().y;
              out.printf("%n%-20s%10s", nextActor.getDescription(), location);
         }
     }   catch (IOException ex) {
