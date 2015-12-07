@@ -91,7 +91,7 @@ public class MapControl {
                 + "\nand recieve a reward for a correct answer.","A");
         scene[SceneType.start.ordinal()] = start;
         
-        Scene forestB = new Scene("               Forest B\n"
+        Scene forestB = new Scene("Forest B\n"
                 + "\nNibs: " + MysticWater.getCurrentGame().getName() 
                 + "! There is a fallen tree in your path. You need an "
                 + "Item to chop the fallen tree. Go to the shop to "

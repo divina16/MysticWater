@@ -7,11 +7,8 @@ package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
 import byui.cit260.mysticwater.model.Actors;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -22,9 +19,6 @@ public class ActorReportView extends View{
     public ActorReportView(String promptMessage) {
         super("\nPlease enter the name you would like to save your report to.");
     }
-
-
-    
 
     @Override
     public boolean doAction(Object obj) {
