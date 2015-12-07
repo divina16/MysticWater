@@ -9,7 +9,7 @@ import byui.cit260.mysticwater.model.Player;
 
 /**
  *
- * @author Braden
+ * @author Nina
  */
 public class MoveCharacterControl {
 
