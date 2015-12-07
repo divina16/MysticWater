@@ -78,10 +78,12 @@ public class PuzzleView extends View{
         
         if (result == 1){
             this.console.println("Correct!");
+            GameMenuView.gameMenu.displayView();
             return true;
         }
         else{
             this.console.println("Incorrect. Please try again.");
+            GameMenuView.gameMenu.displayView();
         }
         return false;
     }

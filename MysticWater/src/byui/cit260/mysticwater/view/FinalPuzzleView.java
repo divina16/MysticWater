@@ -78,10 +78,21 @@ public class FinalPuzzleView extends View {
         
         if (result == 1){
             this.console.println("Correct!");
+            
+            this.console.println("\n---------------------------------\n"
+                               + "         CONGRATULATIONS!           "
+                               + "\n-- ------------------------------"
+                               + "\n\nYou have successfully scaled the mountains and retrieved the mystic water!"
+                                    + "\nThe old man can now return to his wife and save her!"
+                                    + "\n\nYou will now be returned to the start menu."
+                                    + "\nCome back and play again!");
+            MainMenuView mainMenu = new MainMenuView();
+            mainMenu.displayView();
             return true;
         }
         else{
             ErrorView.display(this.getClass().getName(), "Incorrect. Please try again.");
+            GameMenuView.gameMenu.displayView();
         }
         return false;
     }
