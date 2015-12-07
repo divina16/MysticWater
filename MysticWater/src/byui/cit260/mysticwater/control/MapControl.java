@@ -82,107 +82,107 @@ public class MapControl {
         
         //forest (1-5)
         Scene start = new Scene("Start\nCharacters in this location:"
-                + "\nTinkerbell", "A");
+                + "\nTinkerbell", "F1");
         scene[SceneType.start.ordinal()] = start;
         
         Scene forestB = new Scene("Forest B\nCharacters in this location:"
-                + "\nNibs", "B");
+                + "\nNibs", "F2");
         scene[SceneType.forestB.ordinal()] = forestB;
         
         Scene forestC = new Scene("Forest C\nCharacters in this location:"
-                + "\nSiren", "C");
+                + "\nSiren", "F3");
         scene[SceneType.forestC.ordinal()] = forestC;
         
         Scene forestD = new Scene("Forest D\nCharacters in this location:"
-                + "\nTootles", "D");
+                + "\nTootles", "F4");
         scene[SceneType.forestD.ordinal()] = forestD;
         
         Scene forestE = new Scene("Forest E\nCharacters in this location:"
-                + "\nForest Fairy", "E");
+                + "\nForest Fairy", "F5");
         scene[SceneType.forestE.ordinal()] = forestE;
         
         //cave (6-10)
         Scene caveA = new Scene("Cave A\nCharacters in this location:"
-                + "\nGolem", "A");
+                + "\nGolem", "C1");
         scene[SceneType.caveA.ordinal()] = caveA;
         
         Scene caveB = new Scene("Cave B\nCharacters in this location:"
-                + "\nSlightly", "B");
+                + "\nSlightly", "C2");
         scene[SceneType.caveB.ordinal()] = caveB;
         
         Scene caveC = new Scene("Cave C\nCharacters in this location:"
-                + "\nCurly", "C");
+                + "\nCurly", "C3");
         scene[SceneType.caveC.ordinal()] = caveC;
         
         Scene caveD = new Scene("Cave D\nCharacters in this location:"
-                + "\nPeter Pan", "D");
+                + "\nPeter Pan", "C4");
         scene[SceneType.caveD.ordinal()] = caveD;
         
         Scene caveE = new Scene("Cave E\nCharacters in this location:"
-                + "\nCave Fairy", "E");
+                + "\nCave Fairy", "C5");
         scene[SceneType.caveE.ordinal()] = caveE;
         
         //beach (11-15)
         Scene beachA = new Scene("Beach A\nCharacters in this location:"
-                + "\nWendy", "A");
+                + "\nWendy", "B1");
         scene[SceneType.beachA.ordinal()] = beachA;
         
         Scene beachB = new Scene("Beach B\nCharacters in this location:"
-                + "\nMermaid", "B");
+                + "\nMermaid", "B2");
         scene[SceneType.beachB.ordinal()] = beachB;
         
         Scene beachC = new Scene("Beach C\nCharacters in this location:"
-                + "\nSmee", "C");
+                + "\nSmee", "B3");
         scene[SceneType.beachC.ordinal()] = beachC;
         
         Scene beachD = new Scene("Beach D\nCharacters in this location:"
-                + "\n/Hook", "D");
+                + "\n/Hook", "B4");
         scene[SceneType.beachD.ordinal()] = beachD;
         
         Scene beachE = new Scene("Beach E\nCharacters in this location:"
-                + "\nWater Fairy", "E");
+                + "\nWater Fairy", "B5");
         scene[SceneType.beachE.ordinal()] = beachE;
         
         //desert (16-20)
         Scene desertA = new Scene("Desert A\nCharacters in this location:"
-                + "\nSandman", "A");
+                + "\nSandman", "D1");
         scene[SceneType.desertA.ordinal()] = desertA;
         
         Scene desertB = new Scene("Desert B\nCharacters in this location:"
-                + "\nJohn", "B");
+                + "\nJohn", "D2");
         scene[SceneType.desertB.ordinal()] = desertB;
         
         Scene desertC = new Scene("Desert C\nCharacters in this location:"
-                + "\nMicheal", "C");
+                + "\nMicheal", "D3");
         scene[SceneType.desertC.ordinal()] = desertC;
         
         Scene desertD = new Scene("Desert D\nCharacters in this location:"
-                + "\nThomas", "D");
+                + "\nThomas", "D4");
         scene[SceneType.desertD.ordinal()] = desertD;
         
         Scene desertE = new Scene("Desert E\nCharacters in this location:"
-                + "\nPrentiss", "E");
+                + "\nPrentiss", "D5");
         scene[SceneType.desertE.ordinal()] = desertE;
         
         //mountains (21-25)
         Scene mountainsA = new Scene("Mountains A\nCharacters in this location:"
-                + "\nTwins", "A");
+                + "\nTwins", "M1");
         scene[SceneType.mountainsA.ordinal()] = mountainsA;
         
         Scene mountainsB = new Scene("Mountains B\nCharacters in this location:"
-                + "\nPockets", "B");
+                + "\nPockets", "M2");
         scene[SceneType.mountainsB.ordinal()] = mountainsB;
         
         Scene mountainsC = new Scene("Mountains C\nCharacters in this location:"
-                + "\nAce", "C");
+                + "\nAce", "M3");
         scene[SceneType.mountainsC.ordinal()] = mountainsC;
         
         Scene mountainsD = new Scene("Mountains D\nCharacters in this location:"
-                + "\nThudbutt", "D");
+                + "\nThudbutt", "M4");
         scene[SceneType.mountainsD.ordinal()] = mountainsD;
         
         Scene finish = new Scene("Finish\nCharacters in this location:"
-                + "\nDragon", "E");
+                + "\nDragon", "M5");
         scene[SceneType.finish.ordinal()] = finish;
         
         return scene; 

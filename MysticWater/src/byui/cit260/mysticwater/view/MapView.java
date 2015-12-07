@@ -35,12 +35,12 @@ public class MapView extends View {
             Map map = MysticWater.getCurrentGame().getMap();
             
             menu += "\n\n-----------Map Grid---------------"
-                    + "\n\n";
+                    + "\n\n --------------------------\n";
             for (int rows = 0; rows < map.getNoRows(); rows++) {
                 for (int columns = 0; columns < map.getNoColumns(); columns++){
                     menu += " | " + map.getLocations()[rows][columns].getScene().getMapSymbol();
                 }
-                menu += " |\n ---------------------\n";
+                menu += " |\n --------------------------\n";
             }
                 
             menu += "\n-----------------------------------"

@@ -5,7 +5,11 @@
  */
 package byui.cit260.mysticwater.view;
 
+import byui.cit260.mysticwater.control.MapControl;
 import byui.cit260.mysticwater.control.MoveCharacterControl;
+import byui.cit260.mysticwater.model.Map;
+import byui.cit260.mysticwater.model.Scene;
+import static byui.cit260.mysticwater.view.MapView.map;
 import mysticwater.MysticWater;
 
 /**
@@ -17,17 +21,31 @@ public class MoveCharacterView extends View {
     static MoveCharacterView move;
     
      public MoveCharacterView() {
-         super("\n"
+         super("");
+         String menu;
+         
+       menu = "\n"
             + "\n------------------------------------"
             + "\n|Where would you like to travel to?|"
-            + "\n------------------------------------"
-            + "\nM - Mountains"
-            + "\nF - Forest"
-            + "\nD - Desert"
-            + "\nC - Caves"
-            + "\nB - Beach"
-            + "\nE - Exit Map"
-            + "\n------------------------------------");
+            + "\n------------------------------------";
+         
+         Map map = MysticWater.getCurrentGame().getMap();
+            
+            menu += "\n\n-----------Map Grid---------------"
+                    + "\n\n --------------------------\n";
+            for (int rows = 0; rows < map.getNoRows(); rows++) {
+                for (int columns = 0; columns < map.getNoColumns(); columns++){
+                    menu += " | " + map.getLocations()[rows][columns].getScene().getMapSymbol();
+                }
+                menu += " |\n --------------------------\n";
+            }
+                
+            menu += "\n-----------------------------------"
+                    + "\nM - View Map"
+                    + "\nE - Exit"
+                    + "\n-----------------------------------";
+            
+            this.setPromptMessage(menu);
     }
      
     @Override
@@ -38,117 +56,172 @@ public class MoveCharacterView extends View {
         
         switch (selection) {
             case "M":
-                this.mountains();
+                this.mapView();
                 break;
-            case "F":
-                this.forest();
+            case "F1":
+                this.f1();
                 break;
-            case "D":
-                this.desert();
+            case "F2":
+                this.f2();
                 break;
-            case "C":
-                this.cave();
+            case "F3":
+                this.f3();
                 break;
-            case "B":
-                this.beach();
+            case "F4":
+                this.f4();
+                break;
+            case "F5":
+                this.f5();
+                break;
+            case "C1":
+                this.c1();
+                break;
+            case "C2":
+                this.c2();
+                break;
+            case "C3":
+                this.c3();
+                break;
+            case "C4":
+                this.c4();
+                break;
+            case "C5":
+                this.c5();
+                break;
+            case "B1":
+                this.b1();
+                break;
+            case "B2":
+                this.b2();
+                break;
+            case "B3":
+                this.b3();
+                break;
+            case "B4":
+                this.b4();
+                break;
+            case "B5":
+                this.b5();
+                break;
+            case "D1":
+                this.d1();
+                break;
+            case "D2":
+                this.d2();
+                break;
+            case "D3":
+                this.d3();
+                break;
+            case "D4":
+                this.d4();
+                break;
+            case "D5":
+                this.d5();
+                break;
+            case "M1":
+                this.m1();
+                break;
+            case "M2":
+                this.m2();
+                break;
+            case "M3":
+                this.m3();
+                break;
+            case "M4":
+                this.m4();
+                break;
+            case "M5":
+                this.m5();
                 break;
             case "E":
                 return true;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;       
         }
         return false;
     }
 
-    private void mountains() {
-        MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());  
-        this.console.println("   /\\     /\\       /\\ "
-                + "\n  /  \\   /  \\/\\   /  \\"
-                + "\n /    \\ /       \\/    \\ "
-                + "\n/______________________\\  "
-                + "\n     ___________________________________________"
-                + "\n    /  D___________________E____________________"
-                + "\n   /   /              /\\     /\\       /\\  /\\"
-                + "\n  /   /              /  \\   /  \\/\\   /  \\/  \\"
-                + "\n /   /              /    \\ /       \\/        \\ "
-                + "\n( C (              /__________________________\\                "
-                + "\n \\   \\                Creepy Mountains"
-                + "\n  \\   \\__________________"
-                + "\n   \\__B___________________A "
-                + "\nYou are now in Location A of the Creepy Mountains.");
-    
+
+    private void mapView() {
+        MapView.map = new MapView();
+        map.displayView();
     }
 
-    private void forest() {
-        MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());   
-        this.console.println("\n                                \\   \\                                 "
-                + "\n    /|\\                          \\   \\                          "
-                + "\n   //|\\\\                /|\\       \\   \\                           "
-                + "\n  ///|\\\\\\              //|\\\\       \\   \\"
-                + "\n     |                ///|\\\\\\       \\   \\"
-                + "\n     |                   |           \\   \\"
-                + "\n                         |            ) E )        "
-                + "\n                                     /   /        /|\\"
-                + "\n         __________________________ /   /        //|\\\\"
-                + "\n        / B _____________C__________D__/        ///|\\\\\\"
-                + "\n       /   /                                       | "
-                + "\n      ( A (                Fairy Forrest           |"
-                + "\n       \\   \\"
-                + "\nYou are now in Location A of the Fairy Forest.");
-    }
-    
-
-    private void desert() {
-        MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());    
-        this.console.println("           \\   \\                           /\\ /  \\                       "
-                            + "\n            \\   \\                         / | |  |     "
-                            + "\n             \\   \\                       |  |_|  | /\\"
-                            + "\n              \\ E \\                      \\___    |/ |                          "
-                            + "\n               \\   \\                         |     /                      "
-                            + "\n                \\   \\                        |    |       "
-                            + "\n                 \\   \\                       |    |"
-                            + "\n                  ) D )"
-                            + "\n                 /   /                  Dangerous Desert"
-                            + "\n                /   /"
-                            + "\n               ( C (_________________________"
-                            + "\n                \\_____________B__________ A  \\"
-                            + "\n                                          \\   \\"
-                            + "\nYou are now in Location A of the Dangerous Desert.");
+    private void f1() {
+        this.console.println(Scene.SceneType.start);
     }
 
-    private void cave() {
-        MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());  
-        this.console.println("                              \\   \\                          "
-                        + "\n         _______________       \\   \\                           "
-                        + "\n        /    ________    \\      \\   \\"
-                        + "\n       /    /||||||||\\    \\      \\   \\"
-                        + "\n      /    /||||||||||\\    \\      \\   \\"
-                        + "\n     /    /||||||||||||\\    \\      ) E )                  "
-                        + "\n            Crystal Caves         /   /                 "
-                        + "\n        ________________________ /   /                   "
-                        + "\n       / B ___________C__________D__/                     "
-                        + "\n      /   /                                                                                     "
-                        + "\n     ( A (    "
-                        + "\n      \\   \\"
-                        + "\nYou are now in Location A of the Crystal Caves.");
+    private void f2() {
     }
 
-    private void beach() {
-        MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer());
-        this.console.println("                \\   \\              / \\  |  / \\          "
-                        + "\n                 \\   \\            /   \\ | /   \\        "
-                        + "\n                  \\   \\                | |              "
-                        + "\n                   ) E )              /  /"
-                        + "\n                  /   /              /  /"
-                        + "\n                 /   /          Mermaid Beach"
-                        + "\n                ( D (________________________"
-                        + "\n                 \\_____________C__________  B \\"
-                        + "\n                                           \\   \\"
-                        + "\n                                            \\   \\                "
-                        + "\n                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ ) A )"
-                        + "\n                                            /   /                       "
-                        + "\nYou are now in Location A in Mermaid Beach.");
+    private void f3() {
+    }
+
+    private void f4() {
+    }
+
+    private void f5() {
+    }
+
+    private void c1() {
+    }
+
+    private void c2() {
+    }
+
+    private void c3() {
+    }
+
+    private void c4() {
+    }
+
+    private void c5() {
+    }
+
+    private void b1() {
+    }
+
+    private void b2() {
+    }
+
+    private void b3() {
+    }
+
+    private void b4() {
+    }
+
+    private void b5() {
+    }
+
+    private void d1() {
+    }
+
+    private void d2() {
+    }
+
+    private void d3() {
+    }
+
+    private void d4() {
+    }
+
+    private void d5() {
+    }
+
+    private void m1() {
+    }
+
+    private void m2() {
+    }
+
+    private void m3() {
+    }
+
+    private void m4() {
+    }
+
+    private void m5() {
     }
     
 }
