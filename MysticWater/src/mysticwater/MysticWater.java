@@ -7,6 +7,7 @@ package mysticwater;
 
 import byui.cit260.mysticwater.model.Game;
 import byui.cit260.mysticwater.model.Player;
+import byui.cit260.mysticwater.view.ErrorView;
 import byui.cit260.mysticwater.view.GameView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class MysticWater implements Serializable {
        String filePath = "log.txt";
        MysticWater.logFile = new PrintWriter(filePath);
     } catch (Exception e) {
-        System.out.println("Exception: " + e.toString() +
+        ErrorView.display("MysticWater", "Exception: " + e.toString() +
                            "\nCause: " + e.getCause() +
                            "\nMessage: " + e.getMessage());
     }
@@ -52,7 +53,7 @@ public class MysticWater implements Serializable {
         return;
 
     } catch (Throwable e) {
-        System.out.println("Exception: " + e.toString() +
+        ErrorView.display("MysticWater", "Exception: " + e.toString() +
                            "\nCause: " + e.getCause() +
                            "\nMessage: " + e.getMessage());
         

@@ -32,8 +32,8 @@ public class InventoryView extends View {
         for (InventoryItem nextInventoryItem : inventory) {
             menu += "\n" + String.format("%-2d", counter++) + " " + String.format("%-20s", nextInventoryItem.getDescription()) + " | " + "Success Rate - " + String.format("%-5.2f", nextInventoryItem.getSuccessRate()) + " | Quanity " + nextInventoryItem.getQuantity();   
         }
-        
-        menu += "\nE - Exit Inventory"
+        menu += "\nR - Print Inventory Report"
+                + "\nE - Exit Inventory"
             + "\n============================================";
         
         this.setPromptMessage(menu);
@@ -117,6 +117,9 @@ public class InventoryView extends View {
                 break;
             case "7":
                 this.buyHunkOfMeat();
+                break;
+            case "R":
+                this.inventoryReport();
                 break;
             case "E":
                 return true;
@@ -243,5 +246,10 @@ public class InventoryView extends View {
     private void buyJetpack() {
                 this.console.println("Jetpack was used.");
                 InventoryControl.useItem(InventoryItem.Item.jetpack.ordinal());    
+    }
+
+    private void inventoryReport() {
+        InventoryReportView inventoryReport = new InventoryReportView("");
+        inventoryReport.displayView();
     }
 }
