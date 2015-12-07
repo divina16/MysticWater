@@ -9,6 +9,7 @@ import byui.cit260.mysticwater.exceptions.MapControlException;
 import byui.cit260.mysticwater.model.Game;
 import byui.cit260.mysticwater.model.Location;
 import byui.cit260.mysticwater.model.Map;
+import byui.cit260.mysticwater.model.Player;
 import byui.cit260.mysticwater.model.Scene;
 import byui.cit260.mysticwater.model.Scene.SceneType;
 import mysticwater.MysticWater;
@@ -81,16 +82,26 @@ public class MapControl {
     }
         
         //forest (1-5)
-        Scene start = new Scene("Start\nCharacters in this location:"
-                + "\nTinkerbell", "A");
+        Scene start = new Scene("               Forest A\n"
+                + "----------------------------------------------"
+                + "\nTinkerbell: Hello " + MysticWater.getCurrentGame().getName()
+                + "! To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.","A");
         scene[SceneType.start.ordinal()] = start;
         
-        Scene forestB = new Scene("Forest B\nCharacters in this location:"
-                + "\nNibs", "B");
+        Scene forestB = new Scene("               Forest B\n"
+                + "\nNibs: " + MysticWater.getCurrentGame().getName() 
+                + "! There is a fallen tree in your path. You need an "
+                + "Item to chop the fallen tree. Go to the shop to "
+                + "buy items.", "B");
         scene[SceneType.forestB.ordinal()] = forestB;
         
         Scene forestC = new Scene("Forest C\nCharacters in this location:"
-                + "\nSiren", "C");
+                + "\nSiren: " + MysticWater.getCurrentGame().getName() + "! UP HERE! HELP ME! "
+                + "I am stuck in a tree! You need an item to help me "
+                + "get down! ", "C");
         scene[SceneType.forestC.ordinal()] = forestC;
         
         Scene forestD = new Scene("Forest D\nCharacters in this location:"
