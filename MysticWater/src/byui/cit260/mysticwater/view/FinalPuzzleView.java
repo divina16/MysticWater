@@ -91,7 +91,7 @@ public class FinalPuzzleView extends View {
             return true;
         }
         else{
-            ErrorView.display(this.getClass().getName(), "Incorrect. Please try again.");
+            this.console.println("Incorrect. Please try again.");
             GameMenuView.gameMenu.displayView();
         }
         return false;

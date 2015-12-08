@@ -285,5 +285,4 @@ public class MoveCharacterView extends View {
         FinalPuzzleView.finalPuzzle = new FinalPuzzleView();
         finalPuzzle.displayView();
     }
-    
 }
