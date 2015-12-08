@@ -6,6 +6,7 @@
 package byui.cit260.mysticwater.control;
 
 import byui.cit260.mysticwater.model.Player;
+import byui.cit260.mysticwater.view.ErrorView;
 import mysticwater.MysticWater;
 
 /**
@@ -18,8 +19,7 @@ public class InventoryControl {
     }
 
     public static void useItem(int itemToUse) {
-        
-        InventoryControl.removeItem();
+        InventoryControl.removeItem(itemToUse);
     }
 
     public static void addItem(int itemToAdd) {
@@ -27,6 +27,13 @@ public class InventoryControl {
         MysticWater.getCurrentGame().getInventory()[itemToAdd].setQuantity(currentQuantity + 1);
     }
 
-    public static void removeItem() {
-    } 
+    private static void removeItem(int itemToUse) {
+        
+        if (MysticWater.getCurrentGame().getInventory()[itemToUse].getQuantity() < 1) {
+            ErrorView.display("InventoryControl", "\nInvalid input: You do not currently have any of that item. Please make a another selection.");
+        }    
+        int currentQuantity = MysticWater.getCurrentGame().getInventory()[itemToUse].getQuantity();
+        MysticWater.getCurrentGame().getInventory()[itemToUse].setQuantity(currentQuantity - 1);
+    }
 }
+

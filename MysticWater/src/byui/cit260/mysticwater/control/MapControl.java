@@ -9,7 +9,6 @@ import byui.cit260.mysticwater.exceptions.MapControlException;
 import byui.cit260.mysticwater.model.Game;
 import byui.cit260.mysticwater.model.Location;
 import byui.cit260.mysticwater.model.Map;
-import byui.cit260.mysticwater.model.Player;
 import byui.cit260.mysticwater.model.Scene;
 import byui.cit260.mysticwater.model.Scene.SceneType;
 import mysticwater.MysticWater;
@@ -88,20 +87,20 @@ public class MapControl {
                 + "! To move forward "
                 + "\nin your joueney you must prove your knowledge. "
                 + "\nAnswer this puzzle as many times as you like "
-                + "\nand recieve a reward for a correct answer.","A");
+                + "\nand recieve a reward for a correct answer.", "F1");
         scene[SceneType.start.ordinal()] = start;
         
         Scene forestB = new Scene("Forest B\n"
                 + "\nNibs: " + MysticWater.getCurrentGame().getName() 
                 + "! There is a fallen tree in your path. You need an "
                 + "Item to chop the fallen tree. Go to the shop to "
-                + "buy items.", "B");
+                + "buy items.", "F2");
         scene[SceneType.forestB.ordinal()] = forestB;
         
-        Scene forestC = new Scene("Forest C\nCharacters in this location:"
+        Scene forestC = new Scene("Forest C\n"
                 + "\nSiren: " + MysticWater.getCurrentGame().getName() + "! UP HERE! HELP ME! "
                 + "I am stuck in a tree! You need an item to help me "
-                + "get down! ", "C");
+                + "get down! ", "F3");
         scene[SceneType.forestC.ordinal()] = forestC;
         
         Scene forestD = new Scene("Forest D\nCharacters in this location:"

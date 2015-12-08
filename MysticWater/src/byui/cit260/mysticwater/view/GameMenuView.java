@@ -6,14 +6,12 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
-import static byui.cit260.mysticwater.view.FinalPuzzleView.finalPuzzle;
 import byui.cit260.mysticwater.control.MoveCharacterControl;
 import static byui.cit260.mysticwater.view.DistancePuzzleView.distancePuzzle;
 import static byui.cit260.mysticwater.view.InventoryView.inventory;
 import static byui.cit260.mysticwater.view.MapView.map;
 import static byui.cit260.mysticwater.view.ShopMenuView.shop;
 import static byui.cit260.mysticwater.view.MoveCharacterView.move;
-import static byui.cit260.mysticwater.view.PuzzleView.nPuzzle;
 import mysticwater.MysticWater;
 
 /**
@@ -33,8 +31,6 @@ public class GameMenuView extends View {
             + "\nC - Move Character"
             + "\nG - Go to Shop"
             + "\nS - Save Game"
-            + "\nF - Skip to Final Puzzle (temporary)"
-            + "\nP - Skip to Puzzle (temporary)"
             + "\nD - Skip to Distance Puzzle (temporary)"
             + "\nL - List of Actors"
             + "\nE - Exit Game"
@@ -64,12 +60,6 @@ public class GameMenuView extends View {
                 break;
             case "S":
                 this.saveGame();
-                break;
-            case "F":
-                this.finalPuzzle();
-                break;
-            case "P":
-                this.puzzle();
                 break;
             case "D":
                 this.distancePuzzle();
@@ -120,16 +110,6 @@ public class GameMenuView extends View {
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
-    }
-
-    private void finalPuzzle() {
-        FinalPuzzleView.finalPuzzle = new FinalPuzzleView();
-        finalPuzzle.displayView();
-    }
-    
-    private void puzzle() {
-        PuzzleView.nPuzzle = new PuzzleView();
-        nPuzzle.displayView();
     }
     
     private void distancePuzzle() {

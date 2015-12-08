@@ -5,11 +5,10 @@
  */
 package byui.cit260.mysticwater.view;
 
-import byui.cit260.mysticwater.control.MapControl;
-import byui.cit260.mysticwater.control.MoveCharacterControl;
 import byui.cit260.mysticwater.model.Map;
-import byui.cit260.mysticwater.model.Scene;
+import static byui.cit260.mysticwater.view.FinalPuzzleView.finalPuzzle;
 import static byui.cit260.mysticwater.view.MapView.map;
+import static byui.cit260.mysticwater.view.PuzzleView.nPuzzle;
 import mysticwater.MysticWater;
 
 /**
@@ -149,79 +148,142 @@ public class MoveCharacterView extends View {
     }
 
     private void f1() {
-        this.console.println(Scene.SceneType.start);
+        this.console.println("               Forest A\n"
+                + "----------------------------------------------"
+                + "\nTinkerbell: Hello " + MysticWater.getCurrentGame().getName()
+                + "! To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.\n\n");
+        
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void f2() {
+        this.console.println("Forest B\n"
+                + "----------------------------------------------"
+                + "\nNibs: " + MysticWater.getCurrentGame().getName() 
+                + "! There is a fallen tree in your path. You need an "
+                + "Item to chop the fallen tree. Go to the shop to "
+                + "buy items.");
     }
 
     private void f3() {
+        this.console.println("Forest C\n"
+                + "\nSiren: " + MysticWater.getCurrentGame().getName() + "! UP HERE! HELP ME! "
+                + "I am stuck in a tree! You need an item to help me "
+                + "get down!");
     }
 
     private void f4() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void f5() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void c1() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void c2() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void c3() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void c4() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void c5() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void b1() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void b2() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void b3() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void b4() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void b5() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void d1() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void d2() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void d3() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void d4() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void d5() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void m1() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void m2() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void m3() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void m4() {
+        PuzzleView.nPuzzle = new PuzzleView();
+        nPuzzle.displayView();
     }
 
     private void m5() {
+        FinalPuzzleView.finalPuzzle = new FinalPuzzleView();
+        finalPuzzle.displayView();
     }
     
 }
