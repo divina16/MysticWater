@@ -15,7 +15,16 @@ import java.util.Objects;
 public class Player implements Serializable {
     
     private String name;
-    private long playerTime;
+    private Location location;
+    private int money;
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
 
     public Player() {
     }
@@ -28,24 +37,19 @@ public class Player implements Serializable {
         this.name = name;
     }
     
-    public double getplayerTime() {
-        return playerTime;
-    }
-    
-    public void setplayerTime(long playerTime) {
-        this.playerTime = playerTime;
+    public Location getLocation() {
+        return location;
     }
 
-    @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", playerTime=" + playerTime + '}';
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + Objects.hashCode(this.name);
-        hash = 31 * hash + (int) (this.playerTime ^ (this.playerTime >>> 32));
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.location);
         return hash;
     }
 
@@ -61,10 +65,14 @@ public class Player implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (this.playerTime != other.playerTime) {
+        if (!Objects.equals(this.location, other.location)) {
             return false;
         }
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", location=" + location + '}';
+    }
 }

@@ -5,15 +5,17 @@
  */
 package byui.cit260.mysticwater.control;
 
-import byui.cit260.mysticwater.model.Player;
+import mysticwater.MysticWater;
 
 /**
  *
  * @author Nina
  */
 public class MoveCharacterControl {
+    public static MoveCharacterControl move;
 
-    public static void createMoveCharacter(Player player) {
-    }
-    
+    public static void moveCharacter(){
+        MysticWater.getPlayer().getLocation();
+        
+    } 
 }

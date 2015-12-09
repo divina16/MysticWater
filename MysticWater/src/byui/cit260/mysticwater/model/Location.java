@@ -55,16 +55,12 @@ public class Location implements Serializable{
     }
 
     @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
-    }
-
-    @Override
     public int hashCode() {
         int hash = 5;
-        hash = 73 * hash + Float.floatToIntBits(this.row);
-        hash = 73 * hash + Float.floatToIntBits(this.column);
-        hash = 73 * hash + Objects.hashCode(this.visited);
+        hash = 29 * hash + Float.floatToIntBits(this.row);
+        hash = 29 * hash + Float.floatToIntBits(this.column);
+        hash = 29 * hash + (this.visited ? 1 : 0);
+        hash = 29 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
@@ -83,10 +79,19 @@ public class Location implements Serializable{
         if (Float.floatToIntBits(this.column) != Float.floatToIntBits(other.column)) {
             return false;
         }
-        if (!Objects.equals(this.visited, other.visited)) {
+        if (this.visited != other.visited) {
+            return false;
+        }
+        if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
         return true;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + '}';
+    }
+
+
 }

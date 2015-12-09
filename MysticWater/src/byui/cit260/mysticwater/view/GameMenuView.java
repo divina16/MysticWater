@@ -99,7 +99,11 @@ public class GameMenuView extends View {
     }
 
     private void moveCharacter() {
-        MoveCharacterControl.createMoveCharacter(MysticWater.getPlayer()); 
+        try { 
+            MoveCharacterControl.moveCharacter();
+        } catch (Exception ex) {
+            ErrorView.display("GameMenuView", ex.getMessage());
+        }
         
         MoveCharacterView.move = new MoveCharacterView();
         move.displayView();
@@ -118,7 +122,7 @@ public class GameMenuView extends View {
         try {
             GameControl.saveGame(MysticWater.getCurrentGame(), filePath);
         } catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
+            ErrorView.display("GameMenuView", ex.getMessage());
         }
     }
     

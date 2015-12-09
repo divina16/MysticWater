@@ -7,6 +7,7 @@ package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.PuzzleControl;
 import byui.cit260.mysticwater.exceptions.PuzzleException;
+import mysticwater.MysticWater;
 
 /**
  *

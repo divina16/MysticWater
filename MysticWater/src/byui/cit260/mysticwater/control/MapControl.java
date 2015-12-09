@@ -39,6 +39,7 @@ public class MapControl {
         Location[][] locations = map.getLocations();
         
         locations[0][0].setScene(scene[SceneType.start.ordinal()]);
+        MysticWater.getPlayer().setLocation(locations[0][0]);
         locations[0][1].setScene(scene[SceneType.forestB.ordinal()]);
         locations[0][2].setScene(scene[SceneType.forestC.ordinal()]);
         locations[0][3].setScene(scene[SceneType.forestD.ordinal()]);
@@ -77,122 +78,97 @@ public class MapControl {
         Scene[] scene = new Scene[Constants.NUMBER_OF_SCENES];
         
         if (scene == null || scene == null) {
-            throw new MapControlException("Error. no scene was passed.");
+            throw new MapControlException("Error: No scene was passed.");
     }
         
         //forest (1-5)
-        Scene start = new Scene("               Forest A\n"
+        Scene start = new Scene();
+        start.setDescription("               Forest A\n"
                 + "----------------------------------------------"
-                + "\nTinkerbell: Hello " + MysticWater.getCurrentGame().getName()
+                + "\nTinkerbell: Hello " + MysticWater.getCurrentGame().getPlayer().getName()
                 + "! To move forward "
                 + "\nin your joueney you must prove your knowledge. "
                 + "\nAnswer this puzzle as many times as you like "
-                + "\nand recieve a reward for a correct answer.", "F1");
+                + "\nand recieve a reward for a correct answer.");
+        start.setMapSymbol("F1");
         scene[SceneType.start.ordinal()] = start;
         
-        Scene forestB = new Scene("Forest B\n"
-                + "\nNibs: " + MysticWater.getCurrentGame().getName() 
-                + "! There is a fallen tree in your path. You need an "
-                + "Item to chop the fallen tree. Go to the shop to "
-                + "buy items.", "F2");
+        Scene forestB = new Scene();
+        start.setDescription("");
+        start.setMapSymbol("F2");
         scene[SceneType.forestB.ordinal()] = forestB;
         
-        Scene forestC = new Scene("Forest C\n"
-                + "\nSiren: " + MysticWater.getCurrentGame().getName() + "! UP HERE! HELP ME! "
-                + "I am stuck in a tree! You need an item to help me "
-                + "get down! ", "F3");
+        Scene forestC = new Scene();
         scene[SceneType.forestC.ordinal()] = forestC;
         
-        Scene forestD = new Scene("Forest D\nCharacters in this location:"
-                + "\nTootles", "F4");
+        Scene forestD = new Scene();
         scene[SceneType.forestD.ordinal()] = forestD;
         
-        Scene forestE = new Scene("Forest E\nCharacters in this location:"
-                + "\nForest Fairy", "F5");
+        Scene forestE = new Scene();
         scene[SceneType.forestE.ordinal()] = forestE;
         
         //cave (6-10)
-        Scene caveA = new Scene("Cave A\nCharacters in this location:"
-                + "\nGolem", "C1");
+        Scene caveA = new Scene();
         scene[SceneType.caveA.ordinal()] = caveA;
         
-        Scene caveB = new Scene("Cave B\nCharacters in this location:"
-                + "\nSlightly", "C2");
+        Scene caveB = new Scene();
         scene[SceneType.caveB.ordinal()] = caveB;
         
-        Scene caveC = new Scene("Cave C\nCharacters in this location:"
-                + "\nCurly", "C3");
+        Scene caveC = new Scene();
         scene[SceneType.caveC.ordinal()] = caveC;
         
-        Scene caveD = new Scene("Cave D\nCharacters in this location:"
-                + "\nPeter Pan", "C4");
+        Scene caveD = new Scene();
         scene[SceneType.caveD.ordinal()] = caveD;
         
-        Scene caveE = new Scene("Cave E\nCharacters in this location:"
-                + "\nCave Fairy", "C5");
+        Scene caveE = new Scene();
         scene[SceneType.caveE.ordinal()] = caveE;
         
         //beach (11-15)
-        Scene beachA = new Scene("Beach A\nCharacters in this location:"
-                + "\nWendy", "B1");
+        Scene beachA = new Scene();
         scene[SceneType.beachA.ordinal()] = beachA;
         
-        Scene beachB = new Scene("Beach B\nCharacters in this location:"
-                + "\nMermaid", "B2");
+        Scene beachB = new Scene();
         scene[SceneType.beachB.ordinal()] = beachB;
         
-        Scene beachC = new Scene("Beach C\nCharacters in this location:"
-                + "\nSmee", "B3");
+        Scene beachC = new Scene();
         scene[SceneType.beachC.ordinal()] = beachC;
         
-        Scene beachD = new Scene("Beach D\nCharacters in this location:"
-                + "\n/Hook", "B4");
+        Scene beachD = new Scene();
         scene[SceneType.beachD.ordinal()] = beachD;
         
-        Scene beachE = new Scene("Beach E\nCharacters in this location:"
-                + "\nWater Fairy", "B5");
+        Scene beachE = new Scene();
         scene[SceneType.beachE.ordinal()] = beachE;
         
         //desert (16-20)
-        Scene desertA = new Scene("Desert A\nCharacters in this location:"
-                + "\nSandman", "D1");
+        Scene desertA = new Scene();
         scene[SceneType.desertA.ordinal()] = desertA;
         
-        Scene desertB = new Scene("Desert B\nCharacters in this location:"
-                + "\nJohn", "D2");
+        Scene desertB = new Scene();
         scene[SceneType.desertB.ordinal()] = desertB;
         
-        Scene desertC = new Scene("Desert C\nCharacters in this location:"
-                + "\nMicheal", "D3");
+        Scene desertC = new Scene();
         scene[SceneType.desertC.ordinal()] = desertC;
         
-        Scene desertD = new Scene("Desert D\nCharacters in this location:"
-                + "\nThomas", "D4");
+        Scene desertD = new Scene();
         scene[SceneType.desertD.ordinal()] = desertD;
         
-        Scene desertE = new Scene("Desert E\nCharacters in this location:"
-                + "\nPrentiss", "D5");
+        Scene desertE = new Scene();
         scene[SceneType.desertE.ordinal()] = desertE;
         
         //mountains (21-25)
-        Scene mountainsA = new Scene("Mountains A\nCharacters in this location:"
-                + "\nTwins", "M1");
+        Scene mountainsA = new Scene();
         scene[SceneType.mountainsA.ordinal()] = mountainsA;
         
-        Scene mountainsB = new Scene("Mountains B\nCharacters in this location:"
-                + "\nPockets", "M2");
+        Scene mountainsB = new Scene();
         scene[SceneType.mountainsB.ordinal()] = mountainsB;
         
-        Scene mountainsC = new Scene("Mountains C\nCharacters in this location:"
-                + "\nAce", "M3");
+        Scene mountainsC = new Scene();
         scene[SceneType.mountainsC.ordinal()] = mountainsC;
         
-        Scene mountainsD = new Scene("Mountains D\nCharacters in this location:"
-                + "\nThudbutt", "M4");
+        Scene mountainsD = new Scene();
         scene[SceneType.mountainsD.ordinal()] = mountainsD;
         
-        Scene finish = new Scene("Finish\nCharacters in this location:"
-                + "\nDragon", "M5");
+        Scene finish = new Scene();
         scene[SceneType.finish.ordinal()] = finish;
         
         return scene; 
