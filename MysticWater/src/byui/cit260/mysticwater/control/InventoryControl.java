@@ -5,6 +5,7 @@
  */
 package byui.cit260.mysticwater.control;
 
+import byui.cit260.mysticwater.exceptions.InventoryControlException;
 import byui.cit260.mysticwater.model.Player;
 import byui.cit260.mysticwater.view.ErrorView;
 import mysticwater.MysticWater;
@@ -18,7 +19,7 @@ public class InventoryControl {
     public static void exit(Player player) {
     }
 
-    public static void useItem(int itemToUse) {
+    public static void useItem(int itemToUse) throws InventoryControlException {
         InventoryControl.removeItem(itemToUse);
     }
 

@@ -7,6 +7,7 @@ package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
 import byui.cit260.mysticwater.control.InventoryControl;
+import byui.cit260.mysticwater.exceptions.InventoryControlException;
 import byui.cit260.mysticwater.model.InventoryItem;
 
 /**
@@ -47,76 +48,76 @@ public class InventoryView extends View {
         
          switch (selection) {
             case "15":
-                this.buyRope();
+                this.useRope();
                 break;
             case "9":
-                this.buyJetpack();
+                this.useJetpack();
                 break;
             case "1":
-                this.buyAxe();
+                this.useAxe();
                 break;
             case "22":
-                this.buyUmbrella();
+                this.useUmbrella();
                 break;
             case "11":
-                this.buyPixieDust();
+                this.usePixieDust();
                 break;
             case "24":
-                this.buyWrench();
+                this.useWrench();
                 break;
             case "5":
-                this.buyFlyingShoes();
+                this.useFlyingShoes();
                 break;
             case "10":
-                this.buyLadder();
+                this.useLadder();
                 break;
             case "12":
-                this.buyPole();
+                this.usePole();
                 break;
             case "21":
-                this.buySword();
+                this.useSword();
                 break;
             case "3":
-                this.buyCandy();
+                this.useCandy();
                 break;
             case "19":
-                this.buySpork();
+                this.useSpork();
                 break;
             case "17":
-                this.buyShovel();
+                this.useShovel();
                 break;
             case "16":
-                this.buyRubberChicken();
+                this.useRubberChicken();
                 break;
             case "14":
-                this.buyPulley();
+                this.usePulley();
                 break;
             case "18":
-                this.buySkateboard();
+                this.useSkateboard();
                 break;
             case "20":
-                this.buySurfboard();
+                this.useSurfboard();
                 break;
             case "23":
-                this.buyWaffles();
+                this.useWaffles();
                 break;
             case "2":
-                this.buyCalculator();
+                this.useCalculator();
                 break;
             case "6":
-                this.buyHolyGrail();
+                this.useHolyGrail();
                 break;
             case "8":
-                this.buyJackHammer();
+                this.useJackHammer();
                 break;
             case "4":
-                this.buyCompass();
+                this.useCompass();
                 break;
             case "13":
-                this.buyPot();
+                this.usePot();
                 break;
             case "7":
-                this.buyHunkOfMeat();
+                this.useHunkOfMeat();
                 break;
             case "R":
                 this.inventoryReport();
@@ -130,122 +131,245 @@ public class InventoryView extends View {
         return false;
     }
 
-    private void buyRope() {    
+    private void useRope() {    
+        try{
                 this.console.println("Rope was used.");
                 InventoryControl.useItem(InventoryItem.Item.rope.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display("Inventory View", "\nYou must enter a valid menu option.");
+        }
     }
+        
 
-    private void buyUmbrella() {
+    private void useUmbrella() {
+        try{
                 this.console.println("Umbrella was used.");
                 InventoryControl.useItem(InventoryItem.Item.umbrella.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyPixieDust() {
+    private void usePixieDust() {
+        try{
                 this.console.println("Pixie Dust was used.");
                 InventoryControl.useItem(InventoryItem.Item.pixieDust.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
-
-    private void buyAxe() {
+    
+    private void useAxe() {
+        try{
                 this.console.println("Axe was used.");
                 InventoryControl.useItem(InventoryItem.Item.axe.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyWrench() {
+    private void useWrench() {
+        try{
                 this.console.println("Wrench was used.");
                 InventoryControl.useItem(InventoryItem.Item.wrench.ordinal());
+            }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyFlyingShoes() {
-                this.console.println("FlyngShoes were used.");
-                InventoryControl.useItem(InventoryItem.Item.flyingShoes.ordinal());    }
+    private void useFlyingShoes() {
+        try{
+                this.console.println("FlyingShoes were used.");
+                InventoryControl.useItem(InventoryItem.Item.flyingShoes.ordinal());    
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
+    }
 
-    private void buyLadder() {
+    private void useLadder() {
+        try{
                 this.console.println("Ladder was used.");
                 InventoryControl.useItem(InventoryItem.Item.ladder.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyPole() {
+    private void usePole() {
+        try{
                 this.console.println("Pole was used.");
                 InventoryControl.useItem(InventoryItem.Item.pole.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buySword() {
+    private void useSword() {
+        try{
                 this.console.println("Sword was used.");
                 InventoryControl.useItem(InventoryItem.Item.sword.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyCandy() {
+    private void useCandy() {
+        try{
                 this.console.println("Candy was used.");
                 InventoryControl.useItem(InventoryItem.Item.candy.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buySpork() {
+    private void useSpork() {
+        try{
                 this.console.println("Spork was used.");
                 InventoryControl.useItem(InventoryItem.Item.spork.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyShovel() {
+    private void useShovel() {
+        try{
                 this.console.println("Shovel was used.");
-                InventoryControl.useItem(InventoryItem.Item.shovel.ordinal());    }
+                InventoryControl.useItem(InventoryItem.Item.shovel.ordinal());   
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
+    }
 
-    private void buyRubberChicken() {
+    private void useRubberChicken() {
+        try{
                 this.console.println("Rubber Chicken was used.");
                 InventoryControl.useItem(InventoryItem.Item.rubberChicken.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyPulley() {
+    private void usePulley() {
+        try{
                 this.console.println("Pulley was used.");
                 InventoryControl.useItem(InventoryItem.Item.pulley.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buySkateboard() {
+    private void useSkateboard() {
+        try{
                 this.console.println("Skateboard was used.");
                 InventoryControl.useItem(InventoryItem.Item.skateboard.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buySurfboard() {
+    private void useSurfboard() {
+        try{
                 this.console.println("Surfboard was used.");
                 InventoryControl.useItem(InventoryItem.Item.surfboard.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyWaffles() {
+    private void useWaffles() {
+        try{
                 this.console.println("Waffles was used.");
                 InventoryControl.useItem(InventoryItem.Item.waffles.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyCalculator() {
+    private void useCalculator() {
+        try{
                 this.console.println("Calculator was used.");
                 InventoryControl.useItem(InventoryItem.Item.calculator.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyHolyGrail() {
+    private void useHolyGrail() {
+        try{
                 this.console.println("Holy Grail was used.");
                 InventoryControl.useItem(InventoryItem.Item.holyGrail.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyJackHammer() {
+    private void useJackHammer() {
+        try{
                 this.console.println("Jack Hammer was used.");
                 InventoryControl.useItem(InventoryItem.Item.jackHammer.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyCompass() {
+    private void useCompass() {
+        try{
                 this.console.println("Compass was used.");
                 InventoryControl.useItem(InventoryItem.Item.compass.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyPot() {
+    private void usePot() {
+        try{
                 this.console.println("Pot was used.");
                 InventoryControl.useItem(InventoryItem.Item.pot.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
-    private void buyHunkOfMeat() {
+    private void useHunkOfMeat() {
+        try{
                 this.console.println("Hunk of Meat was used.");
                 InventoryControl.useItem(InventoryItem.Item.hunkOfMeat.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
   
-    private void buyJetpack() {
+    private void useJetpack() {
+        try{
                 this.console.println("Jetpack was used.");
-                InventoryControl.useItem(InventoryItem.Item.jetpack.ordinal());    
+                InventoryControl.useItem(InventoryItem.Item.jetpack.ordinal());
+        }
+        catch (Exception ex){
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid menu option.");
+        }
     }
 
     private void inventoryReport() {
