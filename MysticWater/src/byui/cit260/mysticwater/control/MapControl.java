@@ -83,7 +83,7 @@ public class MapControl {
         //forest (1-5)
         Scene start = new Scene("               Forest A\n"
                 + "----------------------------------------------"
-                + "\nTinkerbell: Hello " + MysticWater.getCurrentGame().getName()
+                + "\nTinkerbell: Hello " + MysticWater.getCurrentGame().getPlayer().getName()
                 + "! To move forward "
                 + "\nin your joueney you must prove your knowledge. "
                 + "\nAnswer this puzzle as many times as you like "
