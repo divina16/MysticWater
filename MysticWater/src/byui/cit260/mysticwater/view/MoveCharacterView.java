@@ -5,11 +5,10 @@
  */
 package byui.cit260.mysticwater.view;
 
-import byui.cit260.mysticwater.control.MoveCharacterControl;
-import static byui.cit260.mysticwater.control.MoveCharacterControl.moveCharacter;
-import byui.cit260.mysticwater.exceptions.MoveCharacterException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import byui.cit260.mysticwater.control.MapControl;
+import byui.cit260.mysticwater.exceptions.MapControlException;
+import byui.cit260.mysticwater.model.Player;
+import mysticwater.MysticWater;
 
 /**
  *
@@ -31,7 +30,8 @@ public class MoveCharacterView extends View {
        int selection = 0;
         
         do {
-            this.console.println("Please enter the column number you want to move to:");
+            this.console.println("\nPlease enter number of spaces you want to move forward:"
+                    + "...or press E to exit");
                     
             String input = this.getInput();
         try {
@@ -48,31 +48,35 @@ public class MoveCharacterView extends View {
      @Override
      public String getInput() {
         boolean valid = false;
-        String selection = null;
+       String menuRequest = null;
+    
+    try {
+       while (!valid) {
            
-        try {
-            
-           while (!valid) {
+           menuRequest = keyboard.readLine();
+           menuRequest = menuRequest.trim();
            
-           selection = keyboard.readLine();
-           selection = selection.trim();
-           
-           if (selection.length() < 1) {
-               ErrorView.display(this.getClass().getName(), "You must enter a valid column.");
+           if (menuRequest.length() == 0) {
+               ErrorView.display(this.getClass().getName(), "Invalid input - the value must not be blank");
                continue;
            }
            break;
-        }
-        } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
-        }
-       return selection;
+       }
+    } catch (Exception e) {
+        ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
+    }
+       return menuRequest;
     }
      
     @Override
-    public boolean doAction(Object obj) {
-            MoveCharacterControl.moveCharacter();
-            return true;
+    public boolean doAction(Object selection) {
+        //if location has a puzzle, player must solve puzzle first
+        //if puzzle is solved correctly, 
+        //player enters number of spaces to move forward
+        //get current column of current player location
+        int currentColumn = MysticWater.getPlayer().getLocation().getColumn();
+        //print new scene description
+        return true;
     }       
 }
 

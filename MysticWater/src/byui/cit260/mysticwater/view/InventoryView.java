@@ -7,8 +7,8 @@ package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
 import byui.cit260.mysticwater.control.InventoryControl;
-import byui.cit260.mysticwater.exceptions.InventoryControlException;
 import byui.cit260.mysticwater.model.InventoryItem;
+import mysticwater.MysticWater;
 
 /**
  *
@@ -33,7 +33,10 @@ public class InventoryView extends View {
         for (InventoryItem nextInventoryItem : inventory) {
             menu += "\n" + String.format("%-2d", counter++) + " " + String.format("%-20s", nextInventoryItem.getDescription()) + " | " + "Success Rate - " + String.format("%-5.2f", nextInventoryItem.getSuccessRate()) + " | Quanity " + nextInventoryItem.getQuantity();   
         }
-        menu += "\nR - Print Inventory Report"
+        menu += "\n--------"
+              + "\nMoney = " + MysticWater.getPlayer().getMoney()
+              + "\n--------"
+                + "\nR - Print Inventory Report"
                 + "\nE - Exit Inventory"
             + "\n============================================";
         

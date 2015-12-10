@@ -9,6 +9,7 @@ import byui.cit260.mysticwater.exceptions.MapControlException;
 import byui.cit260.mysticwater.model.Game;
 import byui.cit260.mysticwater.model.Location;
 import byui.cit260.mysticwater.model.Map;
+import byui.cit260.mysticwater.model.Player;
 import byui.cit260.mysticwater.model.Scene;
 import byui.cit260.mysticwater.model.Scene.SceneType;
 import mysticwater.MysticWater;
@@ -38,36 +39,72 @@ public class MapControl {
         
         Location[][] locations = map.getLocations();
         
+        //forest locations
         locations[0][0].setScene(scene[SceneType.start.ordinal()]);
-        MysticWater.getPlayer().setLocation(locations[0][0]);
+        locations[0][0].setVisited(true);
+        MysticWater.getPlayer().setLocation(locations[0][0]); //set player to start location
+        locations[0][0].setPuzzle(true);
         locations[0][1].setScene(scene[SceneType.forestB.ordinal()]);
+        locations[0][1].setVisited(false);
+        locations[0][1].setPuzzle(false);
+        locations[0][1].setActorNeedsItem(true);
         locations[0][2].setScene(scene[SceneType.forestC.ordinal()]);
+        locations[0][2].setVisited(false);
+        locations[0][2].setPuzzle(false);
+        locations[0][2].setActorNeedsItem(true);
         locations[0][3].setScene(scene[SceneType.forestD.ordinal()]);
+        locations[0][3].setVisited(false);
         locations[0][4].setScene(scene[SceneType.forestE.ordinal()]);
+        locations[0][4].setVisited(false);
         
+        //cave locations
         locations[1][0].setScene(scene[SceneType.caveA.ordinal()]);
+        locations[1][0].setVisited(false);
         locations[1][1].setScene(scene[SceneType.caveB.ordinal()]);
+        locations[1][1].setVisited(false);
         locations[1][2].setScene(scene[SceneType.caveC.ordinal()]);
+        locations[1][2].setVisited(false);
         locations[1][3].setScene(scene[SceneType.caveD.ordinal()]);
+        locations[1][3].setVisited(false);
         locations[1][4].setScene(scene[SceneType.caveE.ordinal()]);
+        locations[1][4].setVisited(false);
         
+        //beach locations
         locations[2][0].setScene(scene[SceneType.beachA.ordinal()]);
+        locations[2][0].setVisited(false);
         locations[2][1].setScene(scene[SceneType.beachB.ordinal()]);
+        locations[2][1].setVisited(false);
         locations[2][2].setScene(scene[SceneType.beachC.ordinal()]);
+        locations[2][2].setVisited(false);
         locations[2][3].setScene(scene[SceneType.beachD.ordinal()]);
+        locations[2][3].setVisited(false);
         locations[2][4].setScene(scene[SceneType.beachE.ordinal()]);
+        locations[2][4].setVisited(false);
         
+        //desert locations
         locations[3][0].setScene(scene[SceneType.desertA.ordinal()]);
+        locations[3][0].setVisited(false);
         locations[3][1].setScene(scene[SceneType.desertB.ordinal()]);
+        locations[3][1].setVisited(false);
         locations[3][2].setScene(scene[SceneType.desertC.ordinal()]);
+        locations[3][2].setVisited(false);
         locations[3][3].setScene(scene[SceneType.desertD.ordinal()]);
+        locations[3][3].setVisited(false);
         locations[3][4].setScene(scene[SceneType.desertE.ordinal()]);
+        locations[3][4].setVisited(false);
         
+        //mountain locations
         locations[4][0].setScene(scene[SceneType.mountainsA.ordinal()]);
+        locations[4][0].setVisited(false);
         locations[4][1].setScene(scene[SceneType.mountainsB.ordinal()]);
+        locations[4][1].setVisited(false);
         locations[4][2].setScene(scene[SceneType.mountainsC.ordinal()]);
+        locations[4][2].setVisited(false);
         locations[4][3].setScene(scene[SceneType.mountainsD.ordinal()]);
+        locations[4][3].setVisited(false);
         locations[4][4].setScene(scene[SceneType.finish.ordinal()]);
+        locations[4][4].setVisited(false);
+        locations[4][4].setFinalPuzzle(true);
         
         map.setLocations(locations);
     }
@@ -82,95 +119,136 @@ public class MapControl {
     }
         
         //forest (1-5)
-        Scene start = new Scene();
-        start.setDescription("               Forest A\n"
+        Scene start = new Scene("\n\nForest A\n"
                 + "----------------------------------------------"
                 + "\nTinkerbell: Hello " + MysticWater.getCurrentGame().getPlayer().getName()
                 + "! To move forward "
                 + "\nin your joueney you must prove your knowledge. "
                 + "\nAnswer this puzzle as many times as you like "
-                + "\nand recieve a reward for a correct answer.");
-        start.setMapSymbol("F1");
+                + "\nand recieve a reward for a correct answer.", "F1");
         scene[SceneType.start.ordinal()] = start;
         
-        Scene forestB = new Scene();
-        start.setDescription("");
-        start.setMapSymbol("F2");
+        Scene forestB = new Scene("Forest B\n"
+                + "\nNibs: " + MysticWater.getCurrentGame().getName() 
+                + "! There is a fallen tree in your path. You need an "
+                + "Item to chop the fallen tree. Go to the shop to "
+                + "buy items.", "F2");
         scene[SceneType.forestB.ordinal()] = forestB;
         
-        Scene forestC = new Scene();
+        Scene forestC = new Scene("Forest C\n"
+                + "\nSiren: " + MysticWater.getCurrentGame().getName() + "! UP HERE! HELP ME! "
+                + "I am stuck in a tree! You need an item to help me "
+                + "get down! ", "F3");
         scene[SceneType.forestC.ordinal()] = forestC;
         
-        Scene forestD = new Scene();
+        Scene forestD = new Scene("Forest D\nCharacters in this location:"
+                + "\nTootles", "F4");
         scene[SceneType.forestD.ordinal()] = forestD;
         
-        Scene forestE = new Scene();
+        Scene forestE = new Scene("Forest E\nCharacters in this location:"
+                + "\nForest Fairy", "F5");
         scene[SceneType.forestE.ordinal()] = forestE;
         
         //cave (6-10)
-        Scene caveA = new Scene();
+        Scene caveA = new Scene("Cave A\nCharacters in this location:"
+                + "\nGolem", "C1");
         scene[SceneType.caveA.ordinal()] = caveA;
         
-        Scene caveB = new Scene();
+        Scene caveB = new Scene("Cave B\nCharacters in this location:"
+                + "\nSlightly", "C2");
         scene[SceneType.caveB.ordinal()] = caveB;
         
-        Scene caveC = new Scene();
+        Scene caveC = new Scene("Cave C\nCharacters in this location:"
+                + "\nCurly", "C3");
         scene[SceneType.caveC.ordinal()] = caveC;
         
-        Scene caveD = new Scene();
+        Scene caveD = new Scene("Cave D\nCharacters in this location:"
+                + "\nPeter Pan", "C4");
         scene[SceneType.caveD.ordinal()] = caveD;
         
-        Scene caveE = new Scene();
+        Scene caveE = new Scene("Cave E\nCharacters in this location:"
+                + "\nCave Fairy", "C5");
         scene[SceneType.caveE.ordinal()] = caveE;
         
         //beach (11-15)
-        Scene beachA = new Scene();
+        Scene beachA = new Scene("Beach A\nCharacters in this location:"
+                + "\nWendy", "B1");
         scene[SceneType.beachA.ordinal()] = beachA;
         
-        Scene beachB = new Scene();
+        Scene beachB = new Scene("Beach B\nCharacters in this location:"
+                + "\nMermaid", "B2");
         scene[SceneType.beachB.ordinal()] = beachB;
         
-        Scene beachC = new Scene();
+        Scene beachC = new Scene("Beach C\nCharacters in this location:"
+                + "\nSmee", "B3");
         scene[SceneType.beachC.ordinal()] = beachC;
         
-        Scene beachD = new Scene();
+        Scene beachD = new Scene("Beach D\nCharacters in this location:"
+                + "\n/Hook", "B4");
         scene[SceneType.beachD.ordinal()] = beachD;
         
-        Scene beachE = new Scene();
+        Scene beachE = new Scene("Beach E\nCharacters in this location:"
+                + "\nWater Fairy", "B5");
         scene[SceneType.beachE.ordinal()] = beachE;
         
         //desert (16-20)
-        Scene desertA = new Scene();
+        Scene desertA = new Scene("Desert A\nCharacters in this location:"
+                + "\nSandman", "D1");
         scene[SceneType.desertA.ordinal()] = desertA;
         
-        Scene desertB = new Scene();
+        Scene desertB = new Scene("Desert B\nCharacters in this location:"
+                + "\nJohn", "D2");
         scene[SceneType.desertB.ordinal()] = desertB;
         
-        Scene desertC = new Scene();
+        Scene desertC = new Scene("Desert C\nCharacters in this location:"
+                + "\nMicheal", "D3");
         scene[SceneType.desertC.ordinal()] = desertC;
         
-        Scene desertD = new Scene();
+        Scene desertD = new Scene("Desert D\nCharacters in this location:"
+                + "\nThomas", "D4");
         scene[SceneType.desertD.ordinal()] = desertD;
         
-        Scene desertE = new Scene();
+        Scene desertE = new Scene("Desert E\nCharacters in this location:"
+                + "\nPrentiss", "D5");
         scene[SceneType.desertE.ordinal()] = desertE;
         
         //mountains (21-25)
-        Scene mountainsA = new Scene();
+        Scene mountainsA = new Scene("Mountains A\nCharacters in this location:"
+                + "\nTwins", "M1");
         scene[SceneType.mountainsA.ordinal()] = mountainsA;
         
-        Scene mountainsB = new Scene();
+        Scene mountainsB = new Scene("Mountains B\nCharacters in this location:"
+                + "\nPockets", "M2");
         scene[SceneType.mountainsB.ordinal()] = mountainsB;
         
-        Scene mountainsC = new Scene();
+        Scene mountainsC = new Scene("Mountains C\nCharacters in this location:"
+                + "\nAce", "M3");
         scene[SceneType.mountainsC.ordinal()] = mountainsC;
         
-        Scene mountainsD = new Scene();
+        Scene mountainsD = new Scene("Mountains D\nCharacters in this location:"
+                + "\nThudbutt", "M4");
         scene[SceneType.mountainsD.ordinal()] = mountainsD;
         
-        Scene finish = new Scene();
+        Scene finish = new Scene("Finish\nCharacters in this location:"
+                + "\nDragon", "M5");
         scene[SceneType.finish.ordinal()] = finish;
         
-        return scene; 
-    } 
+        return scene;
+    }
+    
+    public static void moveCharacter(int column, Player player) throws MapControlException {
+        
+        if (player == null) {
+            throw new MapControlException("No player was passed.");
+        }
+        if (column + player.getLocation().getColumn() > 5 || column + player.getLocation().getColumn() < 1) {
+            throw new MapControlException("Column selected exceeds boundary.");
+        } 
+        //add player column to input
+        int newColumn = column + player.getLocation().getColumn();
+        int playerRow = player.getLocation().getRow();
+//        MysticWater.getCurrentGame().getMap().getLocations() [playerRow][newColumn];
+        //get new location from map
+        //set new location to player
+}
 }

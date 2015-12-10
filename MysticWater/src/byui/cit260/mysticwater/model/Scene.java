@@ -44,9 +44,9 @@ public enum SceneType {
     private String description;
     private String mapSymbol;
 
-    public Scene() {
-//        this.description = description;
-//        this.mapSymbol = mapSymbol;
+    public Scene(String description, String mapSymbol) {
+        this.description = description;
+        this.mapSymbol = mapSymbol;
     }
 
     public String getDescription() {

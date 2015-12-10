@@ -20,7 +20,12 @@ public class InventoryControl {
     }
 
     public static void useItem(int itemToUse) throws InventoryControlException {
-        InventoryControl.removeItem(itemToUse);
+        boolean actorNeedsItem = MysticWater.getPlayer().getLocation().isActorNeedsItem();
+        if (actorNeedsItem == true) {
+            InventoryControl.removeItem(itemToUse);
+        } else {
+            ErrorView.display("InventoryControl", "There is no need to use an item here.");
+        }      
     }
 
     public static void addItem(int itemToAdd) {
@@ -32,9 +37,11 @@ public class InventoryControl {
         
         if (MysticWater.getCurrentGame().getInventory()[itemToUse].getQuantity() < 1) {
             ErrorView.display("InventoryControl", "\nInvalid input: You do not currently have any of that item. Please make a another selection.");
-        }    
+        } else {  
         int currentQuantity = MysticWater.getCurrentGame().getInventory()[itemToUse].getQuantity();
         MysticWater.getCurrentGame().getInventory()[itemToUse].setQuantity(currentQuantity - 1);
+        MysticWater.getPlayer().getLocation().setActorNeedsItem(false);
+        }
     }
 }
 

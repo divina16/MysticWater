@@ -14,10 +14,46 @@ import java.util.Objects;
  */
 public class Location implements Serializable{
     
-    private float row;
-    private float column;
+    private int row;
+    private int column;
     private boolean visited;
     private Scene scene;
+    private boolean puzzle;
+    private boolean distancePuzzle;
+    private boolean finalPuzzle;
+    private boolean actorNeedsItem;
+
+    public boolean isDistancePuzzle() {
+        return distancePuzzle;
+    }
+
+    public void setDistancePuzzle(boolean distancePuzzle) {
+        this.distancePuzzle = distancePuzzle;
+    }
+
+    public boolean isFinalPuzzle() {
+        return finalPuzzle;
+    }
+
+    public void setFinalPuzzle(boolean finalPuzzle) {
+        this.finalPuzzle = finalPuzzle;
+    }
+
+    public boolean isActorNeedsItem() {
+        return actorNeedsItem;
+    }
+
+    public void setActorNeedsItem(boolean actorNeedsItem) {
+        this.actorNeedsItem = actorNeedsItem;
+    }
+
+    public boolean isPuzzle() {
+        return puzzle;
+    }
+
+    public void setPuzzle(boolean puzzle) {
+        this.puzzle = puzzle;
+    }
 
     public Scene getScene() {
         return scene;
@@ -30,19 +66,19 @@ public class Location implements Serializable{
     public Location() {
     }
 
-    public float getRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(float row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public float getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(float column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 

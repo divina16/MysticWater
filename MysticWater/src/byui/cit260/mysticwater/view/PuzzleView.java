@@ -7,6 +7,8 @@ package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.PuzzleControl;
 import byui.cit260.mysticwater.exceptions.PuzzleException;
+import static byui.cit260.mysticwater.view.GameMenuView.gameMenu;
+import static byui.cit260.mysticwater.view.MoveCharacterView.move;
 import mysticwater.MysticWater;
 
 /**
@@ -29,8 +31,8 @@ public class PuzzleView extends View{
         randomValues = PuzzleControl.getRandomValues();
         do {
             this.console.println("Solve the equation. Round your answer down to the nearest integer. Please input your answer:"
-                    + "\n\n" + randomValues[0] + " + " + randomValues[1] + " + " + randomValues[2] + " + " + randomValues[3] + " + " + randomValues[4] + " + "
-              + "/ 7 = ? ");
+                    + "\n\n" + randomValues[0] + " + " + randomValues[1] + " + " + randomValues[2] + " + " + randomValues[3] + " + " + randomValues[4] +
+              " / 7 = ? ");
             
             String input = this.getInput();
         try {
@@ -78,13 +80,17 @@ public class PuzzleView extends View{
         }
         
         if (result == 1){
-            this.console.println("Correct!");
-            GameMenuView.gameMenu.displayView();
+            int currentMoney = MysticWater.getPlayer().getMoney();
+            currentMoney += 100;
+            MysticWater.getPlayer().setMoney(currentMoney);
+            this.console.println("Correct! You can now move to a new location!");
+//            move.displayView();
+          gameMenu.displayView();
             return true;
         }
         else{
-            this.console.println("Incorrect. Please try again.");
-            GameMenuView.gameMenu.displayView();
+            this.console.println("Incorrect. Please try again. You must solve the puzzle before you can move to a new location.");
+            gameMenu.displayView();
         }
         return false;
     }

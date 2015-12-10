@@ -6,7 +6,7 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
-import byui.cit260.mysticwater.control.MoveCharacterControl;
+import byui.cit260.mysticwater.model.Location;
 import static byui.cit260.mysticwater.view.DistancePuzzleView.distancePuzzle;
 import static byui.cit260.mysticwater.view.FinalPuzzleView.finalPuzzle;
 import static byui.cit260.mysticwater.view.InventoryView.inventory;
@@ -99,14 +99,23 @@ public class GameMenuView extends View {
     }
 
     private void moveCharacter() {
-        try { 
-            MoveCharacterControl.moveCharacter();
+        try {
+            this.console.println("\n------------------");
+            this.console.println("Current Location");
+            this.console.println("------------------");
+            this.console.println(MysticWater.getPlayer().getLocation().getScene());
+            boolean isPuzzleScene = MysticWater.getPlayer().getLocation().isPuzzle();
+        
+        if (isPuzzleScene = true) {
+            PuzzleView.nPuzzle = new PuzzleView();
+            nPuzzle.displayView();
+        } else {
+            MoveCharacterView.move = new MoveCharacterView();
+            move.displayView();
+        }
         } catch (Exception ex) {
             ErrorView.display("GameMenuView", ex.getMessage());
-        }
-        
-        MoveCharacterView.move = new MoveCharacterView();
-        move.displayView();
+        }   
     }
 
     private void viewShop() {

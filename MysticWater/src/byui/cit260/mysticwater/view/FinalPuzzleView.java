@@ -7,6 +7,8 @@ package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.FinalPuzzleControl;
 import byui.cit260.mysticwater.exceptions.FinalPuzzleException;
+import static byui.cit260.mysticwater.view.GameMenuView.gameMenu;
+import static byui.cit260.mysticwater.view.MoveCharacterView.move;
 
 /**
  *
@@ -87,12 +89,13 @@ public class FinalPuzzleView extends View {
                                     + "\n\nYou will now be returned to the start menu."
                                     + "\nCome back and play again!");
             MainMenuView mainMenu = new MainMenuView();
-            mainMenu.displayView();
+            MoveCharacterView.move = new MoveCharacterView();
+            move.displayView();
             return true;
         }
         else{
-            this.console.println("Incorrect. Please try again.");
-            GameMenuView.gameMenu.displayView();
+            this.console.println("Incorrect. Please try again. You must solve the puzzle before you can move to a new location.");
+            gameMenu.displayView();
         }
         return false;
     }
