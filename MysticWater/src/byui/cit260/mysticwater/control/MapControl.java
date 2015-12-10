@@ -90,109 +90,188 @@ public class MapControl {
                 + "\nand recieve a reward for a correct answer.", "F1");
         scene[SceneType.start.ordinal()] = start;
         
-        Scene forestB = new Scene("Forest B\n"
-                + "\nNibs: " + MysticWater.getCurrentGame().getName() 
-                + "! There is a fallen tree in your path. You need an "
-                + "Item to chop the fallen tree. Go to the shop to "
-                + "buy items.", "F2");
+        Scene forestB = new Scene("             Forest B\n"
+                + "----------------------------------------------"
+                + "\nNibs: Hey " + MysticWater.getCurrentGame().getPlayer().getName() 
+                + "! There is a fallen tree "
+                + "\nin your path. You need an "
+                + "nItem to chop the fallen tree. "
+                + "\nGo to the shop to "
+                + "buy items. Axe", "F2");
         scene[SceneType.forestB.ordinal()] = forestB;
         
-        Scene forestC = new Scene("Forest C\n"
-                + "\nSiren: " + MysticWater.getCurrentGame().getName() + "! UP HERE! HELP ME! "
-                + "I am stuck in a tree! You need an item to help me "
-                + "get down! ", "F3");
+        Scene forestC = new Scene("             Forest C\n"
+                + "----------------------------------------------"
+                + "\nSiren: Oh " + MysticWater.getCurrentGame().getPlayer().getName() + "! UP HERE! HELP ME! "
+                + "\nI am stuck in a tree! You need an item to help me "
+                + "\nget down! Ladder ", "F3");
         scene[SceneType.forestC.ordinal()] = forestC;
         
-        Scene forestD = new Scene("Forest D\nCharacters in this location:"
-                + "\nTootles", "F4");
+        Scene forestD = new Scene("             Forest D\n"
+                + "----------------------------------------------"
+                + "\nTootles: Hey" + MysticWater.getCurrentGame().getPlayer().getName() + "! There is a loose nut on this bridge ahead. "
+                + "\nIf you bring me a tool I might be able to fix it. Wrench", "F4");
         scene[SceneType.forestD.ordinal()] = forestD;
         
-        Scene forestE = new Scene("Forest E\nCharacters in this location:"
-                + "\nForest Fairy", "F5");
+        Scene forestE = new Scene("             Forest E\n"
+                + "----------------------------------------------"
+                + "\nForest Fairy:Hello " + MysticWater.getCurrentGame().getPlayer().getName()
+                + "! To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "F5");
         scene[SceneType.forestE.ordinal()] = forestE;
         
         //cave (6-10)
-        Scene caveA = new Scene("Cave A\nCharacters in this location:"
-                + "\nGolem", "C1");
+        Scene caveA = new Scene("               Cave A\n"
+                + "----------------------------------------------"
+                + "\nGolem: EEEEK! You shall not pass! "
+                + "\nonly friends who bring me funny "
+                + "\nthings can pass through this cave. rubberchicken", "C1");
         scene[SceneType.caveA.ordinal()] = caveA;
         
-        Scene caveB = new Scene("Cave B\nCharacters in this location:"
-                + "\nSlightly", "C2");
+        Scene caveB = new Scene("               Cave B\n"
+                + "----------------------------------------------"
+                + "\nSlightly: Oh hey "+ MysticWater.getCurrentGame().getPlayer().getName() + "! I have a yummy carrot but I cannot cook it. "
+                + "\nCan you bring me something I can cook it in? I am STARVING! pot", "C2");
         scene[SceneType.caveB.ordinal()] = caveB;
         
-        Scene caveC = new Scene("Cave C\nCharacters in this location:"
-                + "\nCurly", "C3");
+        Scene caveC = new Scene("               Cave C\n"
+                + "----------------------------------------------"
+                + "\nCurly: I want a snack. Something sweet." + MysticWater.getCurrentGame().getPlayer().getName() + ", Give me something "
+                + "\nsweet or I might just eat YOU!!! MWAUAHAHA just Kidding! "
+                + "\nI do want a snack though. Candy", "C3");
         scene[SceneType.caveC.ordinal()] = caveC;
         
-        Scene caveD = new Scene("Cave D\nCharacters in this location:"
-                + "\nPeter Pan", "C4");
+        Scene caveD = new Scene("               Cave D\n"
+                + "----------------------------------------------"
+                + "\nPeter Pan: " + MysticWater.getCurrentGame().getPlayer().getName() + "! I cannot find Tinkerbell and I can't fly "
+                + "\nbecause I am ut of pixie dust! Can you bring me "
+                + "\nsomething to help me fly again? I am worried about "
+                + "\nTinkerbell! She never leaves me. FlyingShoes, Jetpack ", "C4");
         scene[SceneType.caveD.ordinal()] = caveD;
         
-        Scene caveE = new Scene("Cave E\nCharacters in this location:"
-                + "\nCave Fairy", "C5");
+        Scene caveE = new Scene("               Cave E\n"
+                + "----------------------------------------------"
+                + "\nCave FairyHello " + MysticWater.getCurrentGame().getPlayer().getName()
+                + "! To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "C5");
         scene[SceneType.caveE.ordinal()] = caveE;
         
         //beach (11-15)
-        Scene beachA = new Scene("Beach A\nCharacters in this location:"
-                + "\nWendy", "B1");
+        Scene beachA = new Scene("              Beach A\n"
+                + "----------------------------------------------"
+                + "\nWendy: Oh it's just you " + MysticWater.getCurrentGame().getPlayer().getName() + ". I am trying to fly but I can not remember what I need. "
+                + "\nIt is faith, trust and what? I can't remember! Can you bring "
+                + "\nme the last thing I need to fly? Pixie Dust", "B1");
         scene[SceneType.beachA.ordinal()] = beachA;
         
-        Scene beachB = new Scene("Beach B\nCharacters in this location:"
-                + "\nMermaid", "B2");
+        Scene beachB = new Scene("              Beach B\n"
+                + "----------------------------------------------"
+                + "\nMermaid: I am starving! I haven't caught any fish all day! "
+                + "\n" + MysticWater.getCurrentGame().getPlayer().getName() + ", please bring me something to eat. I am a carnivore by the way... Hunk of Meat", "B2");
         scene[SceneType.beachB.ordinal()] = beachB;
         
-        Scene beachC = new Scene("Beach C\nCharacters in this location:"
-                + "\nSmee", "B3");
+        Scene beachC = new Scene("              Beach C\n"
+                + "----------------------------------------------"
+                + "\nSmee: My boat sank and now I cannot get back to the "
+                + "\npirate ship. Can you help me, " + MysticWater.getCurrentGame().getPlayer().getName() + "? I need something that "
+                + "\ncan float and I can use to swim out to the pirate ship. Surfboard", "B3");
         scene[SceneType.beachC.ordinal()] = beachC;
         
-        Scene beachD = new Scene("Beach D\nCharacters in this location:"
-                + "\n/Hook", "B4");
+        Scene beachD = new Scene("              Beach D\n"
+                + "----------------------------------------------"
+                + "\nHook: Who are you?! " + MysticWater.getCurrentGame().getPlayer().getName() + "... I do not know that name "
+                + "\nand I do not like strangers. Bring me a "
+                + "\npiece of treasure and I won't kill you. HolyGrail", "B4");
         scene[SceneType.beachD.ordinal()] = beachD;
         
-        Scene beachE = new Scene("Beach E\nCharacters in this location:"
-                + "\nWater Fairy", "B5");
+        Scene beachE = new Scene("              Beach E\n"
+                + "----------------------------------------------"
+                + "\nWater Fairy: Hello " + MysticWater.getCurrentGame().getPlayer().getName()
+                + "! To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "B5");
         scene[SceneType.beachE.ordinal()] = beachE;
         
         //desert (16-20)
-        Scene desertA = new Scene("Desert A\nCharacters in this location:"
-                + "\nSandman", "D1");
+        Scene desertA = new Scene("             Desert A\n"
+                + "----------------------------------------------"
+                + "\nSandman: SO MOUCH SAND!! AM I IN HEAVEN! CAN YOU PLEASE! "
+                + "\nBRING ME SOMETHNG THAT I CAN EAT ALL THIS DELICIOUS SAND "
+                + "\nWITH? PLEASE! I AM BEGGING YOU! spork", "D1");
         scene[SceneType.desertA.ordinal()] = desertA;
         
-        Scene desertB = new Scene("Desert B\nCharacters in this location:"
-                + "\nJohn", "D2");
+        Scene desertB = new Scene("             Desert B\n"
+                + "----------------------------------------------"
+                + "\nJohn: HELP! I am stuck in the sand! Can you pull me out " + MysticWater.getCurrentGame().getPlayer().getName() + "? "
+                + "\nGo find something to help pull me out! HURRY! rope ", "D2");
         scene[SceneType.desertB.ordinal()] = desertB;
         
-        Scene desertC = new Scene("Desert C\nCharacters in this location:"
-                + "\nMicheal", "D3");
+        Scene desertC = new Scene("             Desert C\n"
+                + "----------------------------------------------"
+                + "\nMicheal: I buried my favorite geme here but the sand is "
+                + "\ntoo hard to dig with my hands. Can you bring me something "
+                + "\nto help dig it out? Thanks " + MysticWater.getCurrentGame().getPlayer().getName() + "! It means a lot. Shovel", "D3");
         scene[SceneType.desertC.ordinal()] = desertC;
         
-        Scene desertD = new Scene("Desert D\nCharacters in this location:"
-                + "\nThomas", "D4");
+        Scene desertD = new Scene("             Desert D\n"
+                + "----------------------------------------------"
+                + "\nThomas: *stomach growls* Oh no! I forgot to eat breakfast! "
+                + "\nCan you bring me some breakfast? Please " + MysticWater.getCurrentGame().getPlayer().getName() + "! My mom is gonna be so mad. waffles", "D4");
         scene[SceneType.desertD.ordinal()] = desertD;
         
-        Scene desertE = new Scene("Desert E\nCharacters in this location:"
-                + "\nPrentiss", "D5");
+        Scene desertE = new Scene("             Desert E\n"
+                + "----------------------------------------------"
+                + "\nPrentiss: Hello " + MysticWater.getCurrentGame().getPlayer().getName()
+                + "! To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "D5");
         scene[SceneType.desertE.ordinal()] = desertE;
         
         //mountains (21-25)
-        Scene mountainsA = new Scene("Mountains A\nCharacters in this location:"
-                + "\nTwins", "M1");
+        Scene mountainsA = new Scene("              Mountains A\n"
+                + "----------------------------------------------"
+                + "\nTwins: We are lost. " + MysticWater.getCurrentGame().getPlayer().getName() + ", do you know which way is North? We can't "
+                + "\nremember. Do you have something that will help us find our "
+                + "\nway home? Compass", "M1");
         scene[SceneType.mountainsA.ordinal()] = mountainsA;
         
-        Scene mountainsB = new Scene("Mountains B\nCharacters in this location:"
-                + "\nPockets", "M2");
+        Scene mountainsB = new Scene("              Mountains B\n"
+                + "----------------------------------------------"
+                + "\nPockets: You look really smart " + MysticWater.getCurrentGame().getPlayer().getName() + ". I saw you solve all those puzzles. "
+                + "\nI wish I was as smart as you. I can't even do my math homework. "
+                + "\nCan you bring me something to help me with my homework? Calculator", "M2");
         scene[SceneType.mountainsB.ordinal()] = mountainsB;
         
-        Scene mountainsC = new Scene("Mountains C\nCharacters in this location:"
-                + "\nAce", "M3");
+        Scene mountainsC = new Scene("              Mountains C\n"
+                + "----------------------------------------------"
+                + "\nAce: Be careful " + MysticWater.getCurrentGame().getPlayer().getName() + "! There is a moutain lion ahead! Bring me something to "
+                + "\nfight it off and hurry! we don't have much time before it "
+                + "\nsmells us and attacks! Sword", "M3");
         scene[SceneType.mountainsC.ordinal()] = mountainsC;
         
-        Scene mountainsD = new Scene("Mountains D\nCharacters in this location:"
-                + "\nThudbutt", "M4");
+        Scene mountainsD = new Scene("              Mountains D\n"
+                + "----------------------------------------------"
+                + "\nThudbutt: This part of the mountain would be so fun to ride down. "
+                + "\nDUDE! " + MysticWater.getCurrentGame().getPlayer().getName() + "! Bring me something I can ride down this moutain on! It will "
+                + "\nbe so gnarly! Skateboard", "M4");
         scene[SceneType.mountainsD.ordinal()] = mountainsD;
         
-        Scene finish = new Scene("Finish\nCharacters in this location:"
-                + "\nDragon", "M5");
+        Scene finish = new Scene("              Finish\n"
+                + "----------------------------------------------"
+                + "\nDragon: I was expeting you, " + MysticWater.getCurrentGame().getPlayer().getName()
+                + "! I am the guardian of the Mystic Water. "
+                + "\nOnly the wisest and strongest can partake "
+                + "\nof this mystical water. You have proven your "
+                + "\nstrength with how far you have gotten but "
+                + "\nnow you must prove that you are wise enough. "
+                + "\nSolve this final Puzzle and I will give you "
+                + "\na vessel of the Mystic Water.", "M5");
         scene[SceneType.finish.ordinal()] = finish;
         
         return scene; 
