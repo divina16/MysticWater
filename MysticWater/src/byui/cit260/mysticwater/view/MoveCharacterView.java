@@ -70,11 +70,9 @@ public class MoveCharacterView extends View {
      
     @Override
     public boolean doAction(Object selection) {
-        //if location has a puzzle, player must solve puzzle first
-        //if puzzle is solved correctly, 
-        //player enters number of spaces to move forward
         //get current column of current player location
         int currentColumn = MysticWater.getPlayer().getLocation().getColumn();
+        //call mapControl
         //print new scene description
         return true;
     }       

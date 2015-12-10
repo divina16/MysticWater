@@ -54,54 +54,75 @@ public class MapControl {
         locations[0][2].setActorNeedsItem(true);
         locations[0][3].setScene(scene[SceneType.forestD.ordinal()]);
         locations[0][3].setVisited(false);
+        locations[0][3].setActorNeedsItem(true);
         locations[0][4].setScene(scene[SceneType.forestE.ordinal()]);
         locations[0][4].setVisited(false);
+        locations[0][4].setPuzzle(true);
         
         //cave locations
         locations[1][0].setScene(scene[SceneType.caveA.ordinal()]);
         locations[1][0].setVisited(false);
+        locations[1][0].setActorNeedsItem(true);
         locations[1][1].setScene(scene[SceneType.caveB.ordinal()]);
         locations[1][1].setVisited(false);
+        locations[1][1].setActorNeedsItem(true);
         locations[1][2].setScene(scene[SceneType.caveC.ordinal()]);
         locations[1][2].setVisited(false);
+        locations[1][2].setActorNeedsItem(true);
         locations[1][3].setScene(scene[SceneType.caveD.ordinal()]);
         locations[1][3].setVisited(false);
+        locations[1][3].setActorNeedsItem(true);
         locations[1][4].setScene(scene[SceneType.caveE.ordinal()]);
         locations[1][4].setVisited(false);
+        locations[1][4].setPuzzle(true);
         
         //beach locations
         locations[2][0].setScene(scene[SceneType.beachA.ordinal()]);
         locations[2][0].setVisited(false);
+        locations[2][0].setActorNeedsItem(true);
         locations[2][1].setScene(scene[SceneType.beachB.ordinal()]);
         locations[2][1].setVisited(false);
+        locations[2][1].setActorNeedsItem(true);
         locations[2][2].setScene(scene[SceneType.beachC.ordinal()]);
         locations[2][2].setVisited(false);
+        locations[2][2].setActorNeedsItem(true);
         locations[2][3].setScene(scene[SceneType.beachD.ordinal()]);
         locations[2][3].setVisited(false);
+        locations[2][3].setActorNeedsItem(true);
         locations[2][4].setScene(scene[SceneType.beachE.ordinal()]);
         locations[2][4].setVisited(false);
+        locations[2][4].setPuzzle(true);
         
         //desert locations
         locations[3][0].setScene(scene[SceneType.desertA.ordinal()]);
         locations[3][0].setVisited(false);
+        locations[3][0].setActorNeedsItem(true);
         locations[3][1].setScene(scene[SceneType.desertB.ordinal()]);
         locations[3][1].setVisited(false);
+        locations[3][1].setActorNeedsItem(true);
         locations[3][2].setScene(scene[SceneType.desertC.ordinal()]);
         locations[3][2].setVisited(false);
+        locations[3][2].setActorNeedsItem(true);
         locations[3][3].setScene(scene[SceneType.desertD.ordinal()]);
         locations[3][3].setVisited(false);
+        locations[3][3].setActorNeedsItem(true);
         locations[3][4].setScene(scene[SceneType.desertE.ordinal()]);
         locations[3][4].setVisited(false);
+        locations[3][4].setPuzzle(true);
         
         //mountain locations
         locations[4][0].setScene(scene[SceneType.mountainsA.ordinal()]);
         locations[4][0].setVisited(false);
+        locations[4][0].setActorNeedsItem(true);
         locations[4][1].setScene(scene[SceneType.mountainsB.ordinal()]);
         locations[4][1].setVisited(false);
+        locations[4][2].setActorNeedsItem(true);
         locations[4][2].setScene(scene[SceneType.mountainsC.ordinal()]);
         locations[4][2].setVisited(false);
+        locations[4][2].setActorNeedsItem(true);
         locations[4][3].setScene(scene[SceneType.mountainsD.ordinal()]);
         locations[4][3].setVisited(false);
+        locations[4][3].setActorNeedsItem(true);
         locations[4][4].setScene(scene[SceneType.finish.ordinal()]);
         locations[4][4].setVisited(false);
         locations[4][4].setFinalPuzzle(true);

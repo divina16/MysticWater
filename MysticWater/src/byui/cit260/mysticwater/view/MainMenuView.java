@@ -77,7 +77,8 @@ public class MainMenuView extends View {
         String filePath = this.getInput();
         
         try {
-            GameControl.getSavedGame(filePath);   
+            GameControl.getSavedGame(filePath);
+            this.console.println("Game loaded successfully!");
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }

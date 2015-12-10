@@ -130,6 +130,7 @@ public class GameMenuView extends View {
         
         try {
             GameControl.saveGame(MysticWater.getCurrentGame(), filePath);
+            this.console.println("Game saved successfully!");
         } catch (Exception ex) {
             ErrorView.display("GameMenuView", ex.getMessage());
         }
