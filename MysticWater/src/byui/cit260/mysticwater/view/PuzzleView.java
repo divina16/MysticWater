@@ -84,9 +84,9 @@ public class PuzzleView extends View{
             currentMoney += 100;
             MysticWater.getPlayer().setMoney(currentMoney);
             this.console.println("Correct! You can now move to a new location!"
-                    + "You have also gained 100 money!");
-//            move.displayView();
-          gameMenu.displayView();
+                    + "/nYou have also gained 100 money!");
+            MoveCharacterView.move = new MoveCharacterView();
+            move.displayView();
             return true;
         }
         else{

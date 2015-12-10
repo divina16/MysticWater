@@ -31,7 +31,7 @@ public class InventoryView extends View {
         //for every item in the inventory list
         int counter = 1;
         for (InventoryItem nextInventoryItem : inventory) {
-            menu += "\n" + String.format("%-2d", counter++) + " " + String.format("%-20s", nextInventoryItem.getDescription()) + " | " + "Success Rate - " + String.format("%-5.2f", nextInventoryItem.getSuccessRate()) + " | Quanity " + nextInventoryItem.getQuantity();   
+            menu += "\n" + String.format("%-2d", counter++) + " " + String.format("%-20s", nextInventoryItem.getDescription()) + " | Quanity " + nextInventoryItem.getQuantity();   
         }
         menu += "\n--------"
               + "\nMoney = " + MysticWater.getPlayer().getMoney()

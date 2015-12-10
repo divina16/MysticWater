@@ -32,7 +32,7 @@ public class ShopMenuView extends View {
         //for every item in the shop list
         int counter = 1;
         for (InventoryItem nextInventoryItem : inventory) {
-            menu += "\n" + String.format("%-2d", counter++) + " " + String.format("%-20s", nextInventoryItem.getDescription()) + " | " + "Success Rate - " + String.format("%-5.2f", nextInventoryItem.getSuccessRate()) + " | Price " + nextInventoryItem.getPrice();   
+            menu += "\n" + String.format("%-2d", counter++) + " " + String.format("%-20s", nextInventoryItem.getDescription()) + " | Price " + nextInventoryItem.getPrice();   
         }
         
             menu += "\nE - Exit Shop"

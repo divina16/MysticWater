@@ -29,8 +29,18 @@ public class InventoryControl {
     }
 
     public static void addItem(int itemToAdd) {
+        
+       int itemPrice = MysticWater.getCurrentGame().getInventory()[itemToAdd].getPrice();
+       int currentMoney = MysticWater.getPlayer().getMoney();
+       
+       if (currentMoney < itemPrice) {
+           ErrorView.display("InventoryControl", "\nInvalid input: You do not have enough money to purchase this item.");
+       } else {
         int currentQuantity = MysticWater.getCurrentGame().getInventory()[itemToAdd].getQuantity();
         MysticWater.getCurrentGame().getInventory()[itemToAdd].setQuantity(currentQuantity + 1);
+        int newMoneyAmount = currentMoney - itemPrice;
+        MysticWater.getPlayer().setMoney(newMoneyAmount);
+       }
     }
 
     private static void removeItem(int itemToUse) {

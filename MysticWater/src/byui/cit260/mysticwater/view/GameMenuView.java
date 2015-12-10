@@ -6,7 +6,6 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
-import byui.cit260.mysticwater.model.Location;
 import static byui.cit260.mysticwater.view.DistancePuzzleView.distancePuzzle;
 import static byui.cit260.mysticwater.view.FinalPuzzleView.finalPuzzle;
 import static byui.cit260.mysticwater.view.InventoryView.inventory;
@@ -21,7 +20,7 @@ import mysticwater.MysticWater;
  * @author Trent Buckner
  */
 public class GameMenuView extends View {
-    static GameMenuView gameMenu;
+    public static GameMenuView gameMenu;
     
     public GameMenuView() {
     super("\n"
@@ -33,7 +32,6 @@ public class GameMenuView extends View {
             + "\nC - Move Character"
             + "\nG - Go to Shop"
             + "\nS - Save Game"
-            + "\nP - Skip to Puzzle"
             + "\nF - Skip to Final Puzzle"
             + "\nD - Skip to Distance Puzzle (temporary)"
             + "\nL - List of Actors"
@@ -67,9 +65,6 @@ public class GameMenuView extends View {
                 break;
             case "F":
                 this.finalPuzzle();
-                break;
-            case "P":
-                this.puzzle();
                 break;
             case "D":
                 this.distancePuzzle();
@@ -106,11 +101,10 @@ public class GameMenuView extends View {
             this.console.println(MysticWater.getPlayer().getLocation().getScene());
             boolean isPuzzleScene = MysticWater.getPlayer().getLocation().isPuzzle();
         
-        if (isPuzzleScene = true) {
+        if (isPuzzleScene == true) {
             PuzzleView.nPuzzle = new PuzzleView();
             nPuzzle.displayView();
         } else {
-            MoveCharacterView.move = new MoveCharacterView();
             move.displayView();
         }
         } catch (Exception ex) {
@@ -150,10 +144,5 @@ public class GameMenuView extends View {
     private void finalPuzzle() {
         FinalPuzzleView.finalPuzzle = new FinalPuzzleView();
         finalPuzzle.displayView();
-    }
-
-    private void puzzle() {
-        PuzzleView.nPuzzle = new PuzzleView();
-        nPuzzle.displayView();
     }
 }

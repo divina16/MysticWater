@@ -8,6 +8,7 @@ package byui.cit260.mysticwater.view;
 import byui.cit260.mysticwater.control.MapControl;
 import byui.cit260.mysticwater.exceptions.MapControlException;
 import byui.cit260.mysticwater.model.Player;
+import static byui.cit260.mysticwater.view.GameMenuView.gameMenu;
 import mysticwater.MysticWater;
 
 /**
@@ -30,8 +31,7 @@ public class MoveCharacterView extends View {
        int selection = 0;
         
         do {
-            this.console.println("\nPlease enter number of spaces you want to move forward:"
-                    + "...or press E to exit");
+            this.console.println("\nPlease enter number of spaces you want to move forward:");
                     
             String input = this.getInput();
         try {
@@ -71,9 +71,17 @@ public class MoveCharacterView extends View {
     @Override
     public boolean doAction(Object selection) {
         //get current column of current player location
-        int currentColumn = MysticWater.getPlayer().getLocation().getColumn();
         //call mapControl
-        //print new scene description
+        try {
+            int currentColumn = (Integer) selection;
+            Player player = MysticWater.getCurrentGame().getPlayer();
+            MapControl.moveCharacter(currentColumn, player);
+            this.console.println(MysticWater.getPlayer().getLocation());
+            gameMenu.displayView();
+        } catch (MapControlException ex) {
+            ErrorView.display(this.getClass().getName(), "You can't move until you help the character in this location.");
+        }
+        this.console.println(MysticWater.getPlayer().getLocation());
         return true;
     }       
 }

@@ -30,11 +30,11 @@ public class InventoryReportView extends View{
     try (PrintWriter out = new PrintWriter(outputLocation)) {
         
         out.printf("\n\n            Inventory Report            ");
-        out.printf("%n%-20s%10s%10s", "Description", "Success Rate", "Price");
+        out.printf("%n%-20s%10s%10s", "Description", "Quantity", "Price");
         out.printf("%n%-20s%10s%10s", "-----------", "------------", "-----");
         
         for (InventoryItem nextInventoryItem : inventory) {
-            out.printf("%n%-20s%10s%10s", nextInventoryItem.getDescription(), nextInventoryItem.getSuccessRate(), nextInventoryItem.getPrice());   
+            out.printf("%n%-20s%10s%10s", nextInventoryItem.getDescription(), nextInventoryItem.getQuantity(), nextInventoryItem.getPrice());   
         }
     }   catch (IOException ex) {
             ErrorView.display(this.getClass().getName(), "I/O Error: " + ex.getMessage());

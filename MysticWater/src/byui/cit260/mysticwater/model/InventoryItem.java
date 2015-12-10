@@ -43,7 +43,6 @@ public enum Item {
 }
 
 //    private String itemUsed;
-    private double successRate;
     private String description;
     private int quantity;
     private int price;
@@ -64,28 +63,11 @@ public enum Item {
         this.description = description;
     }
     
-    public InventoryItem(double rate) {
-        this.successRate = rate;
-    }
-
-    public double getSuccessRate() {
-        return successRate;
-    }
-
-    public void setSuccessRate(double successRate) {
-        this.successRate = successRate;
-    }
-    
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" + ", successRate=" + successRate + '}';
     }
 }

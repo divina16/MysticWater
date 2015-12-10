@@ -60,168 +60,168 @@ public class GameControl {
         InventoryItem[] inventory = new InventoryItem[Constants.NUMBER_OF_INVENTORY_ITEMS];
         
         //1
-        InventoryItem rope = new InventoryItem(0.25);
+        InventoryItem rope = new InventoryItem();
         rope.setDescription("Rope");
         rope.setQuantity(0);
         rope.setPrice(50);
         inventory[Item.rope.ordinal()] = rope;
         
         //2
-        InventoryItem jetpack = new InventoryItem(0.6);
+        InventoryItem jetpack = new InventoryItem();
         jetpack.setDescription("Jetpack");
         jetpack.setQuantity(0);
         jetpack.setPrice(200);
         inventory[Item.jetpack.ordinal()] = jetpack;
         
         //3
-        InventoryItem axe = new InventoryItem(0.5);
+        InventoryItem axe = new InventoryItem();
         axe.setDescription("Axe");
         axe.setQuantity(0);
         axe.setPrice(30);
         inventory[Item.axe.ordinal()] = axe;
         
         //4
-        InventoryItem umbrella = new InventoryItem(0.2);
+        InventoryItem umbrella = new InventoryItem();
         umbrella.setDescription("Umbrella");
         umbrella.setQuantity(0);
         umbrella.setPrice(30);
         inventory[Item.umbrella.ordinal()] = umbrella;
         
         //5
-        InventoryItem pixieDust = new InventoryItem(0.9);
+        InventoryItem pixieDust = new InventoryItem();
         pixieDust.setDescription("Pixie Dust");
         pixieDust.setQuantity(0);
         pixieDust.setPrice(250);
         inventory[Item.pixieDust.ordinal()] = pixieDust;
         
         //6
-        InventoryItem wrench = new InventoryItem(0.35);
+        InventoryItem wrench = new InventoryItem();
         wrench.setDescription("Wrench");
         wrench.setQuantity(0);
         wrench.setPrice(50);
         inventory[Item.wrench.ordinal()] = wrench;
         
         //7
-        InventoryItem flyingShoes = new InventoryItem(0.75);
+        InventoryItem flyingShoes = new InventoryItem();
         flyingShoes.setDescription("Flying Shoes");
         flyingShoes.setQuantity(0);
         flyingShoes.setPrice(200);
         inventory[Item.flyingShoes.ordinal()] = flyingShoes;
         
         //8
-        InventoryItem ladder = new InventoryItem(0.5);
+        InventoryItem ladder = new InventoryItem();
         ladder.setDescription("Ladder");
         ladder.setQuantity(0);
         ladder.setPrice(80);
         inventory[Item.ladder.ordinal()] = ladder;
         
         //9
-        InventoryItem pole = new InventoryItem(0.5);
+        InventoryItem pole = new InventoryItem();
         pole.setDescription("Pole");
         pole.setQuantity(0);
         pole.setPrice(30);
         inventory[Item.pole.ordinal()] = pole;
         
         //10
-        InventoryItem sword = new InventoryItem(0.5);
+        InventoryItem sword = new InventoryItem();
         sword.setDescription("Sword");
         sword.setQuantity(0);
         sword.setPrice(100);
         inventory[Item.sword.ordinal()] = sword;
         
         //11
-        InventoryItem candy = new InventoryItem(0.8);
+        InventoryItem candy = new InventoryItem();
         candy.setDescription("Candy");
         candy.setQuantity(0);
         candy.setPrice(10);
         inventory[Item.candy.ordinal()] = candy;
         
         //12
-        InventoryItem spork = new InventoryItem(0.4);
+        InventoryItem spork = new InventoryItem();
         spork.setDescription("Spork");
         spork.setQuantity(0);
         spork.setPrice(10);
         inventory[Item.spork.ordinal()] = spork;
         
         //13
-        InventoryItem shovel = new InventoryItem(0.5);
+        InventoryItem shovel = new InventoryItem();
         shovel.setDescription("Shovel");
         shovel.setQuantity(0);
         shovel.setPrice(50);
         inventory[Item.shovel.ordinal()] = shovel;
         
         //14
-        InventoryItem rubberChicken = new InventoryItem(0.3);
+        InventoryItem rubberChicken = new InventoryItem();
         rubberChicken.setDescription("Rubber Chicken");
         rubberChicken.setQuantity(0);
         rubberChicken.setPrice(30);
         inventory[Item.rubberChicken.ordinal()] = rubberChicken;
         
         //15
-        InventoryItem pulley = new InventoryItem(0.4);
+        InventoryItem pulley = new InventoryItem();
         pulley.setDescription("Pulley");
         pulley.setQuantity(0);
         pulley.setPrice(50);
         inventory[Item.pulley.ordinal()] = pulley;
         
         //16
-        InventoryItem skateboard = new InventoryItem(0.65);
+        InventoryItem skateboard = new InventoryItem();
         skateboard.setDescription("Skateboard");
         skateboard.setQuantity(0);
         skateboard.setPrice(75);
         inventory[Item.skateboard.ordinal()] = skateboard;
         
         //17
-        InventoryItem surfboard = new InventoryItem(0.45);
+        InventoryItem surfboard = new InventoryItem();
         surfboard.setDescription("Surfboard");
         surfboard.setQuantity(0);
         surfboard.setPrice(75);
         inventory[Item.surfboard.ordinal()] = surfboard;
         
         //18
-        InventoryItem waffles = new InventoryItem(0.25);
+        InventoryItem waffles = new InventoryItem();
         waffles.setDescription("Waffles");
         waffles.setQuantity(0);
         waffles.setPrice(20);
         inventory[Item.waffles.ordinal()] = waffles;
         
         //19
-        InventoryItem calculator = new InventoryItem(0.45);
+        InventoryItem calculator = new InventoryItem();
         calculator.setDescription("Calculator");
         calculator.setQuantity(0);
         calculator.setPrice(100);
         inventory[Item.calculator.ordinal()] = calculator;
         
         //20
-        InventoryItem holyGrail = new InventoryItem(0.55);
+        InventoryItem holyGrail = new InventoryItem();
         holyGrail.setDescription("Holy Grail");
         holyGrail.setQuantity(0);
         holyGrail.setPrice(250);
         inventory[Item.holyGrail.ordinal()] = holyGrail;
         
         //21
-        InventoryItem jackHammer = new InventoryItem(0.5);
+        InventoryItem jackHammer = new InventoryItem();
         jackHammer.setDescription("Jack Hammer");
         jackHammer.setQuantity(0);
         jackHammer.setPrice(100);
         inventory[Item.jackHammer.ordinal()] = jackHammer;
         
         //22
-        InventoryItem compass = new InventoryItem(0.9);
+        InventoryItem compass = new InventoryItem();
         compass.setDescription("Compass");
         compass.setQuantity(0);
         compass.setPrice(100);
         inventory[Item.compass.ordinal()] = compass;
         
         //23
-        InventoryItem pot = new InventoryItem(0.3);
+        InventoryItem pot = new InventoryItem();
         pot.setDescription("Pot");
         pot.setQuantity(0);
         pot.setPrice(50);
         inventory[Item.pot.ordinal()] = pot;
            
         //24
-        InventoryItem hunkOfMeat = new InventoryItem(0.3);
+        InventoryItem hunkOfMeat = new InventoryItem();
         hunkOfMeat.setDescription("Hunk of Meat");
         hunkOfMeat.setQuantity(0);
         hunkOfMeat.setPrice(40);
