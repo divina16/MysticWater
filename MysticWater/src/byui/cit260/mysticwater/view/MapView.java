@@ -26,11 +26,11 @@ public class MapView extends View {
             + "\n-----------------------------------"
             + "\n|             Map Menu            |"
             + "\n-----------------------------------"
-            + "\nM - Mountains"
             + "\nF - Forest"
-            + "\nD - Desert"
             + "\nC - Caves"
-            + "\nB - Beach";
+            + "\nB - Beach"
+            + "\nD - Desert"
+            + "\nM - Mountains";
              
             Map map = MysticWater.getCurrentGame().getMap();
             
@@ -184,5 +184,13 @@ public class MapView extends View {
                         + "\n     ( A (    "
                         + "\n      \\   \\");
 
+    }
+    
+    public static MapView getInstance() {
+        
+        if (map == null) {
+            map = new MapView();
+        }
+        return map;
     }
 }

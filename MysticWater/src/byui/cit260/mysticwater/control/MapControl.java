@@ -42,7 +42,7 @@ public class MapControl {
         //forest locations
         locations[0][0].setScene(scene[SceneType.start.ordinal()]);
         locations[0][0].setVisited(true);
-        MysticWater.getPlayer().setLocation(locations[0][0]); //set player to start location
+        MysticWater.getCurrentGame().getPlayer().setLocation(locations[0][0]); //set player to start location
         locations[0][0].setPuzzle(true);
         locations[0][1].setScene(scene[SceneType.forestB.ordinal()]);
         locations[0][1].setVisited(false);
@@ -368,8 +368,8 @@ public class MapControl {
         int newColumn = column + player.getLocation().getColumn();
         int playerRow = player.getLocation().getRow();
         MysticWater.getCurrentGame().getMap().getLocations();
-        MysticWater.getPlayer().setLocation(locations[playerRow][newColumn]);
+        MysticWater.getCurrentGame().getPlayer().setLocation(locations[playerRow][newColumn]);
         locations[playerRow][newColumn].setVisited(true);
-        MysticWater.getPlayer().getLocation();
+        MysticWater.getCurrentGame().getPlayer().getLocation();
 }
 }

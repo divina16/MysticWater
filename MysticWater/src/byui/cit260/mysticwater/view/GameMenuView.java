@@ -6,13 +6,6 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
-import static byui.cit260.mysticwater.view.DistancePuzzleView.distancePuzzle;
-import static byui.cit260.mysticwater.view.FinalPuzzleView.finalPuzzle;
-import static byui.cit260.mysticwater.view.InventoryView.inventory;
-import static byui.cit260.mysticwater.view.MapView.map;
-import static byui.cit260.mysticwater.view.ShopMenuView.shop;
-import static byui.cit260.mysticwater.view.MoveCharacterView.move;
-import static byui.cit260.mysticwater.view.PuzzleView.nPuzzle;
 import mysticwater.MysticWater;
 
 /**
@@ -35,7 +28,7 @@ public class GameMenuView extends View {
             + "\nF - Skip to Final Puzzle"
             + "\nD - Skip to Distance Puzzle (temporary)"
             + "\nL - List of Actors"
-            + "\nE - Exit Game"
+            + "\nE - Exit"
             + "\n-----------------------------------");
 }
     
@@ -45,8 +38,7 @@ public class GameMenuView extends View {
         String selection = (String) obj;
         selection = selection.toUpperCase();
         
-        boolean done = false;
-        
+
         switch (selection) {
             case "I":
                 this.viewInventory();
@@ -73,24 +65,20 @@ public class GameMenuView extends View {
                 this.actorReport();
                 break;
             case "E":
-                done = true;
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
-                return false;
-                       
+                return false;              
         }
-        return done;
+        return false;
     }
     
     private void viewInventory() {
-        InventoryView.inventory = new InventoryView();
-        inventory.displayView();
+        InventoryView.getInstance().displayView();
     }
 
     private void viewMap() {
-        MapView.map = new MapView();
-        map.displayView();
+        MapView.getInstance().displayView();
     }
 
     private void moveCharacter() {
@@ -98,14 +86,14 @@ public class GameMenuView extends View {
             this.console.println("\n------------------");
             this.console.println("Current Location");
             this.console.println("------------------");
-            this.console.println(MysticWater.getPlayer().getLocation().getScene());
-            boolean isPuzzleScene = MysticWater.getPlayer().getLocation().isPuzzle();
+            this.console.println(MysticWater.getCurrentGame().getPlayer().getLocation().getScene());
+            boolean isPuzzleScene = MysticWater.getCurrentGame().getPlayer().getLocation().isPuzzle();
         
         if (isPuzzleScene == true) {
-            PuzzleView.nPuzzle = new PuzzleView();
-            nPuzzle.displayView();
+            PuzzleView.getInstance().displayView();
+            MoveCharacterView.getInstance().displayView();
         } else {
-            move.displayView();
+            MoveCharacterView.getInstance().displayView();
         }
         } catch (Exception ex) {
             ErrorView.display("GameMenuView", ex.getMessage());
@@ -113,8 +101,7 @@ public class GameMenuView extends View {
     }
 
     private void viewShop() {
-        ShopMenuView.shop = new ShopMenuView();
-        shop.displayView();
+        ShopMenuView.getInstance().displayView();
     }
 
     private void saveGame() {
@@ -131,8 +118,7 @@ public class GameMenuView extends View {
     }
     
     private void distancePuzzle() {
-        DistancePuzzleView.distancePuzzle = new DistancePuzzleView();
-        distancePuzzle.displayView();
+        PuzzleView.getInstance().displayView();
     }    
 
 
@@ -142,7 +128,14 @@ public class GameMenuView extends View {
     }
 
     private void finalPuzzle() {
-        FinalPuzzleView.finalPuzzle = new FinalPuzzleView();
-        finalPuzzle.displayView();
+        FinalPuzzleView.getInstance().displayView();
+    }
+    
+    public static GameMenuView getInstance() {
+        
+        if (gameMenu == null) {
+            gameMenu = new GameMenuView();
+        }
+        return gameMenu;
     }
 }

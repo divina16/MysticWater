@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.mysticwater.view;
+
 /**
  *
  * @author Trent Buckner and Nina Sanchez
@@ -62,7 +63,10 @@ public class HelpMenuView extends View {
         this.console.println("You must open the Game Menu. "
                 + "\nInput the corresponding letter for Move Location. "
                 + "\nThen looking at the map, input the corresponding number "
-                + "\nfor the location you would like to move.");
+                + "\nfor the location you would like to move. "
+                + "\nYou cannot move to a new location until you solve the puzzle "
+                + "\nin that location or help the character. If you want to move "
+                + "\nbackwards, input a negative number.");
     }
 
     private void useItemHelp() {
@@ -79,9 +83,15 @@ public class HelpMenuView extends View {
 
     private void interactHelp() {
         this.console.println("After moving to a location, the scene description "
-                + "\nis displayed along with options to speak to the "
-                + "\ncharacters in the area. Select the corresponding "
-                + "\nletter for the character you would like to speak to.");
+                + "\nis displayed describing the task that must be accomplished"
+                + "\nin that location. "
+                + "\nFor each location, you must either solve a puzzle, "
+                + "\nor a character will ask you for help and you must"
+                + "\ngive him the item he needs. You cannot move to a new "
+                + "\narea until the puzzle is solved or the character has "
+                + "\nbeen helped. If you run out of money, you may return "
+                + "\nto previous puzzles and do them again. Every time you "
+                + "\nsolve a puzzle, you will gain money as a reward.");
     }
     
     private void goalHelp() {
@@ -100,6 +110,5 @@ public class HelpMenuView extends View {
                 + "\nreceives a small amount of money for each challenge "
                 + "\nthat is completed which can be used to buy items at "
                 + "\nstores rather than answering riddles.");
-    }
-    
+    }  
 }

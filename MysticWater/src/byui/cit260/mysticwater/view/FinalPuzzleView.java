@@ -8,6 +8,7 @@ package byui.cit260.mysticwater.view;
 import byui.cit260.mysticwater.control.FinalPuzzleControl;
 import byui.cit260.mysticwater.exceptions.FinalPuzzleException;
 import static byui.cit260.mysticwater.view.GameMenuView.gameMenu;
+import static byui.cit260.mysticwater.view.MainMenuView.mainMenu;
 import static byui.cit260.mysticwater.view.MoveCharacterView.move;
 
 /**
@@ -21,58 +22,17 @@ public class FinalPuzzleView extends View {
 
     public FinalPuzzleView() {
         super("");
-    }
-
-    @Override
-    public void displayView() {
-        int answer = 0;
-        
         randomValues = FinalPuzzleControl.getRandomValues();
-        do {
-            this.console.println("Solve the equation. Round your answer down to the nearest integer. Please input your answer:"
-                    + "\n\n" + randomValues[0] + " + " + randomValues[1] + " + " + randomValues[2] + " + " + randomValues[3] + " + " + randomValues[4] + " + "
-             + randomValues[5] + " + "  + randomValues[6] + " / 7 = ? ");
-            
-            String input = this.getInput();
-        try {
-            answer = Integer.parseInt(input);
-        }
-        catch (NumberFormatException nf) {
-            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number or you die.");
-        }
-            this.doAction(answer);
-        } 
-        while (answer != ' ');
+            this.setPromptMessage("Solve the equation. Round your answer down to the nearest integer. Please input your answer:"
+                + "\n\n" + randomValues[0] + " + " + randomValues[1] + " + " + randomValues[2] + " + " + randomValues[3] + " + " + randomValues[4] + " + " + randomValues[5] + " + "  + randomValues[6] + " / 7 = ?");
     }
     
     @Override
-    public String getInput() {
-       boolean valid = false;
-       String menuRequest = null;
-    
-    try {
-       while (!valid) {
-           
-           menuRequest = keyboard.readLine();
-           menuRequest = menuRequest.trim();
-           
-           if (menuRequest.length() == 0) {
-               ErrorView.display(this.getClass().getName(), "Invalid input - the value must not be blank");
-               continue;
-           }
-           break;
-       }
-    } catch (Exception e) {
-        ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
-    }
-       return menuRequest;
-    }
-    
-    @Override
-    public boolean doAction(Object answer) {
+    public boolean doAction(Object obj) {
    
         int result = 0;
         try {
+            int answer = Integer.parseInt((String) obj);
             result = FinalPuzzleControl.calcFinalPuzzle((Integer) answer, randomValues);
         } catch (FinalPuzzleException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
@@ -88,9 +48,6 @@ public class FinalPuzzleView extends View {
                                     + "\nThe old man can now return to his wife and save her!"
                                     + "\n\nYou will now be returned to the start menu."
                                     + "\nCome back and play again!");
-            MainMenuView mainMenu = new MainMenuView();
-            MoveCharacterView.move = new MoveCharacterView();
-            move.displayView();
             return true;
         }
         else{
@@ -98,5 +55,13 @@ public class FinalPuzzleView extends View {
             gameMenu.displayView();
         }
         return false;
+    }
+    
+    public static FinalPuzzleView getInstance() {
+        
+        if (finalPuzzle == null) {
+            finalPuzzle = new FinalPuzzleView();
+        }
+        return finalPuzzle;
     }
 }

@@ -447,13 +447,6 @@ public class GameControl {
         
         return actorList;
     }
-    
-    public static void loadGame() {
-    }
-
-    public static void quitGame() {
-        System.exit(0);
-    }
 
     public static void saveGame(Game game, String filePath) throws GameControlException, IOException{
         
@@ -476,9 +469,7 @@ public class GameControl {
             throw new GameControlException(fnfe.getMessage());
         } catch(Exception e) {
             throw new GameControlException(e.getMessage());
-        }
-        
+        }   
         MysticWater.setCurrentGame(game);
     }
-
 }

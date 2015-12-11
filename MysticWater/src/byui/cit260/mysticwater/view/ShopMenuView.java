@@ -15,7 +15,6 @@ import byui.cit260.mysticwater.model.InventoryItem.Item;
  * @author Nina
  */
 public class ShopMenuView extends View {
-    static ShopMenuView shopMenu;
     static ShopMenuView shop;
 
     public ShopMenuView() {
@@ -246,5 +245,12 @@ public class ShopMenuView extends View {
     private void buyJetpack() {
                 this.console.println("Jetpack was purchased.");
                 InventoryControl.addItem(Item.jetpack.ordinal());    }
-
+    
+    public static ShopMenuView getInstance() {
+        
+        if (shop == null) {
+            shop = new ShopMenuView();
+        }
+        return shop;
+    }
 }

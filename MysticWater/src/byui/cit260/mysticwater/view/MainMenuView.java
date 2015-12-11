@@ -16,6 +16,7 @@ import mysticwater.MysticWater;
  * @author Trent Buckner
  */
 public class MainMenuView extends View {
+    static MainMenuView mainMenu;
     
     public MainMenuView() {
     

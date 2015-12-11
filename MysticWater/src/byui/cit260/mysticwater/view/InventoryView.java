@@ -34,7 +34,7 @@ public class InventoryView extends View {
             menu += "\n" + String.format("%-2d", counter++) + " " + String.format("%-20s", nextInventoryItem.getDescription()) + " | Quanity " + nextInventoryItem.getQuantity();   
         }
         menu += "\n--------"
-              + "\nMoney = " + MysticWater.getPlayer().getMoney()
+              + "\nMoney = " + MysticWater.getCurrentGame().getPlayer().getMoney()
               + "\n--------"
                 + "\nR - Print Inventory Report"
                 + "\nE - Exit Inventory"
@@ -378,5 +378,13 @@ public class InventoryView extends View {
     private void inventoryReport() {
         InventoryReportView inventoryReport = new InventoryReportView("");
         inventoryReport.displayView();
+    }
+    
+    public static InventoryView getInstance() {
+        
+        if (inventory == null) {
+            inventory = new InventoryView();
+        }
+        return inventory;
     }
 }
