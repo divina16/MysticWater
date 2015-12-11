@@ -40,7 +40,6 @@ public class FinalPuzzleView extends View {
         
         if (result == 1){
             this.console.println("Correct!");
-            
             this.console.println("\n---------------------------------\n"
                                + "         CONGRATULATIONS!           "
                                + "\n-- ------------------------------"
@@ -50,11 +49,10 @@ public class FinalPuzzleView extends View {
                                     + "\nCome back and play again!");
             return true;
         }
-        else{
+        else {
             this.console.println("Incorrect. Please try again. You must solve the puzzle before you can move to a new location.");
-            gameMenu.displayView();
+            return false;
         }
-        return false;
     }
     
     public static FinalPuzzleView getInstance() {

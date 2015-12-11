@@ -45,11 +45,11 @@ public class PuzzleView extends View {
             this.console.println("Correct! You can now move to a new location!"
                     + "\nYou have also gained 100 money!");
             return true;
-        } else {
+        }
+        else {
             this.console.println("Incorrect. Please try again. You must solve the puzzle before you can move to a new location.");
             return false;
         }
-
     }
 
     public static PuzzleView getInstance() {
