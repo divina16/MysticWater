@@ -32,7 +32,7 @@ public class InventoryControl {
 
         if (currentMoney > itemPrice) {
             int currentQuantity = MysticWater.getCurrentGame().getInventory()[itemToAdd].getQuantity();
-            MysticWater.getCurrentGame().getInventory()[itemToAdd].setQuantity(currentQuantity ++);
+            MysticWater.getCurrentGame().getInventory()[itemToAdd].setQuantity(currentQuantity + 1);
             int newMoneyAmount = currentMoney - itemPrice;
             currentMoney = newMoneyAmount;
             MysticWater.getCurrentGame().getPlayer().setMoney(currentMoney);

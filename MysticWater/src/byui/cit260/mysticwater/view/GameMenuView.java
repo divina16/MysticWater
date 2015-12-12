@@ -6,6 +6,8 @@
 package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.GameControl;
+import static byui.cit260.mysticwater.view.DistancePuzzleView.distancePuzzle;
+import static byui.cit260.mysticwater.view.InventoryView.inventory;
 import mysticwater.MysticWater;
 
 /**
@@ -74,7 +76,8 @@ public class GameMenuView extends View {
     }
     
     private void viewInventory() {
-        InventoryView.getInstance().displayView();
+        InventoryView.inventory = new InventoryView();
+        inventory.displayView();
     }
 
     private void viewMap() {
@@ -118,7 +121,8 @@ public class GameMenuView extends View {
     }
     
     private void distancePuzzle() {
-        PuzzleView.getInstance().displayView();
+        DistancePuzzleView.distancePuzzle = new DistancePuzzleView();
+        distancePuzzle.displayView();
     }    
 
 

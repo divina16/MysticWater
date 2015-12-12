@@ -7,9 +7,6 @@ package byui.cit260.mysticwater.view;
 
 import byui.cit260.mysticwater.control.FinalPuzzleControl;
 import byui.cit260.mysticwater.exceptions.FinalPuzzleException;
-import static byui.cit260.mysticwater.view.GameMenuView.gameMenu;
-import static byui.cit260.mysticwater.view.MainMenuView.mainMenu;
-import static byui.cit260.mysticwater.view.MoveCharacterView.move;
 
 /**
  *

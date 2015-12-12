@@ -1,48 +1,42 @@
 package byui.cit260.mysticwater.control;
 
+import java.util.Random;
+
 /**
-*
-* @author Trent Buckner and Nina Sanchez
-*/
+ *
+ * @author Trent Buckner and Nina Sanchez
+ */
 public class DistancePuzzleControl {
-    
-    public double calcDistancePuzzle(double north, double east, double west, double south) {
-        
-        if (north == south && west == east) {
-           return (north - south) + (west - east);
+
+    public static boolean calcDistancePuzzle(int[] randomLocations, int[] answers) {
+
+        int x = randomLocations[2] - randomLocations[0];
+        int y = randomLocations[3] - randomLocations[1];
+        int answerNorth = answers[0];
+        int answerSouth = answers[1];
+        int answerEast = answers[2];
+        int answerWest = answers[3];
+
+        if (answerEast - answerWest == x && answerSouth - answerNorth == y) {
+            return true;
+        } else {
+            return false;
         }
-        if (north < 0 || north > 50 || north % 10 != 0) {
-            return -1;
-        }
-        
-        if (south < 0 || south > 50 || south % 10 != 0) {
-            return -1;
-        }
-        
-       if (east < 0 || east > 50 || east % 10 != 0) {
-            return -1;
-        }
-        
-        if (west < 0 || west > 50 || west % 10 != 0) {
-            return -1;
-        }
-        
-        if (west >= east) {
-            return (west - east) + north + south;
-        }
-        
-        if (north >= south) {
-            return (north - south) + east + west;
-        }
-        if (east >= west) {
-            return (east - west) + north + south;
-        }
-        
-        if (south >= north) {
-            return (south - north) + west + east;
-        }
-        
-       double total = north + east + west + south;
-            return total;
-}
+    }
+
+    public static int[] getRandomValues() {
+
+        int[] randomValues = new int[4];
+
+        Random randa = new Random();
+        randomValues[0] = randa.nextInt(4);
+        Random randb = new Random();
+        randomValues[1] = randb.nextInt(4);
+        Random randc = new Random();
+        randomValues[2] = randc.nextInt(4);
+        Random randd = new Random();
+        randomValues[3] = randd.nextInt(4);
+
+        return randomValues;
+    }
 }

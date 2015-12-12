@@ -380,11 +380,11 @@ public class InventoryView extends View {
         inventoryReport.displayView();
     }
     
-    public static InventoryView getInstance() {
-        
-        if (inventory == null) {
-            inventory = new InventoryView();
-        }
-        return inventory;
-    }
+//    public static InventoryView getInstance() {
+//        
+//        if (inventory == null) {
+//            inventory = new InventoryView();
+//        }
+//        return inventory;
+//    }
 }
