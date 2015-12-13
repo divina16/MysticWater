@@ -47,7 +47,7 @@ public class MapControl {
         locations[0][1].setScene(scene[SceneType.forestB.ordinal()]);
         locations[0][1].setVisited(false);
         locations[0][1].setPuzzle(false);
-        locations[0][1].setActorNeedsItem(true);
+        locations[0][1].setDistancePuzzle(true);
         locations[0][2].setScene(scene[SceneType.forestC.ordinal()]);
         locations[0][2].setVisited(false);
         locations[0][2].setPuzzle(false);
@@ -68,7 +68,7 @@ public class MapControl {
         locations[1][1].setScene(scene[SceneType.caveB.ordinal()]);
         locations[1][1].setVisited(false);
         locations[1][1].setPuzzle(false);
-        locations[1][1].setActorNeedsItem(true);
+        locations[1][1].setDistancePuzzle(true);
         locations[1][2].setScene(scene[SceneType.caveC.ordinal()]);
         locations[1][2].setVisited(false);
         locations[1][2].setPuzzle(false);
@@ -89,7 +89,7 @@ public class MapControl {
         locations[2][1].setScene(scene[SceneType.beachB.ordinal()]);
         locations[2][1].setVisited(false);
         locations[2][1].setPuzzle(false);
-        locations[2][1].setActorNeedsItem(true);
+        locations[2][1].setDistancePuzzle(true);
         locations[2][2].setScene(scene[SceneType.beachC.ordinal()]);
         locations[2][2].setVisited(false);
         locations[2][2].setPuzzle(false);
@@ -110,7 +110,7 @@ public class MapControl {
         locations[3][1].setScene(scene[SceneType.desertB.ordinal()]);
         locations[3][1].setVisited(false);
         locations[3][1].setPuzzle(false);
-        locations[3][1].setActorNeedsItem(true);
+        locations[3][1].setDistancePuzzle(true);
         locations[3][2].setScene(scene[SceneType.desertC.ordinal()]);
         locations[3][2].setVisited(false);
         locations[3][2].setPuzzle(false);
@@ -131,7 +131,7 @@ public class MapControl {
         locations[4][1].setScene(scene[SceneType.mountainsB.ordinal()]);
         locations[4][1].setVisited(false);
         locations[4][1].setPuzzle(false);
-        locations[4][1].setActorNeedsItem(true);
+        locations[4][1].setDistancePuzzle(true);
         locations[4][2].setScene(scene[SceneType.mountainsC.ordinal()]);
         locations[4][2].setVisited(false);
         locations[4][2].setPuzzle(false);
@@ -169,11 +169,10 @@ public class MapControl {
         Scene forestB = new Scene("\n             Forest B\n"
                 + "----------------------------------------------"
                 + "\nNibs: Hey " + MysticWater.getCurrentGame().getPlayer().getName() 
-                + "! There is a fallen tree "
-                + "\nin your path. You need an "
-                + "\nItem to chop the fallen tree. "
-                + "\nGo to the shop to "
-                + "buy items. Axe", "F2");
+                + "! To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "F2");
         scene[SceneType.forestB.ordinal()] = forestB;
         
         Scene forestC = new Scene("\n             Forest C\n"
@@ -208,8 +207,10 @@ public class MapControl {
         
         Scene caveB = new Scene("\n               Cave B\n"
                 + "----------------------------------------------"
-                + "\nSlightly: Oh hey "+ MysticWater.getCurrentGame().getPlayer().getName() + "! I have a yummy carrot but I cannot cook it. "
-                + "\nCan you bring me something I can cook it in? I am STARVING! pot", "C2");
+                + "\nSlightly: Oh hey "+ MysticWater.getCurrentGame().getPlayer().getName() + "! To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "C2");
         scene[SceneType.caveB.ordinal()] = caveB;
         
         Scene caveC = new Scene("\n               Cave C\n"
@@ -246,8 +247,10 @@ public class MapControl {
         
         Scene beachB = new Scene("\n              Beach B\n"
                 + "----------------------------------------------"
-                + "\nMermaid: I am starving! I haven't caught any fish all day! "
-                + "\n" + MysticWater.getCurrentGame().getPlayer().getName() + ", please bring me something to eat. I am a carnivore by the way... Hunk of Meat", "B2");
+                + "\nMermaid: To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "B2");
         scene[SceneType.beachB.ordinal()] = beachB;
         
         Scene beachC = new Scene("\n              Beach C\n"
@@ -283,8 +286,10 @@ public class MapControl {
         
         Scene desertB = new Scene("\n             Desert B\n"
                 + "----------------------------------------------"
-                + "\nJohn: HELP! I am stuck in the sand! Can you pull me out " + MysticWater.getCurrentGame().getPlayer().getName() + "? "
-                + "\nGo find something to help pull me out! HURRY! rope ", "D2");
+                + "\nJohn: To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "D2");
         scene[SceneType.desertB.ordinal()] = desertB;
         
         Scene desertC = new Scene("\n             Desert C\n"
@@ -319,9 +324,10 @@ public class MapControl {
         
         Scene mountainsB = new Scene("\n              Mountains B\n"
                 + "----------------------------------------------"
-                + "\nPockets: You look really smart " + MysticWater.getCurrentGame().getPlayer().getName() + ". I saw you solve all those puzzles. "
-                + "\nI wish I was as smart as you. I can't even do my math homework. "
-                + "\nCan you bring me something to help me with my homework? Calculator", "M2");
+                + "\nPockets: You look really smart " + MysticWater.getCurrentGame().getPlayer().getName() + ". To move forward "
+                + "\nin your joueney you must prove your knowledge. "
+                + "\nAnswer this puzzle as many times as you like "
+                + "\nand recieve a reward for a correct answer.", "M2");
         scene[SceneType.mountainsB.ordinal()] = mountainsB;
         
         Scene mountainsC = new Scene("\n              Mountains C\n"

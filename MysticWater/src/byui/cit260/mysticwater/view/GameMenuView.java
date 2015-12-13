@@ -28,7 +28,6 @@ public class GameMenuView extends View {
             + "\nG - Go to Shop"
             + "\nS - Save Game"
             + "\nF - Skip to Final Puzzle"
-            + "\nD - Skip to Distance Puzzle (temporary)"
             + "\nL - List of Actors"
             + "\nE - Exit"
             + "\n-----------------------------------");
@@ -60,9 +59,6 @@ public class GameMenuView extends View {
             case "F":
                 this.finalPuzzle();
                 break;
-            case "D":
-                this.distancePuzzle();
-                break;
             case "L":
                 this.actorReport();
                 break;
@@ -91,9 +87,13 @@ public class GameMenuView extends View {
             this.console.println("------------------");
             this.console.println(MysticWater.getCurrentGame().getPlayer().getLocation().getScene());
             boolean isPuzzleScene = MysticWater.getCurrentGame().getPlayer().getLocation().isPuzzle();
+            boolean isDistancePuzzle = MysticWater.getCurrentGame().getPlayer().getLocation().isDistancePuzzle();
         
         if (isPuzzleScene == true) {
             PuzzleView.getInstance().displayView();
+            MoveCharacterView.getInstance().displayView();
+        } else if (isDistancePuzzle == true) {
+            DistancePuzzleView.getInstance().displayView();
             MoveCharacterView.getInstance().displayView();
         } else {
             MoveCharacterView.getInstance().displayView();

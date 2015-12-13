@@ -67,4 +67,12 @@ public class DistancePuzzleView extends View {
             return false;
         }       
     }
+    
+    public static DistancePuzzleView getInstance() {
+
+        if (distancePuzzle == null) {
+            distancePuzzle = new DistancePuzzleView();
+        }
+        return distancePuzzle;
+    }
 }
