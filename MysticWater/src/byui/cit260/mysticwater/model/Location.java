@@ -124,10 +124,8 @@ public class Location implements Serializable{
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + '}';
-    }
-
-
+//    @Override
+//    public String toString() {
+//        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + '}';
+//    }
 }

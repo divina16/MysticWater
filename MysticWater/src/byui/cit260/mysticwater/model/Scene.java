@@ -59,7 +59,7 @@ public enum SceneType {
 
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + '}';
+        return description;
     }
 
     public void setMapSymbol(String mapSymbol) {

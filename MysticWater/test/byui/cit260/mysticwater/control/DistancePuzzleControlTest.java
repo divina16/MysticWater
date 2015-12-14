@@ -33,8 +33,8 @@ public class DistancePuzzleControlTest {
         double south = 0.0;
         DistancePuzzleControl instance1 = new DistancePuzzleControl();
         double expResult = 40.0;
-        double result = instance1.calcDistancePuzzle(north, east, west, south);
-        assertEquals(expResult, result, 0.0001);
+        boolean result = instance1.calcDistancePuzzle(int[] randomLocations, int[] answers);
+        assertEquals(true, result);
         
         //TEST CASE 2 Value is negative
         System.out.println("/tTest Case #2");

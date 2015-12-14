@@ -20,7 +20,8 @@ public class DistancePuzzleView extends View {
     DistancePuzzleView() {
         super("");
         randomValues = DistancePuzzleControl.getRandomValues();
-        this.setPromptMessage("How far would you need to travel to get from " + randomValues[0] + " ," + randomValues[1] + " to " + randomValues[2] + " ," + randomValues[3] + ".");
+        this.setPromptMessage("How far would you need to travel to get from " + randomValues[0] + " ," + randomValues[1] + " to " + randomValues[2] + " ," + randomValues[3] + "."
+                            + "The first number is the row. The second number is the column.");
     }
 
     @Override
